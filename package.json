@@ -4,6 +4,37 @@
   "description": "A simplified bare-bones starter for Gatsby",
   "version": "0.1.0",
   "license": "0BSD",
+  "dependencies": {
+    "@material-ui/core": "^4.11.3",
+    "@material-ui/icons": "^4.11.2",
+    "@material-ui/lab": "^4.0.0-alpha.57",
+    "@material-ui/pickers": "^3.3.10",
+    "@material-ui/styles": "^4.11.3",
+    "@material-ui/utils": "^4.11.2",
+    "gatsby": "^3.1.2",
+    "gatsby-image": "^3.1.0",
+    "gatsby-plugin-google-gtag": "^3.1.0",
+    "gatsby-plugin-manifest": "^3.1.0",
+    "gatsby-plugin-material-ui": "^2.1.10",
+    "gatsby-plugin-netlify": "^3.1.0",
+    "gatsby-plugin-nprogress": "^3.1.0",
+    "gatsby-plugin-offline": "^4.1.0",
+    "gatsby-plugin-preload-fonts": "^2.1.0",
+    "gatsby-plugin-react-helmet": "^4.1.0",
+    "gatsby-plugin-robots-txt": "^1.5.5",
+    "gatsby-plugin-sass": "^4.1.0",
+    "gatsby-plugin-sharp": "^3.1.2",
+    "gatsby-plugin-sitemap": "^3.1.0",
+    "gatsby-plugin-typography": "^3.1.0",
+    "gatsby-source-filesystem": "^3.1.0",
+    "gatsby-source-rest-api": "^0.2.3",
+    "gatsby-transformer-sharp": "^3.1.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  },
+  "devDependencies": {
+    "prettier": "2.2.1"
+  },
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
@@ -12,14 +43,6 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
-  },
-  "dependencies": {
-    "gatsby": "^3.1.1",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1"
-  },
-  "devDependencies": {
-    "prettier": "2.2.1"
   },
   "repository": {
     "type": "git",

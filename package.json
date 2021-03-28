@@ -11,6 +11,7 @@
     "@material-ui/pickers": "^3.3.10",
     "@material-ui/styles": "^4.11.3",
     "@material-ui/utils": "^4.11.2",
+    "aos": "^2.3.4",
     "gatsby": "^3.1.2",
     "gatsby-image": "^3.1.0",
     "gatsby-plugin-google-gtag": "^3.1.0",
@@ -29,8 +30,13 @@
     "gatsby-source-filesystem": "^3.1.0",
     "gatsby-source-rest-api": "^0.2.3",
     "gatsby-transformer-sharp": "^3.1.0",
+    "node-sass": "^5.0.0",
     "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "react-dom": "^17.0.1",
+    "react-redux": "^7.2.3",
+    "sass": "^1.32.8",
+    "sass-loader": "^11.0.1",
+    "webpack": "^5.28.0"
   },
   "devDependencies": {
     "prettier": "2.2.1"

@@ -5,6 +5,12 @@
  */
 
 module.exports = {
+  siteMetadata: {
+    title: `FreeOSenior`,
+    siteUrl: "https://freeosenior.in",
+    description: `FreeOSenior`,
+    author: `FreeOSenior`,
+  },
   /* Your site config here */
   plugins: [`gatsby-plugin-sass`],
 }

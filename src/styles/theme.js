@@ -35,6 +35,51 @@ const theme = createMuiTheme({
             '"Segoe UI Emoji"',
             '"Segoe UI Symbol"',
         ].join(','),
+        h1: {
+            fontWeight: 500,
+            textAlign: 'center',
+            fontSize: "2.5rem"
+        },
+        h2: {
+            fontWeight: 500,
+            fontSize: "2.25rem"
+        },
+        h3: {
+            fontWeight: 500,
+            fontSize: "1.5rem",
+        },
+        h4: {
+            fontSize: "1.3rem",
+            fontWeight: 400
+        },
+        h5: {
+            fontSize: "1.2rem",
+            fontWeight: 400
+        },
+        h6: {
+            fontSize: "1.10rem"
+        },
+        body1: {
+            fontSize: "0.875rem",
+            lineHeight: "1.65",
+            textAlign: "justify"
+        },
+        body2: {
+            fontSize: "0.65rem",
+            lineHeight: "1.5",
+            color: "#2B2A35",
+        },
+        subtitle1: {
+            fontSize: "1rem",
+            fontWeight: "400",
+            lineHeight: "1.25",
+        },
+        subtitle2: {
+            fontSize: "0.80rem",
+            fontWeight: "400",
+            lineHeight: "1.20",
+            textAlign: 'justify'
+        }
     }
 })
 

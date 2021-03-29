@@ -53,7 +53,7 @@ const useStyles = makeStyles(theme => ({
   },
   logoText: {
     marginLeft: 7,
-    marginBottom: 3,
+    marginTop: 5,
     color: "#1C3B6B",
   },
 }))
@@ -87,7 +87,7 @@ const Navbar = () => {
               >
                 <Grid item>
                   <Link
-                    to="/home"
+                    to="/Home"
                     style={{
                       all: "unset",
                       cursor: "pointer",

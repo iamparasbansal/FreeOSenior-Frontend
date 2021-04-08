@@ -1,0 +1,106 @@
+// Colors
+$primary: #1c3b6b;
+
+.outlineButton {
+  all: unset;
+  cursor: pointer;
+  width: 300px;
+  font-size: 20px;
+  text-align: center;
+  padding: 8px 15px;
+  color: #1c3b6b;
+  border-radius: 5px;
+  border: 2px solid #1c3b6b;
+  background-size: 600%;
+  animation: anime 16s linear infinite;
+}
+
+.outlineButton:hover {
+  all: unset;
+  cursor: pointer;
+  width: 300px;
+  font-size: 20px;
+  text-align: center;
+  padding: 8px 15px;
+  color: #fff;
+  border-radius: 5px;
+  background: #1c3b6b;
+  border: 2px solid #fff;
+  background-size: 600%;
+  animation: anime 16s linear infinite;
+}
+
+.button {
+  all: unset;
+  cursor: pointer;
+  width: 300px;
+  font-size: 20px;
+  text-align: center;
+  padding: 10px 17px;
+  color: #fff;
+  border-radius: 5px;
+  background: #1c3b6b;
+  border: 2px solid #fff;
+  background-size: 600%;
+  animation: anime 16s linear infinite;
+}
+
+.button:hover {
+  all: unset;
+  cursor: pointer;
+  width: 300px;
+  font-size: 20px;
+  text-align: center;
+  padding: 10px 17px;
+  color: #1c3b6b;
+  border-radius: 5px;
+  border: 2px solid #1c3b6b;
+  background-size: 600%;
+  animation: anime 16s linear infinite;
+}
+
+.link {
+  all: unset;
+  text-decoration: underline;
+  color: $primary;
+  font-size: 15;
+  cursor: pointer;
+}
+
+.whiteButton {
+  all: unset;
+  cursor: pointer;
+  width: 300px;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  padding: 10px 17px;
+  color: #1c3b6b;
+  border-radius: 5px;
+  background-size: 600%;
+  background-color: #fff;
+}
+
+.footerText {
+  font-size: 19px;
+  font-weight: bold;
+  margin: 0px 0px 10px 0px;
+}
+
+.footerLinks {
+  all: unset;
+  display: block;
+  font-size: 18px !important;
+  cursor: pointer;
+  color: #888;
+  margin: 0px;
+}
+
+.footerLinks:hover {
+  all: unset;
+  display: block;
+  font-size: 18px !important;
+  cursor: pointer;
+  color: #fff;
+  margin: 0px;
+}

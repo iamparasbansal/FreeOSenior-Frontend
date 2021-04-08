@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <Layout>
       <Hidden smDown>
-        <h1>Error Page</h1>
+        <h1>FreeOSenior Tutorials</h1>
       </Hidden>
     </Layout>
   )

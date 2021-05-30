@@ -6,10 +6,10 @@ import image from "../../../images/growing-plant.png"
 const useStyles = makeStyles((theme) => ({
     root: {
         borderRadius: 0,
-        height: '85vh',
+        height: '35vh',
         backgroundImage: `url(${image})`,
         backgroundPosition: "center",
-        backgroundSize: "cover"
+        backgroundSize: "cover",
     }
 }));
 
@@ -23,10 +23,10 @@ const Frame1 = () => {
                 <Grid item data-aos="fade-down" data-aos-delay="500">
                     <Typography style={
                       {
-                        marginTop: "4vh",
+                        marginTop: 10,
                         textAlign: "center", 
                         color: "white",
-                        fontSize: "4vh"
+                        fontSize: "2vh"
                       }
                     }>
                         <b>A Group Of Amazing People</b>
@@ -36,11 +36,11 @@ const Frame1 = () => {
                     <Typography
                         style={
                           { 
-                            marginTop: "8vh", 
-                            textAlign: "center",
-                            fontSize: "10vh",
+                            marginTop: 40, 
+                            textAlign: "center", 
+                            fontSize: "3.5vh",
                             color: "#fff", 
-                            textShadow: "5px 5px 0px #000000"
+                            textShadow: "3px 3px 0px #000000"
                           }
                         }>
                         <b>Supporting Each Other</b>
@@ -50,7 +50,7 @@ const Frame1 = () => {
                           { 
                             textAlign: "center", 
                             color: "#fff", 
-                            fontSize: "4vh"
+                            fontSize: "2.5vh"
                           }
                         }>
                         Growth for juniors and seniors

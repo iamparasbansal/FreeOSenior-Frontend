@@ -1,0 +1,110 @@
+.card{
+  background-color: transparent;
+  width: 450px;
+  min-width: 0;
+  box-shadow: 5px 5px 10px;
+  border-radius: 50px;
+}
+
+.card_image_div{
+  position: relative;
+}
+
+.card_image{
+  display:block;
+  width:100%;
+  width: -moz-available;
+  width: -webkit-fill-available;
+  height: 220px;
+  object-fit: cover;
+  object-position: 0 90%;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+}
+
+.image__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 220px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.25s;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+}
+
+.image__overlay > * {
+  transform: translateY(20px);
+  transition: transform 0.25s;
+}
+
+.image__overlay:hover {
+  opacity: 1;
+}
+
+.image__overlay:hover > * {
+  transform: translateY(0);
+}
+
+.learn_more_div {
+  font-size: 2em;
+}
+
+.card_body{
+  padding: 0vh 3.5vh;
+  padding-bottom: 2vh;
+}
+
+.card_body_text{
+  margin-top: 2.5vh;
+  margin-bottom: 4vh;
+  color: #a3a3a3;
+}
+
+.card_footer{
+  display:flex;
+  justify-content: center;
+  color: #a3a3a3;
+}
+
+.hidden_button{
+  width:100%;
+  height:max-content;
+  background: transparent;
+  border: none;
+}
+
+.hidden_button:hover{
+  cursor: pointer;
+  width:100%;
+  height:max-content;
+  background: transparent;
+  border: none;
+}
+
+.hidden_button2{
+  width:100%;
+  height:max-content;
+  background: transparent;
+  border: none;
+  display: flex;
+  padding: 0;
+}
+
+.hidden_button2 :hover{
+  cursor: pointer;
+  width:100%;
+  height:max-content;
+  background: transparent;
+  border: none;
+  display: flex;
+  padding: 0;
+}
+

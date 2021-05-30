@@ -7,21 +7,19 @@ import "aos/dist/aos.css";
 const useStyles = makeStyles((theme) => ({
     root: {
         textAlign: "center",
-        backgroundColor: "#ffffff",
-        paddingTop:"10vh",
-        paddingBottom:"10vh",
+        backgroundColor: "#ffffff"
     },
     heading: {
-        marginTop: 20,
+        marginTop: 10,
         textAlign: "center", 
         color: "#000000",
         fontSize: "6vh"
     },
     innertext: {
         color: "#000000",
-        fontSize: "4vh",
+        fontSize: "3vh",
         textAlign: "center",
-        marginBottom: "5vh",
+        marginBottom: "3vh",
         paddingLeft: "10vw",
         paddingRight: "10vw",
     }

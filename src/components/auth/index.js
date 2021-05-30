@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React from "react"
 import { Button, Grid, CircularProgress, Avatar } from "@material-ui/core"
 import Hidden from "@material-ui/core/Hidden"
 import AuthDialog from "./AuthDialog"

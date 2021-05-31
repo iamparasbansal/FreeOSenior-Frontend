@@ -96,7 +96,7 @@ export default ({
   setTransition,
 }) => {
   const classes = useStyles()
-  const BASE_URL = "https://api.freeosenior.in"
+  const BASE_URL = "https://free-o-senior.herokuapp.com"
   const dispatch = useDispatch()
 
   const [email, setEmail] = useState("")
@@ -116,7 +116,7 @@ export default ({
     } else {
       const user = { email, password }
       try {
-        await Axios.post(`${BASE_URL}/api/v1/user/signin`, user, {
+        await Axios.post(`${BASE_URL}/user/login`, user, {
           origin: true,
           mode: "cors",
         }).then(res => {
@@ -124,15 +124,17 @@ export default ({
           setSnackColor("#4CAF50")
           setTransition(() => TransitionDown)
           setSnackbarmsg("Login successful. Redirecting...")
-          localStorage.setItem("Authorization", res.data.data.token)
-          dispatch(UpdateAuthAction({ token: res.data.data.token }, true))
+          const data ={userId:res.data.userId,token:res.data.token,admin:res.data.admin};
+          localStorage.setItem("Authorization", JSON.stringify(data));
+          
+          dispatch(UpdateAuthAction(data, true));
         })
       } catch (err) {
         if (!(err.response === undefined)) {
           setSnackbar(true)
           setSnackColor("#F44336")
           setTransition(() => TransitionDown)
-          setSnackbarmsg(err.response.data.message)
+          setSnackbarmsg(err.response.data.error);
         }
       }
     }
@@ -196,25 +198,9 @@ export default ({
             backgroundSize: "60%",
           }}
           disableElevation
-          href={`${BASE_URL}/api/v1/auth/google`}
+          href={`${BASE_URL}/user/auth/google`}
         />
-        <Button
-          variant="contained"
-          style={{
-            backgroundColor: "#EFF8FF",
-            width: 50,
-            height: 50,
-            padding: 10,
-            margin: 10,
-            backgroundImage:
-              "url(https://api.freeosenior.in/static/img/linkedin.png)",
-            backgroundPosition: "center",
-            backgroundRepeat: "no-repeat",
-            backgroundSize: "60%",
-          }}
-          disableElevation
-          href={`${BASE_URL}/api/v1/auth/linkedin`}
-        />
+
       </Box>
       <Typography
         align="center"

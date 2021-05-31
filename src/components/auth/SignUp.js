@@ -100,17 +100,22 @@ export default ({
   goToSignIN,
 }) => {
   const classes = useStyles()
-  const BASE_URL = "https://api.freeosenior.in"
+  const BASE_URL = "https://free-o-senior.herokuapp.com"
 
+  const [firstname, setFirstname] = useState("")
+  const [firstnameError, setFirstnameError] = useState(false)
+  const [firstnameHelperText, setFirstnameHelperText] = useState("")
+  const [lastname, setLastname] = useState("")
+  const [lastnameError, setLastnameError] = useState(false)
+  const [lastnameHelperText, setLastnameHelperText] = useState("")
+  
   const [name, setName] = useState("")
   const [nameError, setNameError] = useState(false)
   const [nameHelperText, setNameHelperText] = useState("")
+  
   const [email, setEmail] = useState("")
   const [emailError, setEmailError] = useState(false)
   const [emailHelperText, setEmailHelperText] = useState("")
-  const [phone, setPhone] = useState("")
-  const [phoneError, setPhoneError] = useState(false)
-  const [phoneHelperText, setPhoneHelperText] = useState("")
   const [password, setPassword] = useState("")
   const [passwordError, setPasswordError] = useState(false)
   const [passwordHelperText, setPasswordHelperText] = useState("")
@@ -149,30 +154,38 @@ export default ({
       setPasswordError(false)
       setPasswordHelperText("")
     }
-    if (name === "") {
+    if (firstname === "") {
       valid = false
-      setNameError(true)
-      setNameHelperText("This field is required")
-    } else if (!/^[a-zA-Z]+(?:\s[a-zA-Z]+)+$/.test(name)) {
-      setNameError(true)
-      valid = false
-      setNameHelperText("Enter a valid Full Name")
-    } else {
-      setNameError(false)
-      setNameHelperText("")
+      setFirstnameError(true)
+      setFirstnameHelperText("This field is required")
+
     }
-    if (phone === "") {
-      valid = false
-      setPhoneError(true)
-      setPhoneHelperText("This field is required")
-    } else if (!/^[0-9]{10}$/.test(phone)) {
-      valid = false
-      setPhoneError(true)
-      setPhoneHelperText("Enter a valid Phone Number")
-    } else {
-      setPhoneError(false)
-      setPhoneHelperText("")
+    // } else if (!/^[a-zA-Z]+(?:\s[a-zA-Z]+)+$/.test(firstname)) {
+    //   setFirstnameError(true)
+    //   valid = false
+    //   setFirstnameHelperText("Enter a valid Full firstname")
+    // } 
+    else {
+      setFirstnameError(false)
+      setFirstnameHelperText("")
     }
+    if (lastname === "") {
+      valid = false
+      setLastnameError(true)
+      setLastnameHelperText("This field is required")
+    } 
+    
+    // else if (!/^[a-zA-Z]+(?:\s[a-zA-Z]+)+$/.test(lastname)) {
+    //   setLastnameError(true)
+    //   valid = false
+    //   setLastnameHelperText("Enter a valid Full lastname")
+    // } 
+    
+    else {
+      setLastnameError(false)
+      setLastnameHelperText("")
+    }
+    
     if (!valid) {
       return
     }
@@ -183,21 +196,20 @@ export default ({
   const onSubmit = async event => {
     if (privacyPolicy) {
       const newUser = {
-        name,
+        firstname,
+        lastname,
         email,
         password,
-        uniqueName: "penguin",
-        contact: phone,
       }
       try {
-        await Axios.post(`${BASE_URL}/api/v1/user/signup`, newUser, {
+        await Axios.post(`${BASE_URL}/user/signup`, newUser, {
           origin: true,
           mode: "cors",
         }).then(res => {
           setSnackbar(true)
           setSnackColor("#4CAF50")
           setTransition(() => TransitionDown)
-          setSnackbarmsg("Please Login to continue...")
+          setSnackbarmsg("Please Verify your email then continue to login")
           goToSignIN()
         })
       } catch (err) {
@@ -205,7 +217,7 @@ export default ({
           setSnackColor("#F44336")
           setTransition(() => TransitionDown)
           setSnackbar(true)
-          setSnackbarmsg(err.response.data.message)
+          setSnackbarmsg(err.response.data.error)
         }
       }
     }
@@ -228,25 +240,9 @@ export default ({
             backgroundSize: "60%",
           }}
           disableElevation
-          href={`${BASE_URL}/api/v1/auth/google`}
+          href={`${BASE_URL}/user/auth/google`}
         />
-        <Button
-          variant="contained"
-          style={{
-            backgroundColor: "#EFF8FF",
-            width: 50,
-            height: 50,
-            padding: 10,
-            margin: 10,
-            backgroundImage:
-              "url(https://api.freeosenior.in/static/img/linkedin.png)",
-            backgroundPosition: "center",
-            backgroundRepeat: "no-repeat",
-            backgroundSize: "60%",
-          }}
-          disableElevation
-          href={`${BASE_URL}/api/v1/auth/linkedin`}
-        />
+       
       </Box>
       <Typography
         align="center"
@@ -258,18 +254,19 @@ export default ({
       >
         or
       </Typography>
-      <FormControl fullWidth error={nameError}>
+
+      <FormControl fullWidth error={firstnameError}>
         <TextField
           variant="outlined"
           margin="dense"
           required
           fullWidth
           id="name"
-          error={nameError}
-          onChange={e => setName(e.target.value)}
-          placeholder="Name"
+          error={firstnameError}
+          onChange={e => setFirstname(e.target.value)}
+          placeholder="firstName"
           name="name"
-          autoComplete="name"
+          autoComplete="firstname"
           // eslint-disable-next-line
           autoFocus
           className={classes.fields}
@@ -278,13 +275,42 @@ export default ({
               <InputAdornment position="start">
                 <PermIdentityOutlinedIcon
                   fontSize="small"
-                  color={nameError ? "error" : "action"}
+                  color={firstnameError ? "error" : "action"}
                 />
               </InputAdornment>
             ),
           }}
         />
-        {nameError && <FormHelperText>{nameHelperText}</FormHelperText>}
+        {firstnameError && <FormHelperText>{firstnameHelperText}</FormHelperText>}
+      </FormControl>
+
+      <FormControl fullWidth error={lastnameError}>
+        <TextField
+          variant="outlined"
+          margin="dense"
+          required
+          fullWidth
+          id="name"
+          error={lastnameError}
+          onChange={e => setLastname(e.target.value)}
+          placeholder="LastName"
+          name="lastname"
+          autoComplete="lastname"
+          // eslint-disable-next-line
+          autoFocus
+          className={classes.fields}
+          InputProps={{
+            startAdornment: (
+              <InputAdornment position="start">
+                <PermIdentityOutlinedIcon
+                  fontSize="small"
+                  color={lastnameError ? "error" : "action"}
+                />
+              </InputAdornment>
+            ),
+          }}
+        />
+        {lastnameError && <FormHelperText>{lastnameHelperText}</FormHelperText>}
       </FormControl>
       <FormControl fullWidth error={emailError}>
         <TextField
@@ -312,32 +338,7 @@ export default ({
         />
         {emailError && <FormHelperText>{emailHelperText}</FormHelperText>}
       </FormControl>
-      <FormControl fullWidth error={phoneError}>
-        <TextField
-          variant="outlined"
-          margin="dense"
-          className={classes.fields}
-          required
-          fullWidth
-          name="phone"
-          error={phoneError}
-          onChange={e => setPhone(e.target.value)}
-          placeholder="Mobile Number"
-          id="phone-number"
-          InputProps={{
-            startAdornment: (
-              <InputAdornment position="start">
-                <CallOutlinedIcon
-                  fontSize="small"
-                  color={phoneError ? "error" : "action"}
-                />
-              </InputAdornment>
-            ),
-          }}
-        />
-
-        {phoneError && <FormHelperText>{phoneHelperText}</FormHelperText>}
-      </FormControl>
+    
       <FormControl fullWidth error={passwordError}>
         <TextField
           variant="outlined"
@@ -347,7 +348,7 @@ export default ({
           fullWidth
           name="password"
           type="password"
-          error={phoneError}
+          error={passwordError}
           onChange={e => setPassword(e.target.value)}
           placeholder="Password"
           InputProps={{

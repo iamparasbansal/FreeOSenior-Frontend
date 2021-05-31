@@ -8,8 +8,8 @@ import { useDispatch } from "react-redux"
 import { useAuthState } from "./src/utils/auth"
 
 const AuthWrapper = ({ children }) => {
-  const dispatch = useDispatch()
-  useAuthState(dispatch)
+  const dispatch = useDispatch();
+  useAuthState(dispatch);
   return children
 }
 

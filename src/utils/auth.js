@@ -4,39 +4,59 @@ import { UpdateAuthAction } from "../store/actions/Auth"
 import axiosFetch from "./axiosFetch"
 
 export const useAuthState = dispatch => {
+
   useEffect(() => {
     let subs = true
-    axiosFetch
-      .get("auth/authenticate")
-      .then(res => {
-        if (res.data) {
-          dispatch(UpdateAuthAction({}, true))
-        } else {
+      
+      // .then(res => {
+      //   if (res.data) {
+      //     dispatch(UpdateAuthAction({}, true))
+      //   } else {
+      //     throw new Error("Not logged in")
+      //   }
+      // })
+      // .catch(er => {
+      //   dispatch(UpdateAuthAction({}, false))
+      // })
+
+    let tokendata =
+      typeof window !== "undefined"
+        ? localStorage.getItem("Authorization") ||
+          window.localStorage.getItem("Authorization")
+        : null;
+
+    try {
+      
+      if (tokendata)
+      {
+        
+        dispatch(UpdateAuthAction(tokendata, true))
+
+      }
+      
+        else {
           throw new Error("Not logged in")
         }
-      })
-      .catch(er => {
-        dispatch(UpdateAuthAction({}, false))
-      })
+
+    } catch (error) {
+      dispatch(UpdateAuthAction({}, false))
+      
+    }
+
     return () => {
       subs = false
     }
   }, [dispatch])
+
 }
 
 export const useAuthActions = dispatch => {
   const Logout = () => {
-    const access_token = window.localStorage.getItem("Authorization")
-    axios
-      .get("https://api.freeosenior.in/api/v1/auth/logout", {
-        origin: true,
-        mode: "cors",
-        headers: {
-          Authorization: `Bearer ${access_token}`,
-        },
-      })
+    
+    axiosFetch
+      .get("user/logout")
       .then(res => {
-        if (res.data.success) {
+        if (res.data) {
           localStorage.removeItem("Authorization")
           dispatch(UpdateAuthAction({}, false))
           if (typeof window !== "undefined") {
@@ -44,19 +64,8 @@ export const useAuthActions = dispatch => {
           }
         }
       })
-      .catch(err => console.log(err))
+      .catch(err => console.log(err.response))
   }
 
-  const getProfile = () =>
-    axiosFetch
-      .get("auth/get_user")
-      .then(res => {
-        if (res.id && res.name) {
-          dispatch(UpdateAuthAction(res, true))
-          return res
-        }
-      })
-      .catch(() => {})
-
-  return { Logout, getProfile }
+  return { Logout }
 }

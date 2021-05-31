@@ -15,10 +15,10 @@ export default function AuthModal() {
 
   const state = useSelector(({ auth }) => auth)
 
-  const { Logout } = useAuthActions(dispatch)
+  const { Logout } = useAuthActions(dispatch);
   const [index, setIndex] = React.useState(0)
-  const [open, setOpen] = React.useState(false)
-  const [profileOpen, setProfileOpen] = React.useState(false)
+  const [open, setOpen] = React.useState(false);
+  const [profileOpen, setProfileOpen] = React.useState(false);
   const [anchorEl, setAnchorEl] = React.useState(null)
 
   const handleClick = event => {

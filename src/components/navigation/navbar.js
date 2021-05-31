@@ -15,21 +15,22 @@ import Container from "@material-ui/core/Container"
 import Drawer from "./drawer"
 import AuthModel from "../auth"
 import { Grid } from '@material-ui/core'
+import { chosenTheme } from "../../../theme";
 
 const useStyles = makeStyles(theme => ({
-  innerNav: {
+  innerNav: props =>({
     margin: "0 auto",
-    color: "black",
-  },
+    color: props.textDark,
+  }),
   menuButton: {
     marginRight: theme.spacing(2),
   },
-  navItem: {
+  navItem: props => ({
     cursor: "pointer",
     fontSize: "1.1rem",
     alignSelf: "flex-end",
     padding: "5px 18px",
-    color: theme.palette.text.light,
+    color: props.text,
     textAlign: "center",
     backgroundColor: "none",
     transition: "0.35s",
@@ -39,31 +40,32 @@ const useStyles = makeStyles(theme => ({
       backgroundColor: "transparent",
       transition: "0.35s",
       paddingBottom: "16px !important",
-      borderBottom: "4px solid #1C3B6B !important",
+      borderBottom: `4px solid ${props.text} !important`,
     },
-  },
-  activeNavItem: {
+  }),
+  activeNavItem: props=>({
     cursor: "default",
     padding: "5px 18px",
-    color: theme.palette.primary.main,
+    color: props.text,
     textAlign: "center",
-    borderBottom: "4.5px solid #1C3B6B !important",
+    borderBottom: `4.5px solid ${props.text} !important`,
     paddingBottom: "16px !important",
     "&:hover": {
-      borderBottom: "4.5px solid #1C3B6B !important",
+      borderBottom: `4.5px solid ${props.text} !important`,
       paddingBottom: "16px !important",
       backgroundColor: "transparent",
     },
-  },
-  logoText: {
+  }),
+  logoText: props=>({
     marginLeft: 7,
     marginBottom: 3,
-    color: "#000",
-  },
+    color: props.text,
+  }),
 }))
 
 const Navbar = () => {
-  const classes = useStyles()
+  const theme = chosenTheme;
+  const classes = useStyles(chosenTheme)
   const trigger = useScrollTrigger({
     threshold: 30,
     disableHysteresis: true,
@@ -80,9 +82,10 @@ const Navbar = () => {
         position="fixed"
         style={{
           height: 60,
-          backgroundColor: "#fff  ",
+          backgroundColor: theme.background,
+          boxShadow: `${trigger} ? 5px 5px 10px #ffffff : "none"`,
         }}
-        elevation={trigger ? 3 : 0}
+        elevation={trigger ? 4 : 0}
       >
         <Container maxWidth="inherit">
           <Toolbar style={{ minHeight: 60 }}>

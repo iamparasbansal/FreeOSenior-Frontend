@@ -5,31 +5,30 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 const useStyles = makeStyles((theme) => ({
-    root: props =>({
+    root: {
         textAlign: "center",
-        backgroundColor: props.background,
+        backgroundColor: "#ffffff",
         paddingTop:"10vh",
         paddingBottom:"10vh",
-    }),
-    heading: props=>({
+    },
+    heading: {
         marginTop: 20,
         textAlign: "center", 
-        color: props.text,
-        fontSize: "6vh"
-    }),
-    innertext: props=>({
-        color: props.text,
-        fontSize: "4vh",
+        color: "#000000",
+        fontSize: "4vh"
+    },
+    innertext: {
+        color: "#000000",
+        fontSize: "2vh",
         textAlign: "center",
         marginBottom: "5vh",
         paddingLeft: "10vw",
         paddingRight: "10vw",
-    })
+    }
 }));
 
-const Frame2 = (props) => {
-    const theme = props.theme;
-    const classes = useStyles(theme);
+const Frame4 = () => {
+    const classes = useStyles();
     useEffect(() => {
         AOS.init({
             duration: 400,
@@ -51,4 +50,4 @@ const Frame2 = (props) => {
         </div>
     );
 }
-export default Frame2;
+export default Frame4;

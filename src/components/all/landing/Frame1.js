@@ -1,21 +1,22 @@
 import React from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import { Typography, Paper, Grid } from "@material-ui/core";
-import image from "../../../images/growing-plant.png"
+import imageLight from "../../../images/growing-plant-light.png";
+import imageDark from "../../../images/growing-plant-dark.png"
 
 const useStyles = makeStyles((theme) => ({
-    root: {
+    root: props=>({
         borderRadius: 0,
         height: '85vh',
-        backgroundImage: `url(${image})`,
+        backgroundImage: props.light? `url(${imageLight})`: `url(${imageDark})`,
         backgroundPosition: "center",
         backgroundSize: "cover"
-    }
+    })
 }));
 
-const Frame1 = () => {
-    const classes = useStyles();
-
+const Frame1 = (props) => {
+    const theme = props.theme;
+    const classes = useStyles(theme);
     return (
       <>
         <Paper elevation={0} className={classes.root}>
@@ -25,7 +26,7 @@ const Frame1 = () => {
                       {
                         marginTop: "4vh",
                         textAlign: "center", 
-                        color: "white",
+                        color: theme.textLight,
                         fontSize: "4vh"
                       }
                     }>
@@ -39,7 +40,7 @@ const Frame1 = () => {
                             marginTop: "8vh", 
                             textAlign: "center",
                             fontSize: "10vh",
-                            color: "#fff", 
+                            color: theme.textLight, 
                             textShadow: "5px 5px 0px #000000"
                           }
                         }>
@@ -49,7 +50,7 @@ const Frame1 = () => {
                         style={
                           { 
                             textAlign: "center", 
-                            color: "#fff", 
+                            color: theme.textLight, 
                             fontSize: "4vh"
                           }
                         }>

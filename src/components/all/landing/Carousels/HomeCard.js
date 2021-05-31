@@ -1,7 +1,9 @@
 import React from 'react';
 import { Button } from "@material-ui/core"
+import "./HomeCard.scss";
 
 const HomeCard = (props) => {
+  const theme = props.theme;
   return (
     <div style={{display:"flex", justifyContent:"center"}}>
       <div className="card">

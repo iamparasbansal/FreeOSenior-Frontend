@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from "react"
 import Slider from "react-slick";
 import { settings } from "./HomeCarouselSettings";
-import "./HomeCard.css";
 import Axios from 'axios';
 import HomeCard from "./HomeCard";
 import "slick-carousel/slick/slick.css";
@@ -19,9 +18,9 @@ const SliderWrap = styled.div`
     }
 `
 
+const CarouselCards = (props) => {
 
-const CarouselCards = () => {
-
+  const theme = props.theme;
   const [data, getData] = useState([]);
 
   useEffect(()=>{
@@ -41,7 +40,7 @@ const CarouselCards = () => {
        <SliderWrap>
         <Slider {...settings}>
             {data.map((dataValue) => (
-              <HomeCard key={dataValue.id} {...dataValue} />
+              <HomeCard key={dataValue.id} {...dataValue} theme = {props}/>
             ))}
             {/* {console.log(data.thumbnail.small)}
           <HomeCard key={data.id} thumbnail={data.thumbnail.small} title={data.title} content={data.content}/> */}

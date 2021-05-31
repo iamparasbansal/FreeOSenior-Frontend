@@ -2,22 +2,25 @@ import { Grid, Paper, Typography} from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles';
 import React from 'react'
 import CarouselCards from "./Carousels/Carousel"
-import image from "../../../images/blueTexture2.jpg"
+import imageLight from "../../../images/blueTexture2.jpg"
+import imageDark from "../../../images/dark-theme-background3.jpg"
+import { getThemeProps } from '@material-ui/styles';
 
 const useStyles = makeStyles((theme) => ({
-  root: {
+  root: props=>({
       borderRadius: 0,
       height: '85vh',
-      backgroundImage: `url(${image})`,
+      backgroundImage: props.light? `url(${imageLight})`: `url(${imageDark})`,
       backgroundPosition: "center",
       backgroundSize: "cover"
-  }
+  })
 }));
 
 
-function Frame3() {
+function Frame3(props) {
 
-  const classes = useStyles();
+  const theme = props.theme;
+  const classes = useStyles(theme);
 
   return (
     <Paper elevation={0} className={classes.root}>
@@ -31,7 +34,8 @@ function Frame3() {
             { 
               fontSize: "6vh", 
               marginBottom: '5vh', 
-              marginTop: '5vh' 
+              marginTop: '5vh', 
+              color: theme.text
             }
           }>
             What We Do?
@@ -39,7 +43,7 @@ function Frame3() {
         </Grid>
        
         <Grid item>
-          <CarouselCards/>
+          <CarouselCards theme={props}/>
         </Grid>
 
       </Grid>

@@ -3,7 +3,7 @@ import { Divider, Avatar, Grid, Paper, TextField, Button, ButtonGroup, Container
 import Answer from './Answer';
 import PostAnswer from './PostAnswer';
 
-const Question = ({data={
+const PostQuestion = ({data={
   author:{
     firstname:'demo',
     lastname:'demo',
@@ -24,32 +24,16 @@ const Question = ({data={
           variant="outlined"
         >
           <Grid container wrap="nowrap" spacing={2}>
-            <Grid item>
-              <Avatar>{data.author.firstname.slice(0, 1)}</Avatar>
-            </Grid>
-
+           
             <Grid justifyContent="left" item xs zeroMinWidth>
-              <h2 style={{ margin: 0, textAlign: "left" }}>{data?.title}</h2>
-              <h4 style={{ margin: 0, textAlign: "left" }}>
-                {data?.author?.firstname} {data?.author?.lastname}
-              </h4>
+              <h2 style={{ margin: 0, textAlign: "left" }}>Ask your Query</h2>
+              
               <TextField
                 id="outlined-basic"
-                disabled
-                value={data.desc}
                 variant="outlined"
                 fullWidth
               />
-              <Grid item style={{ padding: "40px" }}>
-                <Answer />
-                {data.comments.length > 0 ? (
-                  data.comments.map(d => <Answer data={d} />)
-                ) : (
-                  <Answer />
-                )}
-
-                <PostAnswer/>
-              </Grid>
+             
             </Grid>
           </Grid>
 
@@ -59,9 +43,8 @@ const Question = ({data={
               aria-label="vertical contained primary button group"
               variant="contained"
             >
-              <Button>update</Button>
-              <Button>mark resolved</Button>
-              <Button>delete</Button>
+              <Button>Post your Doubt</Button>
+             
             </ButtonGroup>
           </Grid>
         </Paper>
@@ -69,4 +52,4 @@ const Question = ({data={
     )
 }
 
-export default Question;
+export default PostQuestion;

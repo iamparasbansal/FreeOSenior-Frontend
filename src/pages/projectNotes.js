@@ -5,6 +5,7 @@ import { NoteCard } from "../components/all/landing/NoteCard"
 import Grid from '@material-ui/core/Grid';
 import image from '../images/testchemistry.jpg';
 import Typography from '@material-ui/core/Typography';
+import { Divider } from '@material-ui/core';
  
 export default function projectNotes() {
   return (
@@ -12,6 +13,8 @@ export default function projectNotes() {
       <Hidden>
         <br/>
           <Typography variant="h1" component="h2" gutterBottom>Notes</Typography>
+        <br/>
+        <Divider />
         <br/>
         <Grid container spacing={5}>
          

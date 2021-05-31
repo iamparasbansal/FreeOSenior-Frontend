@@ -65,13 +65,11 @@
 .card_body_text{
   margin-top: 2.5vh;
   margin-bottom: 4vh;
-  color: #a3a3a3;
 }
 
 .card_footer{
   display:flex;
   justify-content: center;
-  color: #a3a3a3;
 }
 
 .hidden_button{

@@ -1,16 +1,16 @@
 import React from 'react';
 import { Button } from "@material-ui/core"
-import "./HomeCard.scss";
+import "./HomeCard.css";
 
 const HomeCard = (props) => {
-  const theme = props.theme;
+  const theme = props.theme.theme;
   return (
     <div style={{display:"flex", justifyContent:"center"}}>
       <div className="card">
       <div className="card_image_div">
         <img
           className="card_image" 
-          src={props.thumbnail.small} 
+          src={props.thumbnail} 
           alt="image2"
         />
         <button className="hidden_button" onClick={console.log("See More")}>
@@ -21,11 +21,11 @@ const HomeCard = (props) => {
       </div>
       <div className="card_body">
         <div className="card_heading">
-        <button className="hidden_button2">
-          <h2>{props.title}</h2>
+        <button className="hidden_button2" >
+          <h2 style={{color: theme.text}}>{props.title}</h2>
         </button>
         </div>
-        <div className="card_body_text">
+        <div className="card_body_text" style={{color: theme.text}}>
           <p>
             {props.content}
           </p>
@@ -38,7 +38,8 @@ const HomeCard = (props) => {
           style={{
             height: "40px",
             fontWeight: "400",
-            borderRadius:"50px"
+            borderRadius:"50px",
+            color: theme.text
           }}
         >
           See More

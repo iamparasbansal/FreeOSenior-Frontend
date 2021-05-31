@@ -5,7 +5,6 @@ import Hidden from "@material-ui/core/Hidden"
 import Frame1 from "./../components/all/landing/Frame1"
 import Frame2 from "./../components/all/landing/Frame2"
 import Frame3 from "./../components/all/landing/Frame3"
-import Frame4 from "./../components/all/landing/Frame4"
 
 import Mobile from "./../components/mobile/landing"
 
@@ -21,13 +20,11 @@ export default function Home() {
           <Frame1 theme={chosenTheme}/>
           <Frame2 theme={chosenTheme}/>
           <Frame3 theme={chosenTheme}/>
-          <Frame4 theme={chosenTheme}/>
         </Hidden>
         <Hidden mdUp>
           <Mobile.Frame1/>
           <Mobile.Frame2/>
           <Mobile.Frame3/>
-          <Mobile.Frame4/>
         </Hidden>
       </ThemeProvider>
     </Layout>

@@ -1,34 +1,30 @@
 import React from 'react';
 import { Button } from "@material-ui/core"
+import "./HomeCard.css";
 
 const HomeCard = (props) => {
   return (
     <div style={{display:"flex", justifyContent:"center"}}>
-      <div className="card">
-      <div className="card_image_div">
+      <div className="card_Mobile">
+      <div className="card_image_div_Mobile">
         <img
-          className="card_image" 
+          className="card_image_Mobile" 
           src={props.thumbnail.small} 
           alt="image2"
         />
-        <button className="hidden_button" onClick={console.log("See More")}>
-        <div className="image__overlay" >
-          <div className="learn_more_div">See More</div>
-        </div>
-        </button>
       </div>
-      <div className="card_body">
-        <div className="card_heading">
-        <button className="hidden_button2">
-          <h2>{props.title}</h2>
+      <div className="card_body_Mobile">
+        <div className="card_heading_Mobile">
+        <button className="hidden_button2_Mobile">
+          <h4>{props.title}</h4>
         </button>
         </div>
-        <div className="card_body_text">
+        <div className="card_body_text_Mobile">
           <p>
             {props.content}
           </p>
         </div>
-        <div className="card_footer">
+        <div className="card_footer_Mobile">
         <Button
           variant="contained"
           color="primary"

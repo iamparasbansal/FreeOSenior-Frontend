@@ -40,7 +40,13 @@ const CarouselCards = (props) => {
        <SliderWrap>
         <Slider {...settings}>
             {data.map((dataValue) => (
-              <HomeCard key={dataValue.id} {...dataValue} theme = {props}/>
+              <HomeCard 
+               key={dataValue.id}
+               thumbnail = {dataValue.thumbnail.small}
+               title = {dataValue.title}
+               content = {dataValue.content} 
+               theme = {theme}
+               />
             ))}
             {/* {console.log(data.thumbnail.small)}
           <HomeCard key={data.id} thumbnail={data.thumbnail.small} title={data.title} content={data.content}/> */}

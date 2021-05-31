@@ -59,14 +59,14 @@ export const settings = {
   prevArrow: <SamplePrevArrow />,
   responsive: [
     {
-      breakpoint: 1600,
+      breakpoint: 1000,
       settings: {
         slidesToShow: 2,
         slidesToScroll: 1,
       },
     },
     {
-      breakpoint: 1000,
+      breakpoint: 810,
       settings: {
         slidesToShow: 1,
         slidesToScroll: 1,

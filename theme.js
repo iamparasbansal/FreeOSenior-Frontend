@@ -6,7 +6,8 @@ export const lightTheme = {
   backgroundSecondary: "#ffffff",
   text: "#000000",
   textLight: "#ffffff",
-  textDark: "#000000"
+  textDark: "#000000",
+  shadow: "#000000"
 };
 
 export const darkTheme = {
@@ -16,7 +17,8 @@ export const darkTheme = {
   backgroundSecondary: "#454545",
   text: "#ffffff",
   textLight: "#ffffff",
-  textDark: "#000000"
+  textDark: "#000000",
+  shadow: "#b8b8b8"
 };
 
 export const chosenTheme = darkTheme;

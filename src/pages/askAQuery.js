@@ -5,6 +5,7 @@ import Layout from "../components/main/layout"
 import { Divider, Avatar, Grid, Paper, Container } from "@material-ui/core"
 import Question from "../components/query/question"
 import axiosFetch from "../utils/axiosFetch"
+import PostQuestion from "../components/query/PostQuestion"
 
 const imgLink =  "https://images.pexels.com/photos/1681010/pexels-photo-1681010.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260";
 export default function Home() {
@@ -33,7 +34,7 @@ export default function Home() {
   }, []);
   return (
     <Layout>
-      <Hidden smDown>
+     
         <h1>FreeOSenior Ask A Query</h1>
         <Container>
           {queries.length>0?(
@@ -42,9 +43,11 @@ export default function Home() {
             ):(
             <Question/>
           )
+
         }
+        <PostQuestion/>
         </Container>
-      </Hidden>
+      
     </Layout>
   )
 }

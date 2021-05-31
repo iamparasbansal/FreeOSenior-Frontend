@@ -31,7 +31,7 @@ export default function AuthModal() {
   const LoggingOut = () => {
     Logout()
     if (typeof window !== "undefined") {
-      localStorage.removeItem("Authorization")
+      
       navigate("/")
     }
   }

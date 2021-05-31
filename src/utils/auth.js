@@ -29,8 +29,9 @@ export const useAuthState = dispatch => {
       
       if (tokendata)
       {
+        console.log(tokendata);
         
-        dispatch(UpdateAuthAction(tokendata, true))
+        dispatch(UpdateAuthAction(JSON.parse(tokendata), true))
 
       }
       

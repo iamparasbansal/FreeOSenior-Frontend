@@ -4,7 +4,6 @@ import React from 'react'
 import CarouselCards from "./Carousels/Carousel"
 import imageLight from "../../../images/blueTexture2.jpg"
 import imageDark from "../../../images/dark-theme-background3.jpg"
-import { getThemeProps } from '@material-ui/styles';
 
 const useStyles = makeStyles((theme) => ({
   root: props=>({
@@ -15,7 +14,6 @@ const useStyles = makeStyles((theme) => ({
       backgroundSize: "cover"
   })
 }));
-
 
 function Frame3(props) {
 

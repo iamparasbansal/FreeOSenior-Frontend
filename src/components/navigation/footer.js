@@ -77,7 +77,6 @@ const useStyles = makeStyles(theme => ({
     color: "#fff",
     padding: "50px 100px",
     margin: "0",
-    maxWidth: "inherit",
     boxShadow: "none",
     [theme.breakpoints.down("sm")]: {
       padding: theme.spacing(2),
@@ -172,7 +171,7 @@ const Footer = () => {
           </Link>
         </Grid>
         <Hidden mdUp>
-          <Grid xs={12} md={0}>
+          <Grid xs={12} md={1}>
             <Typography
               style={{ fontSize: 15 }}
               className={classes.centerMobile}

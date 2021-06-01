@@ -30,7 +30,7 @@ const SampleNextArrow = (props) => {
       className={className}
       style={{
         display: "block",
-        right: "100px",
+        
         zIndex: "15",
         height: "80px",
         width: "80px",

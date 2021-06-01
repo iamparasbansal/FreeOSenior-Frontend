@@ -1,54 +1,30 @@
-import axios from "axios"
+
 import { useEffect } from "react"
 import { UpdateAuthAction } from "../store/actions/Auth"
 import axiosFetch from "./axiosFetch"
 
 export const useAuthState = dispatch => {
-
   useEffect(() => {
     let subs = true
-      
-      // .then(res => {
-      //   if (res.data) {
-      //     dispatch(UpdateAuthAction({}, true))
-      //   } else {
-      //     throw new Error("Not logged in")
-      //   }
-      // })
-      // .catch(er => {
-      //   dispatch(UpdateAuthAction({}, false))
-      // })
+    axiosFetch
+      .get("user/auth")
+      .then(res => {
+        if (res.data) {
+          const data = localStorage.getItem("Authorization");
 
-    let tokendata =
-      typeof window !== "undefined"
-        ? localStorage.getItem("Authorization") ||
-          window.localStorage.getItem("Authorization")
-        : null;
-
-    try {
-      
-      if (tokendata)
-      {
-        console.log(tokendata);
-        
-        dispatch(UpdateAuthAction(JSON.parse(tokendata), true))
-
-      }
-      
-        else {
+          dispatch(UpdateAuthAction(JSON.parse(data), true));
+        } else {
           throw new Error("Not logged in")
         }
-
-    } catch (error) {
-      dispatch(UpdateAuthAction({}, false))
-      
-    }
-
+      })
+      .catch(er => {
+        localStorage.removeItem("Authorization");
+        dispatch(UpdateAuthAction({}, false))
+      })
     return () => {
-      subs = false
+      subs = false;
     }
   }, [dispatch])
-
 }
 
 export const useAuthActions = dispatch => {

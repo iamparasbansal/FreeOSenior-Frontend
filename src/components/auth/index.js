@@ -71,8 +71,12 @@ export default function AuthModal() {
         </Menu>
         <Hidden smDown>
           <Avatar
-            style={{ cursor: "pointer", color: "#1C3B6B", backgroundColor: '#fff' }}
-            src={AccountCircleIcon}
+            style={{
+              cursor: "pointer",
+              color: "#1C3B6B",
+              backgroundColor: "#fff",
+            }}
+            src={"https://res.cloudinary.com/dvhrzmkwd/image/upload/v1622565321/Unknown39825/xogatnz3nliw7eryvd2r.png"}
             onClick={handleClick}
           ></Avatar>
         </Hidden>

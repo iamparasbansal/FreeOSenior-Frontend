@@ -25,4 +25,6 @@ const RootWrapper = ({ children }) => {
   )
 }
 
-export default ({ element }) => <RootWrapper>{element}</RootWrapper>
+const fun = ({ element }) => <RootWrapper>{element}</RootWrapper>
+
+export default fun;

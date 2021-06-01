@@ -87,7 +87,7 @@ const Navbar = () => {
         }}
         elevation={trigger ? 4 : 0}
       >
-        <Container maxWidth="inherit">
+        <Container maxWidth="lg">
           <Toolbar style={{ minHeight: 60 }}>
             <div style={{ width: '100%' }}>
               <Grid
@@ -143,7 +143,6 @@ const Navbar = () => {
                           FreeOSenior
                       </Typography>
                       </Hidden>
-
 
                     </Box>
                   </Link>

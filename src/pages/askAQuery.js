@@ -2,13 +2,13 @@ import React, { useEffect, useState } from "react"
 import ReactDOM from "react-dom"
 import Hidden from "@material-ui/core/Hidden"
 import Layout from "../components/main/layout"
-import { Divider, Avatar, Grid, Paper, Container } from "@material-ui/core"
+import { Divider, Avatar, Grid, Paper, Container, Typography } from "@material-ui/core"
 import Question from "../components/query/question"
 import axiosFetch from "../utils/axiosFetch"
 import PostQuestion from "../components/query/PostQuestion"
-import Typography from '@material-ui/core/Typography';
 
-
+import { ThemeProvider } from "styled-components"
+import { chosenTheme } from "../../theme"
 const imgLink =  "https://images.pexels.com/photos/1681010/pexels-photo-1681010.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260";
 export default function Home() {
 
@@ -36,23 +36,22 @@ export default function Home() {
   }, []);
   return (
     <Layout>
-        <br/>
-          <Typography variant="h1" component="h2" gutterBottom>Query Section</Typography>
-        <br/>
-        <Divider />
-        <br />
-        <Container>
-          {queries.length>0?(
-
-            queries.map((data)=><Question data={data}/>)
-            ):(
-            <Question/>
-          )
-
-        }
-        <PostQuestion/>
-        </Container>
       
+      <ThemeProvider theme={chosenTheme}>
+        <center>
+          <Typography align="center" variant="h1">
+            Ask A Query
+          </Typography>
+        </center>
+        <Container maxWidth="md">
+          {queries.length > 0 ? (
+            queries.map(data => <Question data={data} theme={chosenTheme} />)
+          ) : (
+            <Question theme={chosenTheme} />
+          )}
+          <PostQuestion theme={chosenTheme} />
+        </Container>
+      </ThemeProvider>
     </Layout>
   )
 }

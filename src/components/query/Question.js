@@ -1,7 +1,8 @@
 import React from 'react';
-import { Divider, Avatar, Grid, Paper, TextField, Button, ButtonGroup, Container } from "@material-ui/core"
+import { Divider, Avatar, Grid, Paper, TextField, Button, ButtonGroup, Container, Typography, Chip } from "@material-ui/core"
 import Answer from './Answer';
 import PostAnswer from './PostAnswer';
+import { useSelector } from 'react-redux';
 
 const Question = ({data={
   author:{
@@ -15,55 +16,55 @@ const Question = ({data={
 
 ) => {
 
-  console.log(data);
+  const state = useSelector(({ auth }) => auth)
 
     return (
       <Container>
-        <Paper
-          style={{ padding: "40px 20px", margin: "30px auto" }}
-          variant="outlined"
-        >
+        <Paper elevation="10" style={{ padding: "40px 20px", marginTop: 10 }}>
           <Grid container wrap="nowrap" spacing={2}>
             <Grid item>
               <Avatar>{data.author.firstname.slice(0, 1)}</Avatar>
             </Grid>
 
             <Grid justifyContent="left" item xs zeroMinWidth>
-              <h2 style={{ margin: 0, textAlign: "left" }}>{data?.title}</h2>
-              <h4 style={{ margin: 0, textAlign: "left" }}>
+              <Typography variant="h3">{data?.title}</Typography>
+              <Typography variant="h5">
                 {data?.author?.firstname} {data?.author?.lastname}
-              </h4>
+              </Typography>
               <TextField
                 id="outlined-basic"
                 disabled
                 value={data.desc}
+                style={{ marginTop: 10 ,height:'auto'}}
                 variant="outlined"
                 fullWidth
+                
               />
-              <Grid item style={{ padding: "40px" }}>
-                <Answer />
-                {data.comments.length > 0 ? (
-                  data.comments.map(d => <Answer data={d} />)
-                ) : (
-                  <Answer />
-                )}
+              <Typography variant="h5" style={{ marginTop: 10 }}>
+                Tags:
+              </Typography>
 
-                <PostAnswer/>
-              </Grid>
+              <Chip label={data.tag} />
+
+              <Typography variant="h4" style={{ marginTop: 10 }}>
+                Comments: {data.comments.length}
+              </Typography>
+
             </Grid>
           </Grid>
 
-          <Grid item>
-            <ButtonGroup
-              color="primary"
-              aria-label="vertical contained primary button group"
-              variant="contained"
-            >
-              <Button>update</Button>
-              <Button>mark resolved</Button>
-              <Button>delete</Button>
-            </ButtonGroup>
-          </Grid>
+          {state.isLoggedin && state.userId == data.author._id && (
+            <Grid item style={{ margin: 10, alignSelf: "center" }}>
+              <ButtonGroup
+                color="primary"
+                aria-label="large outlined primary button group "
+              >
+                <Button>update</Button>
+                <Button>mark resolved</Button>
+                <Button>delete</Button>
+              </ButtonGroup>
+            </Grid>
+          )}
         </Paper>
       </Container>
     )

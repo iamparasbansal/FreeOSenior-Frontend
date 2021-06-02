@@ -8,15 +8,35 @@ import TableHead from "@material-ui/core/TableHead"
 import TableRow from "@material-ui/core/TableRow"
 import Paper from "@material-ui/core/Paper"
 import axiosFetch from "../../utils/axiosFetch"
-import { Button, makeStyles, Typography } from "@material-ui/core"
+import { Button, Container, Divider, makeStyles, Typography } from "@material-ui/core"
 import { useSelector } from "react-redux"
+import Icon from '@material-ui/core/Icon';
+import SaveIcon from '@material-ui/icons/Save';
+import DeleteIcon from '@material-ui/icons/Delete';
+import Grid from '@material-ui/core/Grid';
+import UpdateIcon from '@material-ui/icons/Update';
+import CreateIcon from '@material-ui/icons/Create';
 
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme)=>({
   table: {
     minWidth: 650,
   },
-})
+   button: {
+    margin: theme.spacing(1),
+  },
+  tablehead:{
+    fontSize: 20,
+    fontWeight: 800,
+    fontFamily: "serif",
+    textAlign: "center",
+  },
+  tableContent:{
+    fontSize: 15,
+    fontFmaily:"arial",
+    textAlign: "center",
+  }
+}));
 const TurtorialTable = () => {
   const state = useSelector(({ auth }) => auth)
   const classes = useStyles()
@@ -30,7 +50,7 @@ const TurtorialTable = () => {
     try {
       const res = await axiosFetch.delete(`api/tutorial/${id}`)
       if (res.data) {
-        window.alert("delted")
+        window.alert("deleted")
         console.log(res.data)
         await setCreated(true)
       }
@@ -59,16 +79,20 @@ const TurtorialTable = () => {
   }
   return (
     <>
-      <Typography>Tutorial Table</Typography>
-      <TableContainer component={Paper}>
+     <Typography variant="h1">Tutorial Table</Typography>
+    <Divider/>
+    <br/><br/>
+      <Container maxWidth="md">
+     
+     <TableContainer component={Paper}>
         <Table className={classes.table} aria-label="simple table">
           <TableHead>
             <TableRow>
-              <TableCell>title</TableCell>
-              <TableCell>link</TableCell>
-              <TableCell>category</TableCell>
-              {state.isLoggedin && <TableCell>update</TableCell>}
-              {state.isLoggedin && <TableCell>delete</TableCell>}
+              <TableCell className={classes.tablehead}>TITLE</TableCell>
+              <TableCell className={classes.tablehead}>LINK</TableCell>
+              <TableCell className={classes.tablehead}>CATEGORY</TableCell>
+              {state.isLoggedin && <TableCell className={classes.tablehead}>UPDATE</TableCell>}
+              {state.isLoggedin && <TableCell className={classes.tablehead}>DELETE</TableCell>}
             </TableRow>
           </TableHead>
           <TableBody>
@@ -76,7 +100,7 @@ const TurtorialTable = () => {
               return (
                 <TableRow>
                   {/* <td>{event._id}</td> */}
-                  <TableCell>{event.title} </TableCell>
+                  <TableCell  className={classes.tableContent}>{event.title} </TableCell>
                   <TableCell>
                     <iframe
                       width="200"
@@ -88,16 +112,16 @@ const TurtorialTable = () => {
                       allowfullscreen
                     ></iframe>
                   </TableCell>
-                  <TableCell>{event.category} </TableCell>
+                  <TableCell  className={classes.tableContent}>{event.category} </TableCell>
 
                   {state.isLoggedin && (
                     <TableCell>
-                      <Button>update</Button>
+                      <Button variant="contained" color="primary" className={classes.button} startIcon={<UpdateIcon/>}>update</Button>
                     </TableCell>
                   )}
                   {state.isLoggedin && (
                     <TableCell>
-                      <Button onClick={DeleteEvent} value={event._id}>
+                      <Button onClick={DeleteEvent} value={event._id} variant="contained" color="secondary" className={classes.button} startIcon={<DeleteIcon/>}>
                         {" "}
                         Delete{" "}
                       </Button>{" "}
@@ -108,9 +132,12 @@ const TurtorialTable = () => {
             })}
           </TableBody>
         </Table>
+          <Grid container alignContents="center" alignItems="center" justify="center" >
 
-        {state.isLoggedin && <Button>Create tutorials</Button>}
+        {state.isLoggedin && <Button variant="contained" color="primary" className={classes.button} startIcon={<CreateIcon/>}>Create tutorials</Button>}
+            </Grid>
       </TableContainer>
+      </Container>
     </>
   )
 }

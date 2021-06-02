@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme)=>({
     textAlign: "center",
   }
 }));
-const TurtorialTable = () => {
+const HomeCardTable = () => {
   const state = useSelector(({ auth }) => auth)
   const classes = useStyles()
 
@@ -49,7 +49,7 @@ const TurtorialTable = () => {
   useEffect(() => {
     const dataFetch = async () => {
       try {
-        const res = await axiosFetch.get(`api/tutorial`)
+        const res = await axiosFetch.get(`api/homecard`)
 
         if (res.data) {
           setTutorials(res.data)
@@ -64,24 +64,30 @@ const TurtorialTable = () => {
   if (created) {
     window.location.reload()
   }
-
-  const fields = ["title", "link", "category"];
+  
+  const fields=['imglink','title','seemore','desc'];
   return (
     <>
       <br />
       <br />
-      <Typography variant="h1">Tutorial Table</Typography>
+      <Typography variant="h1">HomeCard</Typography>
       <Divider />
+
       <Container maxWidth="lg">
         <TableContainer component={Paper}>
           <Table className={classes.table} aria-label="simple table">
             <TableHead>
               <TableRow>
                 {fields.map(field => (
-                  <TableCell className={classes.tablehead}>{field.toUpperCase()}</TableCell>
+                  <TableCell className={classes.tablehead}>
+                    {field.toUpperCase()}
+                  </TableCell>
                 ))}
+
                 {state.isLoggedin && (
-                  <TableCell className={classes.tablehead}>UPDATE/CREATE</TableCell>
+                  <TableCell className={classes.tablehead}>
+                    UPDATE/CREATE
+                  </TableCell>
                 )}
                 {state.isLoggedin && (
                   <TableCell className={classes.tablehead}>DELETE</TableCell>
@@ -96,7 +102,7 @@ const TurtorialTable = () => {
                     reload={reload}
                     Data={event}
                     tableTitles={fields}
-                    baseAPI="api/tutorial"
+                    baseAPI="api/homecard"
                   />
                 )
               })}
@@ -105,7 +111,7 @@ const TurtorialTable = () => {
                   setReload={setReload}
                   reload={reload}
                   tableTitles={fields}
-                  baseAPI="api/tutorial"
+                  baseAPI="api/homecard"
                 />
               )}
             </TableBody>
@@ -122,4 +128,4 @@ const TurtorialTable = () => {
   )
 }
 
-export default TurtorialTable;
+export default HomeCardTable;

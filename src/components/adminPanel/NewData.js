@@ -44,13 +44,15 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-export default function NewTutData({ tutorial, setReload = f => f, reload }) {
-  
-  const [data, setData] = useState({
-      title:'',
-      link:'',
-      category:''
-  })
+export default function NewData({
+  tutorial,
+  setReload = f => f,
+  reload,
+  tableTitles = [],
+  baseAPI = "",
+  Data={}
+}) {
+  const [data, setData] = useState(Data)
 
   const handleChange = event => {
     setData({
@@ -58,19 +60,15 @@ export default function NewTutData({ tutorial, setReload = f => f, reload }) {
       [event.target.name]: event.target.value,
     })
   }
-
+  console.log(data);
   const createData = async event => {
     try {
-      const res = await axiosFetch.post(`api/tutorial`, data)
+      const res = await axiosFetch.post(`${baseAPI}`, data)
       if (res.data) {
         window.alert("created")
         console.log(res.data)
-        setReload(!reload);
-        setData({
-          title: "",
-          link: "",
-          category: "",
-        })
+        setReload(!reload)
+        setData({});
       }
     } catch (error) {
       console.log(error.response.data.error)
@@ -78,63 +76,41 @@ export default function NewTutData({ tutorial, setReload = f => f, reload }) {
   }
 
   const state = useSelector(({ auth }) => auth)
-  const classes = useStyles();
+  const classes = useStyles()
 
   return (
     <TableRow>
       {/* <td>{event._id}</td> */}
-      <TableCell className={classes.tableContent}>
-        {" "}
-        <TextField
-          id="outlined-basic"
-          
-          value={data.title}
-          name="title"
-          onChange={handleChange}
-          variant="outlined"
-          fullWidth
-        />{" "}
-      </TableCell>
-      <TableCell>
-        <TextField
-          id="outlined-basic"
-          
-          value={data.link}
-          name="link"
-          onChange={handleChange}
-          variant="outlined"
-          fullWidth
-        />
-      </TableCell>
-      <TableCell className={classes.tableContent}>
-        {" "}
-        <TextField
-          id="outlined-basic"
-          value={data.category}
-          name="category"
-          onChange={handleChange}
-          variant="outlined"
-          fullWidth
-        />{" "}
-      </TableCell>
 
+      {tableTitles.map((field)=>{
+        return (
+          <TableCell className={classes.tableContent}>
+            {" "}
+            <TextField
+              id="outlined-basic"
+              value={data[field]}
+              name={field}
+              onChange={handleChange}
+              variant="outlined"
+              fullWidth
+            />{" "}
+          </TableCell>
+        )
+      })}
+     
       {state.isLoggedin && (
         <TableCell>
-          
-            <Button
-              variant="contained"
-              color="primary"
-              className={classes.button}
-              startIcon={<CreateIcon/>}
-              onClick={createData}
-             
-            >
-             create
-            </Button>
-          
+          <Button
+            variant="contained"
+            color="primary"
+            className={classes.button}
+            startIcon={<CreateIcon />}
+            onClick={createData}
+          >
+            create
+          </Button>
         </TableCell>
       )}
-      
     </TableRow>
   )
 }

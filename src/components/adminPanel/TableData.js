@@ -44,9 +44,15 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-export default function TutData({ tutorial, setReload = f => f, reload }) {
+export default function TableData({
+  Data,
+  setReload = f => f,
+  reload,
+  tableTitles = [],
+  baseAPI = "",
+}) {
   const [disabled, setDisabled] = useState(true)
-  const [data, setData] = useState(tutorial)
+  const [data, setData] = useState(Data)
 
   const handleChange = event => {
     setData({
@@ -57,12 +63,12 @@ export default function TutData({ tutorial, setReload = f => f, reload }) {
 
   const updateData = async event => {
     try {
-      const res = await axiosFetch.put(`api/tutorial/${data._id}`, data)
+      const res = await axiosFetch.put(`${baseAPI}/${data._id}`, data)
       if (res.data) {
         window.alert("updated")
         console.log(res.data)
-        setDisabled(true);
-        setReload(!reload);
+        setDisabled(true)
+        setReload(!reload)
       }
     } catch (error) {
       console.log(error.response.data.error)
@@ -71,12 +77,11 @@ export default function TutData({ tutorial, setReload = f => f, reload }) {
 
   const deleteData = async event => {
     try {
-      const res = await axiosFetch.delete(`api/tutorial/${data._id}`)
+      const res = await axiosFetch.delete(`${baseAPI}/${data._id}`)
       if (res.data) {
         window.alert("deleted")
         console.log(res.data)
         setReload(!reload)
-        
       }
     } catch (error) {
       console.log(error.response.data.error)
@@ -88,43 +93,25 @@ export default function TutData({ tutorial, setReload = f => f, reload }) {
 
   return (
     <TableRow>
-      {/* <td>{event._id}</td> */}
-      <TableCell className={classes.tableContent}>
-        {" "}
-        <TextField
-          id="outlined-basic"
-          disabled={disabled}
-          value={data.title}
-          name="title"
-          onChange={handleChange}
-          variant="outlined"
-          fullWidth
-        />{" "}
-      </TableCell>
-      <TableCell>
-        <TextField
-          id="outlined-basic"
-          disabled={disabled}
-          value={data.link}
-          name="link"
-          onChange={handleChange}
-          variant="outlined"
-          fullWidth
-        />
-      </TableCell>
-      <TableCell className={classes.tableContent}>
-        {" "}
-        <TextField
-          id="outlined-basic"
-          disabled={disabled}
-          value={data.category}
-          name="category"
-          onChange={handleChange}
-          variant="outlined"
-          fullWidth
-        />{" "}
-      </TableCell>
 
+      {tableTitles.map((field)=>{
+
+        return (
+          <TableCell className={classes.tableContent}>
+            {" "}
+            <TextField
+              id="outlined-basic"
+              disabled={disabled}
+              value={data[field]}
+              name={field}
+              onChange={handleChange}
+              variant="outlined"
+              fullWidth
+            />{" "}
+          </TableCell>
+        )
+      })}
+     
       {state.isLoggedin && (
         <TableCell>
           {disabled && (

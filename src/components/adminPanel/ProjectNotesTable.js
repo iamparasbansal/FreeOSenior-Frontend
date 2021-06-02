@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme)=>({
     textAlign: "center",
   }
 }));
-const TurtorialTable = () => {
+const ProjectNotesTable = () => {
   const state = useSelector(({ auth }) => auth)
   const classes = useStyles()
 
@@ -49,7 +49,7 @@ const TurtorialTable = () => {
   useEffect(() => {
     const dataFetch = async () => {
       try {
-        const res = await axiosFetch.get(`api/tutorial`)
+        const res = await axiosFetch.get(`api/projectcard`)
 
         if (res.data) {
           setTutorials(res.data)
@@ -65,12 +65,12 @@ const TurtorialTable = () => {
     window.location.reload()
   }
 
-  const fields = ["title", "link", "category"];
+  const fields=['isProject','imglink','title','dlink','sem','desc'];
   return (
     <>
       <br />
       <br />
-      <Typography variant="h1">Tutorial Table</Typography>
+      <Typography variant="h1">Project-Notes</Typography>
       <Divider />
       <Container maxWidth="lg">
         <TableContainer component={Paper}>
@@ -80,8 +80,11 @@ const TurtorialTable = () => {
                 {fields.map(field => (
                   <TableCell className={classes.tablehead}>{field.toUpperCase()}</TableCell>
                 ))}
+               
                 {state.isLoggedin && (
-                  <TableCell className={classes.tablehead}>UPDATE/CREATE</TableCell>
+                  <TableCell className={classes.tablehead}>
+                    UPDATE/CREATE
+                  </TableCell>
                 )}
                 {state.isLoggedin && (
                   <TableCell className={classes.tablehead}>DELETE</TableCell>
@@ -96,7 +99,7 @@ const TurtorialTable = () => {
                     reload={reload}
                     Data={event}
                     tableTitles={fields}
-                    baseAPI="api/tutorial"
+                    baseAPI="api/projectcard"
                   />
                 )
               })}
@@ -105,7 +108,7 @@ const TurtorialTable = () => {
                   setReload={setReload}
                   reload={reload}
                   tableTitles={fields}
-                  baseAPI="api/tutorial"
+                  baseAPI="api/projectcard"
                 />
               )}
             </TableBody>
@@ -122,4 +125,4 @@ const TurtorialTable = () => {
   )
 }
 
-export default TurtorialTable;
+export default ProjectNotesTable;

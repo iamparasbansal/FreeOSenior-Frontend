@@ -16,7 +16,8 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import Grid from '@material-ui/core/Grid';
 import UpdateIcon from '@material-ui/icons/Update';
 import CreateIcon from '@material-ui/icons/Create';
-
+import TutData from "./TutData"
+import NewTutData from "./newTutData"
 
 const useStyles = makeStyles((theme)=>({
   table: {
@@ -43,21 +44,7 @@ const TurtorialTable = () => {
 
   const [tutorials, setTutorials] = useState([])
   const [created, setCreated] = useState(false)
-
-  const DeleteEvent = async event => {
-    let id = event.target.value
-
-    try {
-      const res = await axiosFetch.delete(`api/tutorial/${id}`)
-      if (res.data) {
-        window.alert("deleted")
-        console.log(res.data)
-        await setCreated(true)
-      }
-    } catch (error) {
-      window.alert("unable to delete")
-    }
-  }
+  const [reload, setReload] = useState(true);
 
   useEffect(() => {
     const dataFetch = async () => {
@@ -72,71 +59,55 @@ const TurtorialTable = () => {
       }
     }
     dataFetch()
-  }, [])
+  }, [reload])
 
   if (created) {
     window.location.reload()
   }
   return (
     <>
-     <Typography variant="h1">Tutorial Table</Typography>
-    <Divider/>
-    <br/><br/>
+      <Typography variant="h1">Tutorial Table</Typography>
+      <Divider />
+      <br />
+      <br />
       <Container maxWidth="md">
-     
-     <TableContainer component={Paper}>
-        <Table className={classes.table} aria-label="simple table">
-          <TableHead>
-            <TableRow>
-              <TableCell className={classes.tablehead}>TITLE</TableCell>
-              <TableCell className={classes.tablehead}>LINK</TableCell>
-              <TableCell className={classes.tablehead}>CATEGORY</TableCell>
-              {state.isLoggedin && <TableCell className={classes.tablehead}>UPDATE</TableCell>}
-              {state.isLoggedin && <TableCell className={classes.tablehead}>DELETE</TableCell>}
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {tutorials.map(event => {
-              return (
-                <TableRow>
-                  {/* <td>{event._id}</td> */}
-                  <TableCell  className={classes.tableContent}>{event.title} </TableCell>
-                  <TableCell>
-                    <iframe
-                      width="200"
-                      height="100"
-                      src={event.link}
-                      title="YouTube video player"
-                      frameborder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowfullscreen
-                    ></iframe>
-                  </TableCell>
-                  <TableCell  className={classes.tableContent}>{event.category} </TableCell>
-
-                  {state.isLoggedin && (
-                    <TableCell>
-                      <Button variant="contained" color="primary" className={classes.button} startIcon={<UpdateIcon/>}>update</Button>
-                    </TableCell>
-                  )}
-                  {state.isLoggedin && (
-                    <TableCell>
-                      <Button onClick={DeleteEvent} value={event._id} variant="contained" color="secondary" className={classes.button} startIcon={<DeleteIcon/>}>
-                        {" "}
-                        Delete{" "}
-                      </Button>{" "}
-                    </TableCell>
-                  )}
-                </TableRow>
-              )
-            })}
-          </TableBody>
-        </Table>
-          <Grid container alignContents="center" alignItems="center" justify="center" >
-
-        {state.isLoggedin && <Button variant="contained" color="primary" className={classes.button} startIcon={<CreateIcon/>}>Create tutorials</Button>}
-            </Grid>
-      </TableContainer>
+        <TableContainer component={Paper}>
+          <Table className={classes.table} aria-label="simple table">
+            <TableHead>
+              <TableRow>
+                <TableCell className={classes.tablehead}>TITLE</TableCell>
+                <TableCell className={classes.tablehead}>LINK</TableCell>
+                <TableCell className={classes.tablehead}>CATEGORY</TableCell>
+                {state.isLoggedin && (
+                  <TableCell className={classes.tablehead}>UPDATE</TableCell>
+                )}
+                {state.isLoggedin && (
+                  <TableCell className={classes.tablehead}>DELETE</TableCell>
+                )}
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {tutorials.map(event => {
+                return (
+                  <TutData
+                    setReload={setReload}
+                    reload={reload}
+                    tutorial={event}
+                  />
+                )
+              })}
+              {state.isLoggedin && state.admin && (
+                <NewTutData setReload={setReload} reload={reload} />
+              )}
+            </TableBody>
+          </Table>
+          <Grid
+            container
+            alignContents="center"
+            alignItems="center"
+            justify="center"
+          ></Grid>
+        </TableContainer>
       </Container>
     </>
   )

@@ -8,7 +8,6 @@ import { useSelector, useDispatch } from "react-redux"
 import Menu from "@material-ui/core/Menu"
 import MenuItem from "@material-ui/core/MenuItem"
 import Profile from "./Profile"
-import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 
 export default function AuthModal() {
   const dispatch = useDispatch()

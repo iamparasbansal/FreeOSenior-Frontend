@@ -8,14 +8,11 @@ import TableHead from "@material-ui/core/TableHead"
 import TableRow from "@material-ui/core/TableRow"
 import Paper from "@material-ui/core/Paper"
 import axiosFetch from "../../utils/axiosFetch"
-import { Button, Container, Divider, makeStyles, Typography } from "@material-ui/core"
+import {Container, Divider, makeStyles, Typography } from "@material-ui/core"
 import { useSelector } from "react-redux"
-import Icon from '@material-ui/core/Icon';
-import SaveIcon from '@material-ui/icons/Save';
-import DeleteIcon from '@material-ui/icons/Delete';
+
 import Grid from '@material-ui/core/Grid';
-import UpdateIcon from '@material-ui/icons/Update';
-import CreateIcon from '@material-ui/icons/Create';
+
 import TableData from "./TableData"
 import NewData from "./NewData"
 
@@ -43,7 +40,7 @@ const EventTable = () => {
   const classes = useStyles()
 
   const [tutorials, setTutorials] = useState([])
-  const [created, setCreated] = useState(false)
+  
   const [reload, setReload] = useState(true);
 
   useEffect(() => {
@@ -60,10 +57,6 @@ const EventTable = () => {
     }
     dataFetch()
   }, [reload])
-
-  if (created) {
-    window.location.reload()
-  }
 
   const fields=['title','link','img'];
   return (

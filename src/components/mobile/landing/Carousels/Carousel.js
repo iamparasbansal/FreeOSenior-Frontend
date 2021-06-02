@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react"
 import Slider from "react-slick";
 import { settings } from "./HomeCarouselSettings";
-import Axios from 'axios';
+
 import HomeCard from "./HomeCard";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -18,7 +18,6 @@ const SliderWrap = styled.div`
         }
     }
 `
-
 
 const CarouselCards = () => {
 
@@ -40,7 +39,6 @@ const CarouselCards = () => {
     }
     fetchdata()
   }, [])
-
 
   return (
       <div style={{  width: "90vw", position: "relative"}}>

@@ -9,7 +9,7 @@ const HomeCard = (props) => {
       <div className="card_image_div_Mobile">
         <img
           className="card_image_Mobile" 
-          src={props.thumbnail.small} 
+          src={props.imglink} 
           alt="image2"
         />
       </div>
@@ -21,7 +21,7 @@ const HomeCard = (props) => {
         </div>
         <div className="card_body_text_Mobile">
           <p>
-            {props.content}
+            {props.desc}
           </p>
         </div>
         <div className="card_footer_Mobile">
@@ -34,6 +34,7 @@ const HomeCard = (props) => {
             fontWeight: "400",
             borderRadius:"50px"
           }}
+          onClick={console.log(props.seemore)}      //TODO
         >
           See More
         </Button>

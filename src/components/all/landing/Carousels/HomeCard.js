@@ -13,7 +13,7 @@ const HomeCard = (props) => {
           src={props.thumbnail} 
           alt="image2"
         />
-        <button className="hidden_button" onClick={console.log("See More")}>
+        <button className="hidden_button" onClick={console.log(props.seemore)}>
         <div className="image__overlay" >
           <div className="learn_more_div">See More</div>
         </div>
@@ -41,6 +41,7 @@ const HomeCard = (props) => {
             borderRadius:"50px",
             color: theme.text
           }}
+          onClick={console.log(props.seemore)}
         >
           See More
         </Button>

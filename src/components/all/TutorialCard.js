@@ -7,7 +7,6 @@ import CardActionArea from "@material-ui/core/CardActionArea"
 import Typography from "@material-ui/core/Typography"
 import Grid from "@material-ui/core/Grid"
 
-import TextInfoContent from "@mui-treasury/components/content/textInfo"
 import { useBlogTextInfoContentStyles } from "@mui-treasury/styles/textInfoContent/blog"
 import { useOverShadowStyles } from "@mui-treasury/styles/shadow/over"
 

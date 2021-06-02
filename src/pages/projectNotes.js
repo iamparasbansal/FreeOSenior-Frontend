@@ -3,7 +3,7 @@ import Layout from "../components/main/layout"
 import Hidden from "@material-ui/core/Hidden"
 import { NoteCard } from "../components/all/landing/NoteCard"
 import Grid from "@material-ui/core/Grid"
-import image from "../images/testchemistry.jpg"
+
 import Typography from "@material-ui/core/Typography"
 import { Divider } from "@material-ui/core"
 import axiosFetch from "../utils/axiosFetch"

@@ -37,7 +37,7 @@ const useStyles = makeStyles(({ breakpoints, spacing }) => ({
     height: 0,
     paddingBottom: '48%',
     borderRadius: spacing(2),
-    backgroundColor: '#fff',
+    backgroundColor: '#ffffff',
     position: 'relative',
     [breakpoints.up('md')]: {
       width: '100%',
@@ -52,9 +52,9 @@ const useStyles = makeStyles(({ breakpoints, spacing }) => ({
       left: 0,
       width: '100%',
       height: '100%',
-      backgroundImage: 'linear-gradient(147deg, #fe8a39 0%, #fd3838 74%)',
+      backgroundImage: 'linear-gradient(147deg, #ffffff 0%, #ffffff 74%)',
       borderRadius: spacing(2), // 16
-      opacity: 0.5,
+      opacity: 0.0,
     },
   },
   content: {
@@ -79,6 +79,7 @@ export const NoteCard = (props) => {
       <CardMedia
         className={styles.media}
         image={props.imglink}
+        height={250}
       />
       <CardContent>
         <TextInfoContent

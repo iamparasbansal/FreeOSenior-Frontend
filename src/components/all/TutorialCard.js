@@ -1,77 +1,32 @@
 import React from 'react';
-import cx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import Typography from '@material-ui/core/Typography';
 
 import TextInfoContent from '@mui-treasury/components/content/textInfo';
 import { useBlogTextInfoContentStyles } from '@mui-treasury/styles/textInfoContent/blog';
 import { useOverShadowStyles } from '@mui-treasury/styles/shadow/over';
 
 const useStyles = makeStyles(({ breakpoints, spacing }) => ({
-  root: {
-    margin: 'auto',
-    borderRadius: spacing(8), // 16px
-    transition: '0.3s',
-    boxShadow: '0px 14px 80px rgba(34, 35, 58, 0.2)',
-    position: 'relative',
-    maxWidth: 600,
-    marginLeft: 'auto',
-    overflow: 'initial',
-    background: '#ffffff',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    paddingBottom: spacing(10),
-    [breakpoints.up('md')]: {
+
+  card: {
+        maxWidth: 550,
+        borderRadius: 10,
+        boxShadow: '0px 20px 30px rgba(38, 57, 77,0.5)' 
+      },
+[breakpoints.up('md')]: {
       flexDirection: 'row',
       paddingTop: spacing(2),
     },
-  },
-  media: {
-    width: '58%',
-    marginLeft: 'auto',
-    marginRight: 'auto',
-    marginTop: spacing(-3),
-    height: 0,
-    paddingBottom: '48%',
-    borderRadius: spacing(5),
-    backgroundColor: '#fff',
-    position: 'relative',
-    [breakpoints.up('md')]: {
-      width: '100%',
-      marginLeft: spacing(-3),
-      marginTop: 0,
-      transform: 'translateX(-8px)',
-    },
-    '&:after': {
-      content: '" "',
-      position: 'absolute',
-      top: 0,
-      left: 0,
-      width: '100%',
-      height: '100%',
-      backgroundImage: 'linear-gradient(147deg, #fe8a39 0%, #fd3838 74%)',
-      borderRadius: spacing(5), // 16
-      opacity: 0.5,
-    },
-  },
-  content: {
-    padding: 24,
-  },
-  cta: {
-    marginTop: 24,
-    textTransform: 'initial',
-  },
-  embed :
-    {
-      borderRadius: 5
-    }
-}));
+  }));
+
 
 export const TutorialCard = (props) => {
-    const styles = useStyles();
+  const classes = useStyles();
+
   const {
     button: buttonStyles,
     ...contentStyles
@@ -81,7 +36,9 @@ export const TutorialCard = (props) => {
     return (
       
        <>
-       <Card className={cx(styles.root, shadowStyles.root)}>
+
+<Card className={classes.card}>
+      <CardActionArea>
       <CardMedia
         component="iframe"
         title={props.title}
@@ -89,18 +46,25 @@ export const TutorialCard = (props) => {
         image={props.embedlink}
         controls
       >
-        <iframe className={styles.media} src={props.embedlink} title={props.title} allowfullscreen></iframe>
+        <iframe  src={props.embedlink} title={props.title} allowfullscreen></iframe>
        
       </CardMedia>
-      <CardContent>
-        <TextInfoContent 
-          classes={contentStyles}
-          overline={props.category}
-          heading={props.title}
-          
-        />
-      </CardContent>
+        <CardContent style={{color: "violet"}}>
+          <Typography gutterBottom variant="h3" component="h2">
+          {props.title}
+          </Typography>
+          <Typography variant="h4" color="textSecondary" component="p">
+            {props.category}
+          </Typography>
+        </CardContent>
+      </CardActionArea>
     </Card>
+
+
+
+
+
+      
        </>
     )
 }

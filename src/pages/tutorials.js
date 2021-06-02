@@ -45,7 +45,7 @@ export default function Tutorials() {
         <Divider />
         <br />
         <div style={{marginBottom:30}}>
-        <Grid container spacing={5}>
+        <Grid container spacing={5} alignItems="center" justify="center">
          {
             tutorials.map((tutorial)=> 
            

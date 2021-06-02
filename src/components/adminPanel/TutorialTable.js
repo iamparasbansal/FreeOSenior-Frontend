@@ -8,9 +8,9 @@ import TableHead from "@material-ui/core/TableHead"
 import TableRow from "@material-ui/core/TableRow"
 import Paper from "@material-ui/core/Paper"
 import axiosFetch from "../../utils/axiosFetch"
-import { Button, makeStyles } from "@material-ui/core"
+import { Button, makeStyles, Typography } from "@material-ui/core"
 import { useSelector } from "react-redux"
-import Typography from "typography"
+
 
 const useStyles = makeStyles({
   table: {

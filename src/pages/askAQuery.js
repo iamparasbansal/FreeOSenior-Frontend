@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react"
 
 import Layout from "../components/main/layout"
 import { Container, Typography } from "@material-ui/core"
-import Question from "../components/query/question"
+import Question from "../components/query/Question"
 import axiosFetch from "../utils/axiosFetch"
 import PostQuestion from "../components/query/PostQuestion"
 

@@ -1,9 +1,55 @@
 import React, { useState } from "react"
-import { Divider, Avatar, Grid, Paper, TextField, Button, ButtonGroup } from "@material-ui/core"
+import {
+  Divider,
+  Avatar,
+  Grid,
+  Paper,
+  TextField,
+  Button,
+  ButtonGroup,
+} from "@material-ui/core"
 import ThumbUpIcon from "@material-ui/icons/ThumbUp"
 import ThumbDownIcon from "@material-ui/icons/ThumbDown"
 import { useSelector } from "react-redux"
 import axiosFetch from "../../utils/axiosFetch"
+import { mergeClasses } from "@material-ui/styles"
+import { makeStyles } from "@material-ui/core/styles"
+
+const useStyles = makeStyles({
+  paper: {
+    padding: "40px 20px",
+    borderRadius: 20,
+    margin: "20px",
+  },
+  root: {
+    borderRadius: 30,
+  },
+  title: {
+    fontFamily: "serif",
+    fontSize: "15px",
+  },
+  textfield: {
+    margin: "20px auto",
+    borderRadius: 20,
+  },
+  success: {
+    background: "linear-gradient(45deg, #99f0b8 30%, #6df765  90%)",
+    boxShadow: "0 3px 5px 2px rgba(181, 99, 247, .3)",
+    color: "white",
+    borderRadius: 3,
+    height: 48,
+    padding: "0 30px",
+  },
+  danger: {
+    background: "linear-gradient(45deg, #f57a7a 30%, #ed1f1f  90%)",
+    boxShadow: "0 3px 5px 2px rgba(181, 99, 247, .3)",
+    color: "white",
+    borderRadius: 3,
+    height: 48,
+    padding: "0 30px",
+  },
+})
+
 const Answer = ({
   data = {
     _id: "",
@@ -16,8 +62,9 @@ const Answer = ({
   },
   qid,
   setReload = f => f,
-  reload
+  reload,
 }) => {
+  const classes = useStyles()
   const state = useSelector(({ auth }) => auth)
   const [disabled, setDisabled] = useState(true)
   const [desc, setDesc] = useState(data.desc)
@@ -94,14 +141,14 @@ const Answer = ({
   return (
     <>
       <Divider />
-      <Paper elevation="5" style={{ padding: "40px 20px" }}>
+      <Paper elevation="5" className={classes.paper}>
         <Grid container wrap="nowrap" spacing={2}>
           <Grid item>
             <Avatar>{data.author.firstname.slice(0, 1)}</Avatar>
           </Grid>
 
           <Grid justifyContent="left" item xs zeroMinWidth>
-            <h4 style={{ margin: 0, textAlign: "left" }}>
+            <h4 className={classes.title}>
               {data?.author?.firstname} {data?.author?.lastname}
             </h4>
             <TextField
@@ -126,6 +173,7 @@ const Answer = ({
                 onClick={() => {
                   postVote("true", data._id)
                 }}
+                className={classes.success}
                 variant="success"
               >
                 <ThumbUpIcon />
@@ -135,6 +183,7 @@ const Answer = ({
               <Button
                 disabled={!userId || vote === false}
                 onClick={() => postVote("false", data._id)}
+                className={classes.danger}
                 variant="danger"
               >
                 <ThumbDownIcon />

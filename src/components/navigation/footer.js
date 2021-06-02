@@ -77,6 +77,7 @@ const useStyles = makeStyles(theme => ({
     color: "#fff",
     padding: "50px 100px",
     margin: "0",
+    maxWidth:"inherit",
     boxShadow: "none",
     [theme.breakpoints.down("sm")]: {
       padding: theme.spacing(2),

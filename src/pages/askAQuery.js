@@ -42,7 +42,7 @@ export default function Home() {
             Ask A Query
           </Typography>
         </center>
-        <Container maxWidth="lg">
+        <Container maxWidth="md">
           {queries.length > 0 ? (
             queries.map(data => (
               <Question

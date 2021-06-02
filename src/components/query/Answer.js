@@ -22,6 +22,10 @@ const Answer = ({
   const [disabled, setDisabled] = useState(true)
   const [desc, setDesc] = useState(data.desc)
 
+  const votecnt =
+    data.votes.filter(vote => vote.vote === true).length -
+    data.votes.filter(vote => vote.vote === false).length
+
   const votes = data.votes
   const userId = state.isLoggedin ? state.userId : null
 
@@ -126,7 +130,7 @@ const Answer = ({
               >
                 <ThumbUpIcon />
               </Button>
-              <Button disabled>{data.votes.length}</Button>
+              <Button disabled>{votecnt}</Button>
 
               <Button
                 disabled={!userId || vote === false}

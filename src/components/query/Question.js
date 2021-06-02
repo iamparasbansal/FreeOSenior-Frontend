@@ -82,7 +82,7 @@ const Question = ({
   }
 
   return (
-    <Container>
+    
       <Paper elevation="10" style={{ padding: "40px 20px", marginTop: 10 }}>
         <Grid container wrap="nowrap" spacing={2}>
           <Grid item>
@@ -157,7 +157,7 @@ const Question = ({
           </Grid>
         )}
       </Paper>
-    </Container>
+    
   )
 }
 

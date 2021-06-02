@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {  Grid, Paper, TextField, Button, ButtonGroup, Container } from "@material-ui/core"
+import {  Grid, Paper, TextField, Button, ButtonGroup, Container, Typography } from "@material-ui/core"
 
 import axiosFetch from '../../utils/axiosFetch';
 
@@ -43,14 +43,12 @@ const PostQuestion = ({ setReload = f => f, reload }) => {
 
   return (
     <Container>
-      <Paper
-        style={{ padding: "40px 20px", margin: "30px auto" }}
-        variant="outlined"
-        elevation="10"
-      >
+      <Paper elevation="10" style={{ padding: "40px 20px", margin:"20px auto"}}>
         <Grid container wrap="nowrap" spacing={2}>
           <Grid justifyContent="left" item xs zeroMinWidth>
-            <h2 style={{ margin: 0, textAlign: "left" }}>Ask your Query</h2>
+            <Typography align="center" variant="h2">
+              Ask A Query
+            </Typography>
 
             <TextField
               id="outlined-basic"
@@ -60,6 +58,7 @@ const PostQuestion = ({ setReload = f => f, reload }) => {
               name="title"
               value={data.title}
               onChange={handleChange}
+              style={{ margin: "20px auto" }}
             />
 
             <TextField
@@ -70,6 +69,7 @@ const PostQuestion = ({ setReload = f => f, reload }) => {
               name="desc"
               value={data.desc}
               onChange={handleChange}
+              style={{ margin: "20px auto" }}
             />
 
             <TextField
@@ -80,6 +80,7 @@ const PostQuestion = ({ setReload = f => f, reload }) => {
               name="tag"
               value={data.tag}
               onChange={handleChange}
+              style={{ margin: "20px auto" }}
             />
           </Grid>
         </Grid>
@@ -90,7 +91,7 @@ const PostQuestion = ({ setReload = f => f, reload }) => {
             aria-label="vertical contained primary button group"
             variant="contained"
           >
-            <Button onClick={postQueston}>Post your Doubt</Button>
+            <Button  onClick={postQueston}>Post your Doubt</Button>
           </ButtonGroup>
         </Grid>
       </Paper>

@@ -16,11 +16,6 @@ import Answer from "./Answer"
 import PostAnswer from "./PostAnswer"
 import { useSelector } from "react-redux"
 import { makeStyles } from "@material-ui/core/styles"
-import React, { useState } from 'react';
-import { Avatar, Grid, Paper, TextField, Button, ButtonGroup,  Typography, Chip, IconButton, Collapse } from "@material-ui/core"
-import Answer from './Answer';
-import PostAnswer from './PostAnswer';
-import { useSelector } from 'react-redux';
 
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore"
 import axiosFetch from "../../utils/axiosFetch"

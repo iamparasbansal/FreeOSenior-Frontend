@@ -126,8 +126,8 @@ export default ({
           setSnackbarmsg("Login successful. Redirecting...")
           const data ={userId:res.data.userId,token:res.data.token,admin:res.data.admin};
           localStorage.setItem("Authorization", JSON.stringify(data));
-          
           dispatch(UpdateAuthAction(data, true));
+          window.location.reload();
         })
       } catch (err) {
         if (!(err.response === undefined)) {

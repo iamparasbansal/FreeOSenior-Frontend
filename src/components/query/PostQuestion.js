@@ -1,9 +1,38 @@
-import React, { useState } from 'react';
-import {  Grid, Paper, TextField, Button, ButtonGroup, Container, Typography } from "@material-ui/core"
-
-import axiosFetch from '../../utils/axiosFetch';
-
+import React, { useState } from "react"
+import {
+  Grid,
+  Paper,
+  TextField,
+  Button,
+  ButtonGroup,
+  Container,
+  Typography,
+} from "@material-ui/core"
+import { makeStyles } from "@material-ui/core/styles"
+import axiosFetch from "../../utils/axiosFetch"
+import SendIcon from "@material-ui/icons/Send"
+const useStyles = makeStyles({
+  root: {
+    borderRadius: 30,
+  },
+  title: {
+    fontFamily: "serif",
+  },
+  textfield: {
+    margin: "20px auto",
+    borderRadius: 20,
+  },
+  button: {
+    background: "linear-gradient(45deg, #af58f5 30%, #901af0  90%)",
+    boxShadow: "0 3px 5px 2px rgba(181, 99, 247, .3)",
+    color: "white",
+    borderRadius: 3,
+    height: 48,
+    padding: "0 30px",
+  },
+})
 const PostQuestion = ({ setReload = f => f, reload }) => {
+  const classes = useStyles()
   const [data, setData] = useState({
     desc: "",
     title: "",
@@ -30,10 +59,9 @@ const PostQuestion = ({ setReload = f => f, reload }) => {
         window.alert("your Query is created successfully")
         setReload(!reload)
         setData({
-          desc:'',
-          title:'',
-          tag:''
-
+          desc: "",
+          title: "",
+          tag: "",
         })
       }
     } catch (error) {
@@ -43,60 +71,71 @@ const PostQuestion = ({ setReload = f => f, reload }) => {
 
   return (
     <Container>
-      <Paper elevation="10" style={{ padding: "40px 20px", margin:"20px auto"}}>
+      <Paper
+        className={classes.root}
+        elevation="20"
+        style={{ padding: "40px 20px", margin: "20px auto" }}
+      >
         <Grid container wrap="nowrap" spacing={2}>
           <Grid justifyContent="left" item xs zeroMinWidth>
-            <Typography align="center" variant="h2">
+            <Typography align="center" variant="h2" className={classes.title}>
               Ask A Query
             </Typography>
 
             <TextField
-              id="outlined-basic"
+              label="TITLE"
+              id="outlined-size-small"
               variant="outlined"
               fullWidth
-              placeholder="title"
+              placeholder="Title"
               name="title"
               value={data.title}
               onChange={handleChange}
-              style={{ margin: "20px auto" }}
+              className={classes.textfield}
+              autoComplete="off"
             />
 
             <TextField
-              id="outlined-basic"
+              label="DESCRIPTON"
+              id="outlined-size-small"
               variant="outlined"
               fullWidth
-              placeholder="description"
+              placeholder="Description"
               name="desc"
               value={data.desc}
               onChange={handleChange}
-              style={{ margin: "20px auto" }}
+              className={classes.textfield}
+              autoComplete="off"
             />
 
             <TextField
-              id="outlined-basic"
+              label="TAG"
+              id="outlined-size-small"
               variant="outlined"
               fullWidth
-              placeholder="tag"
+              placeholder="Tag"
               name="tag"
               value={data.tag}
               onChange={handleChange}
-              style={{ margin: "20px auto" }}
+              autoComplete="off"
+              className={classes.textfield}
             />
           </Grid>
         </Grid>
 
-        <Grid item>
-          <ButtonGroup
-            color="primary"
-            aria-label="vertical contained primary button group"
+        <Grid container alignItems="center" justify="center">
+          <Button
             variant="contained"
+            onClick={postQueston}
+            className={classes.button}
+            endIcon={<SendIcon>Post your Doubt</SendIcon>}
           >
-            <Button  onClick={postQueston}>Post your Doubt</Button>
-          </ButtonGroup>
+            Post your Doubt
+          </Button>
         </Grid>
       </Paper>
     </Container>
   )
 }
 
-export default PostQuestion;
+export default PostQuestion

@@ -16,7 +16,7 @@ import Checkbox from "@material-ui/core/Checkbox"
 import EmailIcon from "@material-ui/icons/EmailOutlined"
 import PasswordIcon from "@material-ui/icons/LockOpen"
 import PermIdentityOutlinedIcon from "@material-ui/icons/PermIdentityOutlined"
-import CallOutlinedIcon from "@material-ui/icons/CallOutlined"
+
 import InputAdornment from "@material-ui/core/InputAdornment"
 import Slide from "@material-ui/core/Slide"
 
@@ -108,10 +108,6 @@ export default ({
   const [lastname, setLastname] = useState("")
   const [lastnameError, setLastnameError] = useState(false)
   const [lastnameHelperText, setLastnameHelperText] = useState("")
-
-  const [name, setName] = useState("")
-  const [nameError, setNameError] = useState(false)
-  const [nameHelperText, setNameHelperText] = useState("")
 
   const [email, setEmail] = useState("")
   const [emailError, setEmailError] = useState(false)

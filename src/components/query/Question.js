@@ -181,7 +181,18 @@ const Question = ({
             <ExpandMoreIcon />
           </IconButton>
           <Collapse in={expanded} timeout="auto" unmountOnExit>
-            {data.comments.map(d => (
+            {data.comments.sort(function(a,b){
+              const votecnt1 =
+              a.votes.filter(vote => vote.vote === true).length -
+              a.votes.filter(vote => vote.vote === false).length;
+              
+              const votecnt2 =
+              b.votes.filter(vote => vote.vote === true).length -
+              b.votes.filter(vote => vote.vote === false).length;
+
+              return votecnt2-votecnt1;
+
+            }).map(d => (
               <Answer
                 qid={data._id}
                 data={d}

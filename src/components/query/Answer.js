@@ -7,6 +7,7 @@ import {
   TextField,
   Button,
   ButtonGroup,
+  Container,
 } from "@material-ui/core"
 import ThumbUpIcon from "@material-ui/icons/ThumbUp"
 import ThumbDownIcon from "@material-ui/icons/ThumbDown"
@@ -14,6 +15,7 @@ import { useSelector } from "react-redux"
 import axiosFetch from "../../utils/axiosFetch"
 import { mergeClasses } from "@material-ui/styles"
 import { makeStyles } from "@material-ui/core/styles"
+import InputBase from "@material-ui/core/InputBase"
 
 const useStyles = makeStyles({
   paper: {
@@ -47,6 +49,12 @@ const useStyles = makeStyles({
     borderRadius: 3,
     height: 48,
     padding: "0 30px",
+  },
+  comment: {
+    marginTop: 10,
+    height: "auto",
+    fontSize: "20px",
+    fontWeight: 500,
   },
 })
 
@@ -151,14 +159,17 @@ const Answer = ({
             <h4 className={classes.title}>
               {data?.author?.firstname} {data?.author?.lastname}
             </h4>
-            <TextField
-              id="outlined-basic"
-              disabled={disabled}
-              value={desc}
-              onChange={e => setDesc(e.target.value)}
-              variant="outlined"
-              fullWidth
-            />
+            <Container maxWidth="xs">
+              <InputBase
+                // id="outlined-basic"
+                disabled={disabled}
+                value={desc}
+                onChange={e => setDesc(e.target.value)}
+                //variant="outlined"
+                className={classes.comment}
+                fullWidth
+              />
+            </Container>
           </Grid>
 
           <Grid item>

@@ -16,10 +16,12 @@ import Answer from "./Answer"
 import PostAnswer from "./PostAnswer"
 import { useSelector } from "react-redux"
 import { makeStyles } from "@material-ui/core/styles"
-
+import InputBase from "@material-ui/core/InputBase"
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore"
 import axiosFetch from "../../utils/axiosFetch"
-
+import DeleteIcon from "@material-ui/icons/Delete"
+import DoneAllIcon from "@material-ui/icons/DoneAll"
+import UpdateIcon from "@material-ui/icons/Update"
 const useStyles = makeStyles({
   root: {
     padding: "40px 20px",
@@ -32,7 +34,8 @@ const useStyles = makeStyles({
   },
   textfield: {
     margin: "20px auto",
-    broderRadius: 30,
+    borderRadius: 30,
+    // border: none,
   },
   button: {
     background: "linear-gradient(45deg, #af58f5 30%, #901af0  90%)",
@@ -41,6 +44,22 @@ const useStyles = makeStyles({
     borderRadius: 3,
     height: 48,
     padding: "0 30px",
+  },
+  comment: {
+    marginTop: 10,
+    height: "auto",
+    fontSize: "20px",
+    fontWeight: 500,
+  },
+  chipResolve: {
+    marginLeft: 10,
+    color: "white",
+    background: "linear-gradient(45deg, #4ff087 30%, #0cc74d  90%)",
+  },
+  chipUnResolve: {
+    marginLeft: 10,
+    color: "white",
+    background: "linear-gradient(45deg, #f23f45 30%, #c70c28  90%)",
   },
 })
 
@@ -130,29 +149,26 @@ const Question = ({
         <Grid justifyContent="left" item xs zeroMinWidth>
           <Typography variant="h3">
             {data.title}
-
             <Chip
+              className={
+                data.isResolved ? classes.chipResolve : classes.chipUnResolve
+              }
               label={data.isResolved ? "Resolved" : "Not Resolved"}
-              
             />
           </Typography>
           <Typography variant="h5">
             {data?.author?.firstname} {data?.author?.lastname}
           </Typography>
-          <TextField
-            id="outlined-basic"
+          <InputBase
             disabled={disabled}
             value={desc}
             onChange={e => setDesc(e.target.value)}
-            style={{ marginTop: 10, height: "auto" }}
-            variant="outlined"
+            className={classes.comment}
             fullWidth
           />
           <Typography variant="h5" style={{ marginTop: 10 }}>
-            Tags:
+            Tags: <Chip label={data.tag} />
           </Typography>
-
-          <Chip label={data.tag} />
 
           <Typography variant="h4" style={{ marginTop: 10 }}>
             Comments: {data.comments.length}
@@ -178,21 +194,54 @@ const Question = ({
         </Grid>
       </Grid>
 
-      {state.isLoggedin && state.userId === data.author._id && (
-        <Grid item style={{ margin: 10, alignSelf: "center" }}>
-          <ButtonGroup
-            color="primary"
-            aria-label="large outlined primary button group "
-          >
+      <Grid container spacing={3}>
+        {state.isLoggedin && state.userId === data.author._id && (
+          <Grid item xs={4}>
             {disabled && (
-              <Button onClick={() => setDisabled(false)}>update</Button>
+              <Button
+                variant="contained"
+                color="primary"
+                //style={{ backgroundColor: "#e05358" }}
+                startIcon={<UpdateIcon />}
+                onClick={() => setDisabled(false)}
+              >
+                update
+              </Button>
             )}
-            {!disabled && <Button onClick={UpdateQuestion}>update</Button>}
-            <Button onClick={resolveQuestion}>mark resolved</Button>
-            <Button onClick={deleteQuestion}>delete</Button>
-          </ButtonGroup>
-        </Grid>
-      )}
+            {!disabled && (
+              <Button
+                variant="contained"
+                color="primary"
+                //style={{ backgroundColor: "#e05358" }}
+                startIcon={<UpdateIcon />}
+                onClick={UpdateQuestion}
+              >
+                update
+              </Button>
+            )}
+            {/* <Grid item xs={4}> */}
+              <Button
+                variant="contained"
+                color="secondary"
+                startIcon={<DoneAllIcon />}
+                onClick={resolveQuestion}
+              >
+                mark resolved
+              </Button>
+            {/* </Grid> */}
+            {/* <Grid item xs={4}> */}
+              <Button
+                variant="contained"
+                style={{ background: "#e05358" }}
+                startIcon={<DeleteIcon />}
+                onClick={deleteQuestion}
+              >
+                delete
+              </Button>
+            {/* </Grid> */}
+          </Grid>
+        )}
+      </Grid>
     </Paper>
   )
 }

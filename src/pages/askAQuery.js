@@ -47,7 +47,14 @@ export default function Home() {
         <Divider />
         <Container maxWidth="xlg">
           <Grid container spacing={10}>
-            <Grid item xs={6}>
+            <Grid item xs={12} sm={6}>
+              <PostQuestion
+                theme={chosenTheme}
+                reload={reload}
+                setReload={setReload}
+              />
+            </Grid>
+            <Grid item xs={12} sm={6}>
               {" "}
               {queries.length > 0 ? (
                 queries.map(data => (
@@ -65,13 +72,6 @@ export default function Home() {
                   setReload={setReload}
                 />
               )}
-            </Grid>
-            <Grid item xs={6}>
-              <PostQuestion
-                theme={chosenTheme}
-                reload={reload}
-                setReload={setReload}
-              />
             </Grid>
           </Grid>
         </Container>

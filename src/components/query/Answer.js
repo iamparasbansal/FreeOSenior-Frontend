@@ -16,6 +16,9 @@ import axiosFetch from "../../utils/axiosFetch"
 import { mergeClasses } from "@material-ui/styles"
 import { makeStyles } from "@material-ui/core/styles"
 import InputBase from "@material-ui/core/InputBase"
+import DeleteIcon from "@material-ui/icons/Delete"
+import DoneAllIcon from "@material-ui/icons/DoneAll"
+import UpdateIcon from "@material-ui/icons/Update"
 
 const useStyles = makeStyles({
   paper: {
@@ -209,10 +212,33 @@ const Answer = ({
               aria-label="large outlined primary button group "
             >
               {disabled && (
-                <Button onClick={() => setDisabled(false)}>update</Button>
+                <Button
+                  variant="contained"
+                  color="primary"
+                  startIcon={<UpdateIcon />}
+                  onClick={() => setDisabled(false)}
+                >
+                  update
+                </Button>
               )}
-              {!disabled && <Button onClick={UpdateReply}>update</Button>}
-              <Button onClick={deleteReply}>delete</Button>
+              {!disabled && (
+                <Button
+                  variant="contained"
+                  color="primary"
+                  startIcon={<UpdateIcon />}
+                  onClick={UpdateReply}
+                >
+                  update
+                </Button>
+              )}
+              <Button
+                variant="contained"
+                style={{ background: "#e05358" }}
+                startIcon={<DeleteIcon />}
+                onClick={deleteReply}
+              >
+                delete
+              </Button>
             </ButtonGroup>
           </Grid>
         )}

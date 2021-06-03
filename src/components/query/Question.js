@@ -207,7 +207,8 @@ const Question = ({
 
       <Grid container spacing={3}>
         {state.isLoggedin && state.userId === data.author._id && (
-          <Grid item xs={4}>
+          //alignSelf: "center"
+          <Grid item style={{ margin: 10, justifyContent: "space-between" }}>
             {disabled && (
               <Button
                 variant="contained"
@@ -231,24 +232,24 @@ const Question = ({
               </Button>
             )}
             {/* <Grid item xs={4}> */}
-              <Button
-                variant="contained"
-                color="secondary"
-                startIcon={<DoneAllIcon />}
-                onClick={resolveQuestion}
-              >
-                mark resolved
-              </Button>
+            <Button
+              variant="contained"
+              color="secondary"
+              startIcon={<DoneAllIcon />}
+              onClick={resolveQuestion}
+            >
+              mark resolved
+            </Button>
             {/* </Grid> */}
             {/* <Grid item xs={4}> */}
-              <Button
-                variant="contained"
-                style={{ background: "#e05358" }}
-                startIcon={<DeleteIcon />}
-                onClick={deleteQuestion}
-              >
-                delete
-              </Button>
+            <Button
+              variant="contained"
+              style={{ background: "#e05358" }}
+              startIcon={<DeleteIcon />}
+              onClick={deleteQuestion}
+            >
+              delete
+            </Button>
             {/* </Grid> */}
           </Grid>
         )}

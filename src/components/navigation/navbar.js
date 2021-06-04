@@ -16,6 +16,7 @@ import Drawer from "./drawer"
 import AuthModel from "../auth"
 import { Grid } from '@material-ui/core'
 import { chosenTheme } from "../../../theme";
+import { useSelector } from "react-redux"
 
 const useStyles = makeStyles(theme => ({
   innerNav: props =>({
@@ -64,6 +65,7 @@ const useStyles = makeStyles(theme => ({
 }))
 
 const Navbar = () => {
+  const state = useSelector(({ auth }) => auth)
   const theme = chosenTheme;
   const classes = useStyles(chosenTheme)
   const trigger = useScrollTrigger({
@@ -89,7 +91,7 @@ const Navbar = () => {
       >
         <Container maxWidth="lg">
           <Toolbar style={{ minHeight: 60 }}>
-            <div style={{ width: '100%' }}>
+            <div style={{ width: "100%" }}>
               <Grid
                 container
                 spacing={1}
@@ -109,7 +111,6 @@ const Navbar = () => {
                         FreeOSenior
                       </Typography>
                     </IconButton>
-
                   </Hidden>
                   <Link
                     to="/home"
@@ -141,9 +142,8 @@ const Navbar = () => {
                         />
                         <Typography variant={"h6"} className={classes.logoText}>
                           FreeOSenior
-                      </Typography>
+                        </Typography>
                       </Hidden>
-
                     </Box>
                   </Link>
                 </Grid>
@@ -169,7 +169,9 @@ const Navbar = () => {
                       activeClassName={classes.activeNavItem}
                       to="/projectNotes"
                     >
-                      <Typography variant={"subtitle"}>Project/Notes</Typography>
+                      <Typography variant={"subtitle"}>
+                        Project/Notes
+                      </Typography>
                     </Link>
                     <Link
                       className={classes.navItem}
@@ -178,13 +180,24 @@ const Navbar = () => {
                     >
                       <Typography variant={"subtitle"}>Ask A Query</Typography>
                     </Link>
-                    <Link
-                      className={classes.navItem}
-                      activeClassName={classes.activeNavItem}
-                      to="/joinUs"
-                    >
-                      <Typography variant={"subtitle"}>Join Us</Typography>
-                    </Link>
+                    
+                      <Link
+                        className={classes.navItem}
+                        activeClassName={classes.activeNavItem}
+                        to="/joinUs"
+                      >
+                        <Typography variant={"subtitle"}>Join Us</Typography>
+                      </Link>
+                    
+                    {state.isLoggedin && state.admin && (
+                      <Link
+                        className={classes.navItem}
+                        activeClassName={classes.activeNavItem}
+                        to="/adminPanel"
+                      >
+                        <Typography variant={"subtitle"}>admin Panel</Typography>
+                      </Link>
+                    )}
                   </Hidden>
                 </Grid>
 

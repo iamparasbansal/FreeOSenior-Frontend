@@ -20,8 +20,8 @@ import UpdateIcon from "@material-ui/icons/Update"
 const useStyles = makeStyles({
   paper: {
     padding: "40px 20px",
-    borderRadius: 20,
-    margin: "20px",
+    
+    
   },
   root: {
     borderRadius: 30,

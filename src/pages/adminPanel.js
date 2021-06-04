@@ -1,16 +1,16 @@
-import React from 'react'
-import {navigate} from "gatsby"
+import React from "react"
+import Layout from "../components/main/layout"
 
-const adminPanel = () => {
-
-  localStorage.setItem("AdminAuth", JSON.stringify(false));
+import Protected from "../components/adminPanel/Protected"
+const AdminPanel = () => {
 
   return (
-  <>
-    {navigate("/adminlogin")}
-  </>
+    <>
+       <Layout>
+         <Protected/>
+       </Layout>
+    </>
   )
 }
 
-export default adminPanel
-
+export default AdminPanel;

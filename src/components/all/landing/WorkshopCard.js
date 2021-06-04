@@ -7,7 +7,6 @@ import Divider from '@material-ui/core/Divider';
 import Button from '@material-ui/core/Button';
 import Avatar from '@material-ui/core/Avatar';
 
-
 const useStyles = makeStyles((theme) => ({
   title: {
     color: "grey",
@@ -39,17 +38,16 @@ export const WorkshopCard = (props) => {
 
   return (
     <>
+    
       <Card className={classes.card} style={{width:1100}}>
         
         <CardMedia
           component="img"
           alt="Could Not be Loaded"
-          width="100%"
           image={props.imglink}
           title={props.title}
         />
           
-    
       </Card>
       <div style={{margin :20}}>
       <Typography variant="h1" component="h2" className={classes.title}>

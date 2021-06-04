@@ -73,7 +73,7 @@ export default function Frame6() {
 
   return (
     <Container className={styles.root}>
-      <Grid direction="row" backgroundColor>
+      <Grid direction="row">
         <Grid item>
           <Typography
             variant="h1"

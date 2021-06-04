@@ -49,7 +49,9 @@ export default function Home() {
             <Grid item xs={12} sm={7}>
               {" "}
               {queries.length > 0 ? (
-                queries.map(data => (
+                queries.sort(value => {
+                  return value.isResolved ? 1 : -1 
+                }).map(data => (
                   <Question
                     data={data}
                     reload={reload}

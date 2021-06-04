@@ -16,9 +16,7 @@ const useStyles = makeStyles(({ breakpoints, spacing }) => ({
     fontWeight: 500,
   },
   card: {
-    borderRadius: 15,
     flexDirection: "row",
-    boxShadow: "0px 20px 30px rgba(38, 57, 77,0.5)",
     margin:10
   },
   media: {

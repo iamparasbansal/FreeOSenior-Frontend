@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react"
-
 import Layout from "../components/main/layout"
 import { Container, Typography, Divider } from "@material-ui/core"
 import Question from "../components/query/Question"
@@ -47,14 +46,7 @@ export default function Home() {
         <Divider />
         <Container maxWidth="xlg">
           <Grid container spacing={10}>
-            <Grid item xs={12} sm={6}>
-              <PostQuestion
-                theme={chosenTheme}
-                reload={reload}
-                setReload={setReload}
-              />
-            </Grid>
-            <Grid item xs={12} sm={6}>
+            <Grid item xs={12} sm={7}>
               {" "}
               {queries.length > 0 ? (
                 queries.map(data => (
@@ -72,6 +64,14 @@ export default function Home() {
                   setReload={setReload}
                 />
               )}
+            </Grid>
+
+            <Grid item xs={12} sm={5}>
+              <PostQuestion
+                theme={chosenTheme}
+                reload={reload}
+                setReload={setReload}
+              />
             </Grid>
           </Grid>
         </Container>

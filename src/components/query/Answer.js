@@ -20,8 +20,8 @@ import UpdateIcon from "@material-ui/icons/Update"
 const useStyles = makeStyles({
   paper: {
     padding: "40px 20px",
-    borderRadius: 20,
-    margin: "20px",
+    
+    
   },
   root: {
     borderRadius: 30,
@@ -35,7 +35,15 @@ const useStyles = makeStyles({
     borderRadius: 20,
   },
   success: {
-    background: "linear-gradient(45deg, #99f0b8 30%, #6df765  90%)",
+    background: "linear-gradient(45deg, #99f0b8 0%, #6df765  90%)",
+    boxShadow: "0 3px 5px 2px rgba(181, 99, 247, .3)",
+    color: "white",
+    borderRadius: 3,
+    height: 48,
+    padding: "0 30px",
+  },
+  success_faded: {
+    background: "linear-gradient(45deg, #99f0b8 100%, #6df765  90%)",
     boxShadow: "0 3px 5px 2px rgba(181, 99, 247, .3)",
     color: "white",
     borderRadius: 3,
@@ -43,7 +51,15 @@ const useStyles = makeStyles({
     padding: "0 30px",
   },
   danger: {
-    background: "linear-gradient(45deg, #f57a7a 30%, #ed1f1f  90%)",
+    background: "linear-gradient(45deg, #f57a7a 0%, #ed1f1f  90%)",
+    boxShadow: "0 3px 5px 2px rgba(181, 99, 247, .3)",
+    color: "white",
+    borderRadius: 3,
+    height: 48,
+    padding: "0 30px",
+  },
+  danger_faded: {
+    background: "linear-gradient(45deg, #f57a7a 100%, #ed1f1f  90%)",
     boxShadow: "0 3px 5px 2px rgba(181, 99, 247, .3)",
     color: "white",
     borderRadius: 3,
@@ -149,7 +165,7 @@ const Answer = ({
   return (
     <>
       <Divider />
-      <Paper elevation="5" className={classes.paper}>
+      <Paper elevation="2" className={classes.paper}>
         <Grid container wrap="nowrap" spacing={2}>
           <Grid item>
             <Avatar>{data.author.firstname.slice(0, 1)}</Avatar>
@@ -161,11 +177,14 @@ const Answer = ({
             </h4>
             <Container maxWidth="xs">
               <InputBase
-                // id="outlined-basic"
+                id="outlined-basic"
+                autoFocus={!disabled}
                 disabled={disabled}
+                
+                multiline={true}
                 value={desc}
                 onChange={e => setDesc(e.target.value)}
-                //variant="outlined"
+                variant="outlined"
                 className={classes.comment}
                 fullWidth
               />
@@ -180,11 +199,18 @@ const Answer = ({
               variant="contained"
             >
               <Button
-                disabled={!userId || vote === true}
                 onClick={() => {
-                  postVote("true", data._id)
+                  if (vote == true) {
+                    postVote(null, data._id)
+                  } else {
+                    postVote("true", data._id)
+                  }
                 }}
-                className={classes.success}
+                className={
+                  userId && vote === true
+                    ? classes.success_faded
+                    : classes.success
+                }
                 variant="success"
               >
                 <ThumbUpIcon />
@@ -192,9 +218,18 @@ const Answer = ({
               <Button disabled>{votecnt}</Button>
 
               <Button
-                disabled={!userId || vote === false}
-                onClick={() => postVote("false", data._id)}
-                className={classes.danger}
+                onClick={() => {
+                  if (vote == false) {
+                    postVote(null, data._id)
+                  } else {
+                    postVote("false", data._id)
+                  }
+                }}
+                className={
+                  userId && vote === false
+                    ? classes.danger_faded
+                    : classes.danger
+                }
                 variant="danger"
               >
                 <ThumbDownIcon />

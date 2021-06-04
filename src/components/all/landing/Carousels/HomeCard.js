@@ -21,7 +21,7 @@ const HomeCard = props => {
         <div className="card_body">
           <div className="card_heading">
             <button className="hidden_button2">
-              <h2 style={{ color: theme.text }}>{props.title}</h2>
+              <h1 style={{ color: theme.text }}>{props.title}</h1>
             </button>
           </div>
           <div className="card_body_text" style={{ color: theme.text }}>

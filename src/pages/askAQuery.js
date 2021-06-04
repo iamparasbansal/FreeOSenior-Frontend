@@ -46,8 +46,8 @@ export default function Home() {
         <Divider />
         <Container maxWidth="xlg">
           <Grid container spacing={10}>
-            <Hidden smUp>
-              <Grid item xs={12} sm={6}>
+            <Hidden mdUp>
+              <Grid item xs={12} md={6}>
                 <PostQuestion
                   theme={chosenTheme}
                   reload={reload}
@@ -55,7 +55,7 @@ export default function Home() {
                 />
               </Grid>
             </Hidden>
-            <Grid item xs={12} sm={6}>
+            <Grid item xs={12} md={7}>
               {" "}
               {queries.length > 0 ? (
                 queries.sort(value => {
@@ -77,8 +77,8 @@ export default function Home() {
               )}
             </Grid>
 
-            <Hidden xsDown>
-              <Grid item xs={12} sm={6}>
+            <Hidden mdDown>
+              <Grid item xs={12} md={5}>
                 <PostQuestion
                   theme={chosenTheme}
                   reload={reload}

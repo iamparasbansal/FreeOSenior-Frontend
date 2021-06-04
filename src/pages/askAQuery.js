@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 import Layout from "../components/main/layout"
-import { Container, Typography, Divider } from "@material-ui/core"
+import { Container, Typography, Divider, Hidden } from "@material-ui/core"
 import Question from "../components/query/Question"
 import axiosFetch from "../utils/axiosFetch"
 import PostQuestion from "../components/query/PostQuestion"
@@ -46,7 +46,16 @@ export default function Home() {
         <Divider />
         <Container maxWidth="xlg">
           <Grid container spacing={10}>
-            <Grid item xs={12} sm={7}>
+            <Hidden smUp>
+              <Grid item xs={12} sm={6}>
+                <PostQuestion
+                  theme={chosenTheme}
+                  reload={reload}
+                  setReload={setReload}
+                />
+              </Grid>
+            </Hidden>
+            <Grid item xs={12} sm={6}>
               {" "}
               {queries.length > 0 ? (
                 queries.map(data => (
@@ -66,13 +75,15 @@ export default function Home() {
               )}
             </Grid>
 
-            <Grid item xs={12} sm={5}>
-              <PostQuestion
-                theme={chosenTheme}
-                reload={reload}
-                setReload={setReload}
-              />
-            </Grid>
+            <Hidden xsDown>
+              <Grid item xs={12} sm={6}>
+                <PostQuestion
+                  theme={chosenTheme}
+                  reload={reload}
+                  setReload={setReload}
+                />
+              </Grid>
+            </Hidden>
           </Grid>
         </Container>
       </ThemeProvider>

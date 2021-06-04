@@ -1,18 +1,13 @@
 import React, { useEffect, useState } from 'react'
-// import Grid from "@material-ui/core/Grid"
 import Typography from "@material-ui/core/Typography"
 import Container from "@material-ui/core/Container"
 import { makeStyles } from "@material-ui/core/styles"
 import List from '@material-ui/core/List';
-// import ListItem from '@material-ui/core/ListItem';
 import Divider from '@material-ui/core/Divider';
-// import ListItemText from '@material-ui/core/ListItemText';
-// import ListItemAvatar from '@material-ui/core/ListItemAvatar';
-// import Avatar from '@material-ui/core/Avatar';
-// import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
-// import { SortOutlined } from '@material-ui/icons'
 import Contributor from './contributor'
 import axiosFetch from "../../../utils/axiosFetch"
+import Grid from "@material-ui/core/Grid"
+import { EventCard } from './eventcard';
 
 const useStyles = makeStyles({
     root : {
@@ -25,6 +20,13 @@ const useStyles = makeStyles({
        margin: 5,
        color: "#1a1de8",
        fontWeight: 200,
+    },
+    event: {
+      textAlign:"left",
+      fontSize:40, 
+      fontFamily: "cursive",
+      margin: 20,
+      color: "violet"
     }
 });
 
@@ -42,6 +44,26 @@ export default function Frame5() {
         if (res.data) {
           console.log(res.data)
           setcontributors(res.data)
+        }
+      } catch (error) {
+        console.log(error)
+        console.log(error.response.data.error)
+      }
+    }
+    fetchdata()
+  }, [])
+
+
+  const [events, setevents] = useState([])
+
+  useEffect(() => {
+    const fetchdata = async () => {
+      try {
+        const res = await axiosFetch.get("api/event")
+
+        if (res.data) {
+          console.log(res.data)
+          setevents(res.data)
         }
       } catch (error) {
         console.log(error)
@@ -71,8 +93,24 @@ export default function Frame5() {
         }
         </List>
 
+          <Typography variant="h1" component="h2" className={styles.event}>
+            Popular Events
+          </Typography>
+          <Divider />
 
-
+          <Grid container direction="column"> 
+          {
+            events.map((event)=> 
+            <Grid item >
+             <EventCard
+             img={event.img}
+             link={event.link}
+             title={event.title} 
+             />
+            </Grid>
+            )
+          }    
+          </Grid>
         </Container>
     )
 }

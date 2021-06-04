@@ -42,11 +42,14 @@ export default function Frame4()
           <div style={{ marginBottom: 30 }}>
             <Grid container direction={"column"} spacing={0} >
               {workshops.map(workshop => (
-                <Grid item md={3}  xs={12} sm={4}>
+                <Grid item >
                   <WorkshopCard
                     title={workshop.title}
                     author={workshop.author}
                     imglink={workshop.imglink}
+                    desc={workshop.desc}
+                    date={workshop.date}
+                    time={workshop.time}
                   />
                 </Grid>
               ))}

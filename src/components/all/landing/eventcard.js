@@ -35,7 +35,6 @@ export const EventCard = (props) => {
           height="300"
           image={props.img}
           title={props.title}
-          onMouseOver
         />
       </Card>
       <Typography className={styles.text}>

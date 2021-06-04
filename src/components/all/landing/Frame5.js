@@ -39,6 +39,9 @@ export default function Frame5()
                 title={workshop.title}
                 author={workshop.author}
                 imglink={workshop.imglink}
+                desc={workshop.desc}
+                date={workshop.date}
+                
               />
             </Grid>
           ))}

@@ -42,7 +42,7 @@ export default function Tutorials() {
           <div style={{ marginBottom: 30 }}>
             <Grid container spacing={5} alignItems="center" justify="center">
               {tutorials.map(tutorial => (
-                <Grid item xs={12} sm={4}>
+                <Grid item xs={12} sm={6}  md={4}>
                   <TutorialCard
                     title={tutorial.title}
                     category={tutorial.category}

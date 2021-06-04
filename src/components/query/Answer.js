@@ -4,7 +4,6 @@ import {
   Avatar,
   Grid,
   Paper,
-  TextField,
   Button,
   ButtonGroup,
   Container,
@@ -13,11 +12,9 @@ import ThumbUpIcon from "@material-ui/icons/ThumbUp"
 import ThumbDownIcon from "@material-ui/icons/ThumbDown"
 import { useSelector } from "react-redux"
 import axiosFetch from "../../utils/axiosFetch"
-import { mergeClasses } from "@material-ui/styles"
 import { makeStyles } from "@material-ui/core/styles"
 import InputBase from "@material-ui/core/InputBase"
 import DeleteIcon from "@material-ui/icons/Delete"
-import DoneAllIcon from "@material-ui/icons/DoneAll"
 import UpdateIcon from "@material-ui/icons/Update"
 
 const useStyles = makeStyles({

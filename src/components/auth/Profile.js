@@ -26,7 +26,7 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-export default ({ open, onClose, name = "Arpit Bhalla" }) => {
+const Profile = ({ open, onClose, name = "Paras Bansal" }) => {
   const classes = useStyles()
   return (
     <>
@@ -87,3 +87,5 @@ export default ({ open, onClose, name = "Arpit Bhalla" }) => {
     </>
   )
 }
+
+export default Profile

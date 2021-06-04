@@ -88,13 +88,16 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-export default ({
-  forgetPassword,
-  setSnackbar,
-  setSnackColor,
-  setSnackbarmsg,
-  setTransition,
-}) => {
+const SignIn = (
+  {
+    forgetPassword,
+    setSnackbar,
+    setSnackColor,
+    setSnackbarmsg,
+    setTransition,
+  }
+)=>{
+  
   const classes = useStyles()
   const BASE_URL = "https://free-o-senior.herokuapp.com"
   const dispatch = useDispatch()
@@ -295,3 +298,5 @@ export default ({
     </div>
   )
 }
+
+export default SignIn

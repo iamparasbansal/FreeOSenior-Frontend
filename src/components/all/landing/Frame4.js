@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react"
-import Layout from "../../../components/main/layout"
-import Hidden from "@material-ui/core/Hidden"
+// import Layout from "../../../components/main/layout"
+// import Hidden from "@material-ui/core/Hidden"
 import { WorkshopCard } from "../landing/WorkshopCard";
 import Grid from "@material-ui/core/Grid"
 import Typography from "@material-ui/core/Typography"
-import { Divider, Paper } from "@material-ui/core"
+// import { Divider, Paper } from "@material-ui/core"
 import Container from "@material-ui/core/Container"
 import axiosFetch from "../../../utils/axiosFetch"
 

@@ -5,7 +5,6 @@ import axiosFetch from "./axiosFetch"
 
 export const useAuthState = dispatch => {
   useEffect(() => {
-    let subs = true
     axiosFetch
       .get("user/auth")
       .then(res => {
@@ -22,7 +21,7 @@ export const useAuthState = dispatch => {
         dispatch(UpdateAuthAction({}, false))
       })
     return () => {
-      subs = false;
+      console.log("Error")
     }
   }, [dispatch])
 }

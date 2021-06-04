@@ -21,4 +21,4 @@ export const darkTheme = {
   shadow: "#b8b8b8",
 }
 
-export const chosenTheme = lightTheme
+export const chosenTheme = lightTheme;

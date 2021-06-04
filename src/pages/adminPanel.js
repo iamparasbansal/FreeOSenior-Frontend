@@ -7,6 +7,7 @@ import WorkshopTable from "../components/adminPanel/WorkshopTable"
 import Layout from "../components/main/layout"
 import { chosenTheme } from "../../theme"
 import { ThemeProvider } from "styled-components"
+import ImageUploader from "../components/adminPanel/ImageUploader"
 
 const adminPanel = () => {
   return (
@@ -22,6 +23,9 @@ const adminPanel = () => {
         <EventTable />
         <br />
         <WorkshopTable />
+        <br />
+        <br />
+        <ImageUploader/>
       </ThemeProvider>
     </Layout>
   )

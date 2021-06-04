@@ -39,12 +39,15 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-export default ({
-  setSnackbar,
-  setSnackColor,
-  setSnackbarmsg,
-  setTransition,
-}) => {
+const Forget = (
+  {
+    setSnackbar,
+    setSnackColor,
+    setSnackbarmsg,
+    setTransition,
+  }
+) => {
+
   const classes = useStyles()
   const BASE_URL = "https://free-o-senior.herokuapp.com"
 
@@ -56,7 +59,6 @@ export default ({
   const [password, setPassword] = useState("")
   const [passwordError, setPasswordError] = useState(false)
   const [passwordHelperText, setPasswordHelperText] = useState("")
-   const [submitting, setSubmitting] = useState(!true)
 
   function TransitionDown(props) {
     return <Slide {...props} direction="down" />
@@ -170,7 +172,6 @@ export default ({
      if (!valid) {
        return
      }
-     setSubmitting(true)
      onSubmit2()
   }
   return (
@@ -333,3 +334,5 @@ export default ({
     </>
   )
 }
+
+export default Forget

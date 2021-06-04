@@ -158,7 +158,9 @@ const Question = ({
           </Typography>
           <InputBase
             disabled={disabled}
+            multiline={true}
             value={desc}
+            autoFocus={!disabled}
             onChange={e => setDesc(e.target.value)}
             className={classes.comment}
             fullWidth

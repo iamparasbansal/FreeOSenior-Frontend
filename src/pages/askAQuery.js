@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react"
-
 import Layout from "../components/main/layout"
 import { Container, Typography, Divider } from "@material-ui/core"
 import Question from "../components/query/Question"

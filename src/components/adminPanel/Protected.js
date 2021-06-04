@@ -32,7 +32,7 @@ export default function Protected() {
     )
     else 
     {
-       return (<Typography > you are not admin</Typography>)
+       return (<Typography variant="h1" align="center" > you are not admin</Typography>)
 
     }
 }

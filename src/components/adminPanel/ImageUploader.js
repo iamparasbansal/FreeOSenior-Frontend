@@ -34,8 +34,8 @@ const ImageUploader = () => {
   const [imgUrl, setimgUrl] = useState("")
 
   const uploadImage = async (files) => {
-
-    console.log(files);
+    
+    console.log(files[0]);
     await setData(files[0])
   }
 
@@ -78,17 +78,17 @@ const ImageUploader = () => {
           />
           <br />
           <br />
-          <Input
+          {/* <Input
             type="file"
             name="file"
             placeholder="upload image"
             onChange={uploadImage}
             className={classes.uploadIn}
-          />
+          /> */}
           <DropzoneArea
             acceptedFiles={["image/*"]}
             dropzoneText={"Drag and drop an image here or click"}
-            onSave={(files)=>{console.log(files)}}
+            onChange={(files)=>{uploadImage(files)}}
             onAlert={(message, variant) =>
               console.log(`${variant}: ${message}`)
             }

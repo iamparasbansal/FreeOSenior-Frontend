@@ -1,18 +1,13 @@
 import React, { useState } from "react"
-
-import axiosFetch from "../../utils/axiosFetch"
 import {
   Container,
   Paper,
   Button,
-  Input,
   makeStyles,
   TextField,
   Grid,
 } from "@material-ui/core"
-import { useSelector } from "react-redux"
 import PublishIcon from "@material-ui/icons/Publish"
-import Typography from "typography"
 import { DropzoneArea } from "material-ui-dropzone"
 
 const useStyles = makeStyles(theme => ({

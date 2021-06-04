@@ -14,7 +14,6 @@ import { Avatar, Button } from "@material-ui/core"
 const useStyles = makeStyles(({ breakpoints, spacing }) => ({
   title: {
     color: "grey",
-    fontWeight: 500,
     fontWeight: "bolder",
   },
   desc: {
@@ -30,7 +29,7 @@ const useStyles = makeStyles(({ breakpoints, spacing }) => ({
   },
   button: {
     height: 50,
-  },
+  }
 }))
 
 export const WorkshopCard = props => {
@@ -84,7 +83,7 @@ export const WorkshopCard = props => {
                   spacing={2}
                 >
                   <Grid item>
-                    <Avatar alt="Remy Sharp" src="../../../images/avatar.png" />
+                    <Avatar alt="Remy Sharp" src={"https://res.cloudinary.com/dvhrzmkwd/image/upload/v1622565321/Unknown39825/xogatnz3nliw7eryvd2r.png"}/>
                   </Grid>
                   <Grid item>
                     <Typography

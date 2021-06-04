@@ -2,7 +2,7 @@ import React from "react"
 import Layout from "../components/main/layout"
 import Hidden from "@material-ui/core/Hidden"
 import Container from "@material-ui/core/Container"
-import Divider from "@material-ui/core/Divider"
+
 import Typography from "@material-ui/core/Typography"
 import TextField from "@material-ui/core/TextField"
 import Paper from "@material-ui/core/Paper"

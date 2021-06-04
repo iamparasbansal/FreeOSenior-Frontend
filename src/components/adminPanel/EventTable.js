@@ -71,8 +71,8 @@ const EventTable = () => {
           <Table className={classes.table} aria-label="simple table">
             <TableHead>
               <TableRow>
-                {fields.map(field => (
-                  <TableCell className={classes.tablehead}>
+                {fields.map((field,index) => (
+                  <TableCell className={classes.tablehead} key={`${index}eventfield`}>
                     {field.toUpperCase()}
                   </TableCell>
                 ))}
@@ -88,9 +88,10 @@ const EventTable = () => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {tutorials.map(event => {
+              {tutorials.map((event,index) => {
                 return (
                   <TableData
+                   key={`${index}eventtabledata`}
                     setReload={setReload}
                     reload={reload}
                     Data={event}

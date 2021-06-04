@@ -34,13 +34,14 @@ export default function Frame5()
       <div style={{ marginBottom: 30 }}>
         <Grid container direction={"column"} spacing={0} >
           {workshops.map(workshop => (
-            <Grid item >
+            <Grid item key={`${workshop._id}grid`}>
               <WorkshopCard
                 title={workshop.title}
                 author={workshop.author}
                 imglink={workshop.imglink}
                 desc={workshop.desc}
                 date={workshop.date}
+                key={workshop._id}
                 
               />
             </Grid>

@@ -98,7 +98,7 @@ const Footer = () => {
     <Container component={Paper} className={classes.innerPaper}>
       <Grid container spacing={2}>
         <Hidden smDown>
-          <Grid item xs={0} md={4}>
+          <Grid item xs={false} md={4}>
             <Typography variant="h5">FreeOSenior</Typography>
             <Typography style={{ fontSize: 15 }}>
               © FreeOSenior.com
@@ -142,34 +142,34 @@ const Footer = () => {
           className={classes.centerMobile}
         >
           <div className={AllStyles.footerText}>Follow Us</div>
-          <Link
+          <a
             style={{ display: "inline" }}
             className={AllStyles.footerLinks}
             href="https://www.youtube.com/channel/UCLg7o65gW4HkKlwg3tGueeA"
           >
             <YouTubeIcon style={{ color: "inherit", fontSize: 35 }} />
-          </Link>
-          <Link
+          </a>
+          <a
             style={{ display: "inline" }}
             className={AllStyles.footerLinks}
             href="https://m.facebook.com/"
           >
             <FacebookIcon style={{ color: "inherit", fontSize: 35 }} />
-          </Link>
-          <Link
+          </a>
+          <a
             style={{ display: "inline" }}
             className={AllStyles.footerLinks}
             href="https://www.linkedin.com/"
           >
             <LinkedInIcon style={{ color: "inherit", fontSize: 35 }} />
-          </Link>
-          <Link
+          </a>
+          <a
             style={{ display: "inline" }}
             className={AllStyles.footerLinks}
             href="https://www.instagram.com/"
           >
             <InstagramIcon style={{ color: "inherit", fontSize: 35 }} />
-          </Link>
+          </a>
         </Grid>
         <Hidden mdUp>
           <Grid xs={12} md={1}>

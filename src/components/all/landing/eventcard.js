@@ -36,9 +36,9 @@ export const EventCard = (props) => {
         />
       </Card>
       <Typography className={styles.text}>
-            <Link href={props.link} style={{textDecoration: "none"}}>
+            <a href={props.link} style={{textDecoration: "none"}}>
               {props.title}
-            </Link>
+            </a>
             </Typography>
     </>
   )

@@ -48,6 +48,7 @@ export default function ProjectNotes() {
             card.isProject ? (
               <Grid item xs={12} sm={6}>
                 <NoteCard
+                  key={card._id}
                   title={card.title}
                   sem={card.sem}
                   dlink={card.dlink}
@@ -74,6 +75,7 @@ export default function ProjectNotes() {
             !card.isProject ? (
               <Grid item xs={12} sm={6}>
                 <NoteCard
+                  key={card._id}
                   title={card.title}
                   sem={card.sem}
                   dlink={card.dlink}

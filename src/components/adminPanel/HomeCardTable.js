@@ -71,7 +71,7 @@ const HomeCardTable = () => {
           <Table className={classes.table} aria-label="simple table">
             <TableHead>
               <TableRow>
-                {fields.map(field => (
+                {fields.map((field) => (
                   <TableCell className={classes.tablehead}>
                     {field.toUpperCase()}
                   </TableCell>
@@ -88,9 +88,10 @@ const HomeCardTable = () => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {tutorials.map(event => {
+              {tutorials.map((event,index) => {
                 return (
                   <TableData
+                    key={`${index}homecardtable`}
                     setReload={setReload}
                     reload={reload}
                     Data={event}

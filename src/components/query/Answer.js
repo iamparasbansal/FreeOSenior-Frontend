@@ -21,7 +21,6 @@ const useStyles = makeStyles({
   paper: {
     padding: "40px 20px",
     
-    
   },
   root: {
     borderRadius: 30,
@@ -178,7 +177,6 @@ const Answer = ({
             <Container maxWidth="xs">
               <InputBase
                 id="outlined-basic"
-                autoFocus={!disabled}
                 disabled={disabled}
                 
                 multiline={true}
@@ -200,7 +198,7 @@ const Answer = ({
             >
               <Button
                 onClick={() => {
-                  if (vote == true) {
+                  if (vote === true) {
                     postVote(null, data._id)
                   } else {
                     postVote("true", data._id)
@@ -219,7 +217,7 @@ const Answer = ({
 
               <Button
                 onClick={() => {
-                  if (vote == false) {
+                  if (vote === false) {
                     postVote(null, data._id)
                   } else {
                     postVote("false", data._id)

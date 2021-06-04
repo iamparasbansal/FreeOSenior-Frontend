@@ -62,6 +62,7 @@ export default function Home() {
                   return value.isResolved ? 1 : -1 
                 }).map(data => (
                   <Question
+                    key={data._id}
                     data={data}
                     reload={reload}
                     setReload={setReload}

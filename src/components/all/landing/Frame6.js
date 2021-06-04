@@ -93,6 +93,7 @@ export default function Frame6() {
                 <Contributor
                   name={contributor.user.firstname}
                   count={contributor.count}
+                  key={contributor._id}
                 />
               ))}
           </List>
@@ -106,8 +107,9 @@ export default function Frame6() {
 
           <Grid container direction="column">
             {events.map(event => (
-              <Grid item>
+              <Grid item key={`${event._id}grid`}>
                 <EventCard
+                  key={event._id}
                   img={event.img}
                   link={event.link}
                   title={event.title}

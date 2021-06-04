@@ -70,8 +70,8 @@ const ProjectNotesTable = () => {
           <Table className={classes.table} aria-label="simple table">
             <TableHead>
               <TableRow>
-                {fields.map(field => (
-                  <TableCell className={classes.tablehead}>{field.toUpperCase()}</TableCell>
+                {fields.map((field,index) => (
+                  <TableCell key={`${index}project`} className={classes.tablehead}>{field.toUpperCase()}</TableCell>
                 ))}
                
                 {state.isLoggedin && (
@@ -85,9 +85,10 @@ const ProjectNotesTable = () => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {tutorials.map(event => {
+              {tutorials.map((event,index) => {
                 return (
                   <TableData
+                    key={`${index}tableproj`}
                     setReload={setReload}
                     reload={reload}
                     Data={event}

@@ -44,6 +44,7 @@ export default function Tutorials() {
               {tutorials.map(tutorial => (
                 <Grid item xs={12} sm={6}  md={4}>
                   <TutorialCard
+                    key={tutorial._id}
                     title={tutorial.title}
                     category={tutorial.category}
                     embedlink={tutorial.link}

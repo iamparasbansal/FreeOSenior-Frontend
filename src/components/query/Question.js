@@ -160,7 +160,7 @@ const Question = ({
             disabled={disabled}
             multiline={true}
             value={desc}
-            autoFocus={!disabled}
+            
             onChange={e => setDesc(e.target.value)}
             className={classes.comment}
             fullWidth
@@ -193,6 +193,7 @@ const Question = ({
 
             }).map(d => (
               <Answer
+                key={d._id}
                 qid={data._id}
                 data={d}
                 reload={reload}

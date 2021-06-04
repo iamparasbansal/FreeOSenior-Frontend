@@ -33,7 +33,7 @@ export default function Contributor(props) {
       
         <ListItem alignItems="flex-start" className={styles.contributor}>
         <ListItemAvatar>
-          <Avatar sizes="small" alt="Remy Sharp" src="../../../images/avatar.png" />
+          <Avatar sizes="small" alt={props.name.toUpperCase()} src="../../../images/avatar.png" />
         </ListItemAvatar>
         <ListItemText>
         <Typography style={{fontSize:20}}>{props.name}</Typography>

@@ -41,7 +41,7 @@ export default function NewData({
   baseAPI = "",
   Data={}
 }) {
-  const [data, setData] = useState(Data)
+  const [data, setData] = useState(Data);
 
   const handleChange = event => {
     setData({

@@ -7,8 +7,8 @@ import CardActionArea from "@material-ui/core/CardActionArea"
 import Typography from "@material-ui/core/Typography"
 import Grid from "@material-ui/core/Grid"
 
-import { useBlogTextInfoContentStyles } from "@mui-treasury/styles/textInfoContent/blog"
-import { useOverShadowStyles } from "@mui-treasury/styles/shadow/over"
+// import { useBlogTextInfoContentStyles } from "@mui-treasury/styles/textInfoContent/blog"
+// import { useOverShadowStyles } from "@mui-treasury/styles/shadow/over"
 
 const useStyles = makeStyles(({ breakpoints, spacing }) => ({
   root: {
@@ -48,11 +48,11 @@ const useStyles = makeStyles(({ breakpoints, spacing }) => ({
 export const TutorialCard = props => {
   const classes = useStyles()
 
-  const {
-    button: buttonStyles,
-    ...contentStyles
-  } = useBlogTextInfoContentStyles()
-  const shadowStyles = useOverShadowStyles()
+  // const {
+  //   button: buttonStyles,
+  //   ...contentStyles
+  // } = useBlogTextInfoContentStyles()
+  // const shadowStyles = useOverShadowStyles()
 
   return (
     <>

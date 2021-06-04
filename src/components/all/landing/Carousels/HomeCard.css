@@ -1,6 +1,6 @@
 .card{
   background-color: transparent;
-  width: 450px;
+  width: 420px;
   min-width: 0;
   box-shadow: 5px 5px 10px;
   border-radius: 50px;
@@ -15,7 +15,7 @@
   width:100%;
   width: -moz-available;
   width: -webkit-fill-available;
-  height: 220px;
+  height: 260px;
   object-fit: cover;
   object-position: 0 90%;
   border-top-left-radius: 50px;
@@ -27,7 +27,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 220px;
+  height: 260px;
   background: rgba(0, 0, 0, 0.6);
   color: #ffffff;
   display: flex;
@@ -63,8 +63,12 @@
 }
 
 .card_body_text{
-  margin-top: 2.5vh;
-  margin-bottom: 4vh;
+  margin-bottom: 2vh;
+}
+
+.card_body_text p{
+  margin: 0;
+  font-size: 1.3em;
 }
 
 .card_footer{

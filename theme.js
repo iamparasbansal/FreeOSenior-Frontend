@@ -7,8 +7,8 @@ export const lightTheme = {
   text: "#000000",
   textLight: "#ffffff",
   textDark: "#000000",
-  shadow: "#000000"
-};
+  shadow: "#000000",
+}
 
 export const darkTheme = {
   light: false,
@@ -18,7 +18,7 @@ export const darkTheme = {
   text: "#ffffff",
   textLight: "#ffffff",
   textDark: "#000000",
-  shadow: "#b8b8b8"
-};
+  shadow: "#b8b8b8",
+}
 
-export const chosenTheme = darkTheme;
+export const chosenTheme = lightTheme

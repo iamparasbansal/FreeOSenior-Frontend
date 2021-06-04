@@ -33,8 +33,9 @@ const ImageUploader = () => {
   const [Data, setData] = useState(undefined)
   const [imgUrl, setimgUrl] = useState("")
 
-  const uploadImage = async event => {
-    const files = event.target.files
+  const uploadImage = async (files) => {
+
+    console.log(files);
     await setData(files[0])
   }
 
@@ -87,8 +88,7 @@ const ImageUploader = () => {
           <DropzoneArea
             acceptedFiles={["image/*"]}
             dropzoneText={"Drag and drop an image here or click"}
-            onChange={files => console.log("Files:", files)}
-            onChange={files => uploadImage(files)}
+            onSave={(files)=>{console.log(files)}}
             onAlert={(message, variant) =>
               console.log(`${variant}: ${message}`)
             }

@@ -30,11 +30,11 @@ export default function Frame5()
   }, [])
 
   return (
-    <Container maxWidth="fixed">
+    <Container  >
       <div style={{ marginBottom: 30 }}>
         <Grid container direction={"column"} spacing={0} >
           {workshops.map(workshop => (
-            <Grid item md={3}  xs={12} sm={4}>
+            <Grid item >
               <WorkshopCard
                 title={workshop.title}
                 author={workshop.author}
@@ -48,4 +48,3 @@ export default function Frame5()
     </Container>
   )
 }
-

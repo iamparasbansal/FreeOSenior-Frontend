@@ -15,12 +15,10 @@ const useStyles = makeStyles({
     },
     text: {
         margin: 10,
-        fontSize: 30,
+        fontSize: 25,
         fontWeight: "bolder"
     }
 });
-
-
 
 export const EventCard = (props) => {
    
@@ -45,4 +43,3 @@ export const EventCard = (props) => {
     </>
   )
 }
-

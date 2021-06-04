@@ -17,7 +17,7 @@ const useStyles = makeStyles(({ breakpoints, spacing }) => ({
   },
   card: {
     flexDirection: "row",
-    margin:10
+    margin:10,
   },
   media: {
     paddingTop : 0
@@ -32,20 +32,14 @@ const useStyles = makeStyles(({ breakpoints, spacing }) => ({
 export const WorkshopCard = (props) => {
   const classes = useStyles()
 
-  // const {
-  //   button: buttonStyles,
-  //   ...contentStyles
-  // } = useBlogTextInfoContentStyles()
-  // const shadowStyles = useOverShadowStyles()
-
   return (
     <>
-      <Card className={classes.card} style={{width:1100}}>
+      <Card className={classes.card} >
         <CardActionArea>
         <CardMedia
           component="img"
           alt="Could Not be Loaded"
-          height="550"
+          width="100%"
           image={props.imglink}
           title={props.title}
         />
@@ -78,4 +72,3 @@ export const WorkshopCard = (props) => {
     </>
   )
 }
-

@@ -1,7 +1,7 @@
 .card{
   background-color: transparent;
-  width: 300px;
-  min-width: 0;
+  width: 85%;
+  min-height: 35vw;
   box-shadow: 5px 5px 10px;
   border-radius: 50px;
 }
@@ -12,10 +12,11 @@
 
 .card_image{
   display:block;
+
   width:100%;
   width: -moz-available;
   width: -webkit-fill-available;
-  height: 230px;
+  height: auto;
   object-fit: cover;
   object-position: 0 90%;
   border-top-left-radius: 50px;
@@ -58,6 +59,8 @@
 }
 
 .card_body{
+  display: grid;
+  justify-content: space-between;
   padding: 0vh 3.5vh;
   padding-bottom: 2vh;
 }
@@ -73,6 +76,7 @@
 
 .card_footer{
   display:flex;
+  align-items: center;
   justify-content: center;
 }
 
@@ -109,4 +113,3 @@
   display: flex;
   padding: 0;
 }
-

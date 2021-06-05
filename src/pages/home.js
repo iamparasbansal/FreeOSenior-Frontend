@@ -12,6 +12,7 @@ import Frame6 from "../components/all/landing/Frame6"
 
 import { chosenTheme } from "../../theme"
 import { ThemeProvider } from "styled-components"
+import KommunicateChat from "../chat"
 
 export default function Home() {
   return (
@@ -30,6 +31,7 @@ export default function Home() {
           </Grid>
         </Grid>
       </ThemeProvider>
+      <KommunicateChat/>
     </Layout>
   )
 }

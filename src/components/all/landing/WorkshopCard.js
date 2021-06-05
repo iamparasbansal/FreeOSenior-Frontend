@@ -17,7 +17,6 @@ const useStyles = makeStyles(({ breakpoints, spacing }) => ({
     fontWeight: "bolder",
   },
   desc: {
-    
     fontSize: 20,
   },
   card: {
@@ -25,11 +24,25 @@ const useStyles = makeStyles(({ breakpoints, spacing }) => ({
     margin: 10,
   },
   media: {
-    paddingTop: 0,
+    overflow: "hidden",
+    zIndex: "1",
+    "&:hover": {
+      transform: "scale(1.3,1.3)",
+      transition: "1s transform",
+    },
+  },
+  mediawrapper: {
+    width: "100%",
+    height: "auto",
+    zIndex: "10",
+    overflow: "hidden",
+    "&:hover": {
+      transform: "none",
+    },
   },
   button: {
     height: 50,
-  }
+  },
 }))
 
 export const WorkshopCard = props => {
@@ -39,13 +52,17 @@ export const WorkshopCard = props => {
     <>
       <Card className={classes.card}>
         <CardActionArea>
-          <CardMedia
-            component="img"
-            alt="Could Not be Loaded"
-            width="100%"
-            image={props.imglink}
-            title={props.title}
-          />
+          <div className={classes.mediawrapper
+          }>
+            <CardMedia
+              component="img"
+              alt="Could Not be Loaded"
+              width="100%"
+              image={props.imglink}
+              title={props.title}
+              className={classes.media}
+            />
+          </div>
           <CardContent style={{ color: "violet" }}>
             <Grid
               container
@@ -83,7 +100,12 @@ export const WorkshopCard = props => {
                   spacing={2}
                 >
                   <Grid item>
-                    <Avatar alt="Remy Sharp" src={"https://res.cloudinary.com/dvhrzmkwd/image/upload/v1622565321/Unknown39825/xogatnz3nliw7eryvd2r.png"}/>
+                    <Avatar
+                      alt="Remy Sharp"
+                      src={
+                        "https://res.cloudinary.com/dvhrzmkwd/image/upload/v1622565321/Unknown39825/xogatnz3nliw7eryvd2r.png"
+                      }
+                    />
                   </Grid>
                   <Grid item>
                     <Typography

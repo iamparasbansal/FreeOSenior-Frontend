@@ -7,6 +7,7 @@ import {
   Button,
   ButtonGroup,
   Container,
+  Chip
 } from "@material-ui/core"
 import ThumbUpIcon from "@material-ui/icons/ThumbUp"
 import ThumbDownIcon from "@material-ui/icons/ThumbDown"
@@ -19,14 +20,17 @@ import UpdateIcon from "@material-ui/icons/Update"
 
 const useStyles = makeStyles({
   paper: {
-    padding: "40px 20px",
+    padding: "20px 20px",
   },
   root: {
     borderRadius: 30,
   },
   title: {
-    fontFamily: "serif",
-    fontSize: "15px",
+    fontFamily: "cursive",
+    fontSize: "18px",
+    fontWeight: 400,
+    color: "#4287f5",
+    marginTop: 5
   },
   textfield: {
     margin: "20px auto",
@@ -66,8 +70,9 @@ const useStyles = makeStyles({
   },
   comment: {
     height: "auto",
-    fontSize: "1.5rem",
+    fontSize: "1.2rem",
     fontWeight: 500,
+    marginTop: -10
   },
 })
 
@@ -179,13 +184,19 @@ console.log(error?.response?.data?.error)
       <Paper elevation="0" className={classes.paper}>
         <Grid container wrap="nowrap" spacing={2}>
           <Grid item>
-            <Avatar>{data.author.firstname.slice(0, 1)}</Avatar>
+            <Avatar>{data.author.firstname.slice(0, 1).toUpperCase()}</Avatar>
           </Grid>
 
           <Grid justifyContent="left" item xs zeroMinWidth>
-            <h4 className={classes.title}>
+            <h3 className={classes.title}>
               {data?.author?.firstname} {data?.author?.lastname}
-            </h4>
+              {state.isLoggedin && state.userId === data.author._id && 
+                <Chip
+               style= {{marginLeft: 5}}
+              label={"Author"}
+            />
+              }
+            </h3>
             <Container maxWidth="xs">
               <InputBase
                 id="outlined-basic"

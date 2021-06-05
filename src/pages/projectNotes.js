@@ -61,7 +61,7 @@ export default function ProjectNotes() {
           <br />
           <Grid container spacing={5}>
             <LoadingIndicator />
-            {cards.map(card =>
+            {cards.sort(function(a,b){return a.sem-b.sem}).map(card =>
               card.isProject ? (
                 <Grid item xs={12} sm={6}>
                   <NoteCard
@@ -89,7 +89,7 @@ export default function ProjectNotes() {
 
           <Grid container spacing={5}>
             <LoadingIndicator />
-            {cards.map(card =>
+            {cards.sort(function(a,b){return a.sem-b.sem}).map(card =>
               !card.isProject ? (
                 <Grid item xs={12} sm={6}>
                   <NoteCard

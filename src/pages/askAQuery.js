@@ -67,7 +67,7 @@ export default function Home() {
       <ThemeProvider theme={chosenTheme}>
         <center>
           <Typography className={classes.title} align="center" variant="h1">
-            Ask A Query
+            Query Section
           </Typography>
         </center>
         <Divider />

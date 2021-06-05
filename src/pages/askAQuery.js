@@ -8,6 +8,8 @@ import Grid from "@material-ui/core/Grid"
 import { ThemeProvider } from "styled-components"
 import { chosenTheme } from "../../theme"
 import { makeStyles } from "@material-ui/core/styles"
+import SearchQuestion from "../components/query/SearchQuestion"
+import FilterResults from "react-filter-search"
 const useStyles = makeStyles({
   title: {
     fontFamily: "arial",
@@ -19,6 +21,7 @@ export default function Home() {
   const classes = useStyles()
   const [queries, setQueries] = useState([])
   const [reload, setReload] = useState(true)
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     const fetchdata = async () => {
@@ -48,6 +51,13 @@ export default function Home() {
           <Grid container spacing={10}>
             <Hidden mdUp>
               <Grid item xs={12} md={7}>
+                <SearchQuestion
+                  search={search}
+                  setSearch={setSearch}
+                  theme={chosenTheme}
+                  reload={reload}
+                  setReload={setReload}
+                />
                 <PostQuestion
                   theme={chosenTheme}
                   reload={reload}
@@ -62,6 +72,13 @@ export default function Home() {
                   .sort(value => {
                     return value.isResolved ? 1 : -1
                   })
+                  .filter(data => {
+                    return (
+                      data.desc.toLowerCase().includes(search.toLowerCase()) ||
+                      data.title.toLowerCase().includes(search.toLowerCase()) ||
+                      data.tag.toLowerCase().includes(search.toLowerCase())
+                    )
+                  })
                   .map(data => (
                     <Question
                       key={data._id}
@@ -72,16 +89,19 @@ export default function Home() {
                     />
                   ))
               ) : (
-                <Question
-                  theme={chosenTheme}
-                  reload={reload}
-                  setReload={setReload}
-                />
+                <></>
               )}
             </Grid>
 
             <Hidden mdDown>
               <Grid item xs={12} md={5}>
+                <SearchQuestion
+                  search={search}
+                  setSearch={setSearch}
+                  theme={chosenTheme}
+                  reload={reload}
+                  setReload={setReload}
+                />
                 <PostQuestion
                   theme={chosenTheme}
                   reload={reload}

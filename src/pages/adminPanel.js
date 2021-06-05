@@ -4,7 +4,7 @@ import Protected from "../components/adminPanel/Protected"
 import { chosenTheme } from "../../theme"
 import { ThemeProvider } from "styled-components"
 import { useSelector } from "react-redux"
-import { navigate } from "gatsby-link"
+// import { navigate } from "gatsby-link"
 import KommunicateChat from "../chat"
 const AdminPanel = () => {
   const state = useSelector(({ auth }) => auth)
@@ -21,7 +21,7 @@ const AdminPanel = () => {
     </>
   )
   
-  navigate("/404");
+  // navigate("/404");
   return null;
 }
 

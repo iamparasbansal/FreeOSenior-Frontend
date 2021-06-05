@@ -1,9 +1,9 @@
 import { useEffect } from "react"
-import { navigate } from 'gatsby'
+// import { navigate } from 'gatsby'
 
 export default function Home() {
   useEffect(() => {
-    navigate('/home');
+    // navigate('/home');
   }, []);
 
   return null

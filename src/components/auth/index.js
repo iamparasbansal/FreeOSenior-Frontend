@@ -2,7 +2,7 @@ import React from "react"
 import { Button, Grid, CircularProgress, Avatar } from "@material-ui/core"
 import Hidden from "@material-ui/core/Hidden"
 import AuthDialog from "./AuthDialog"
-import { navigate } from "gatsby"
+// import { navigate } from "gatsby"
 import { useAuthActions } from "../../utils/auth"
 import { useSelector, useDispatch } from "react-redux"
 import Menu from "@material-ui/core/Menu"
@@ -30,8 +30,8 @@ export default function AuthModal() {
   const LoggingOut = () => {
     Logout()
     if (typeof window !== "undefined") {
-      
-      navigate("/")
+      console.log("Redirecting...");
+      // navigate("/")
     }
   }
 

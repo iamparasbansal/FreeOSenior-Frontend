@@ -190,12 +190,6 @@ console.log(error?.response?.data?.error)
           <Grid justifyContent="left" item xs zeroMinWidth>
             <h3 className={classes.title}>
               {data?.author?.firstname} {data?.author?.lastname}
-              {state.isLoggedin && state.userId === data.author._id && 
-                <Chip
-               style= {{marginLeft: 5}}
-              label={"Author"}
-            />
-              }
             </h3>
             <Container maxWidth="xs">
               <InputBase

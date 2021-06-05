@@ -8,6 +8,8 @@ import YouTubeIcon from "@material-ui/icons/YouTube"
 import * as AllStyles from "../../styles/all.module.scss"
 import { Link } from "gatsby"
 import Container from "@material-ui/core/Container"
+import '../../styles/global.css'
+
 
 const links1 = [
   {
@@ -38,7 +40,7 @@ const links2 = [
     link: "/",
   },
   {
-    title: "Project/Notes",
+    title: "Notes",
     link: "/projectNotes",
   },
   // {
@@ -48,12 +50,7 @@ const links2 = [
   {
     title: "Ask A Query",
     link: "/askAQuery",
-  },
-
-  {
-    title: "Join Us",
-    link: "/joinUs",
-  },
+  }
 ]
 
 const links3 = [
@@ -79,6 +76,7 @@ const useStyles = makeStyles(theme => ({
     margin: "0",
     maxWidth:"inherit",
     boxShadow: "none",
+    fontFamily: "'Arvo', serif",
     [theme.breakpoints.down("sm")]: {
       padding: theme.spacing(2),
       boxShadow: "none",
@@ -99,28 +97,29 @@ const Footer = () => {
       <Grid container spacing={2}>
         <Hidden smDown>
           <Grid item xs={false} md={4}>
-            <Typography variant="h5">FreeOSenior</Typography>
-            <Typography style={{ fontSize: 15 }}>
-              © FreeOSenior.com
+            <Typography variant="h5" style={{fontFamily: "'Arvo', serif" }}>FreeOSenior</Typography>
+            <Typography style={{ fontSize: 15, fontFamily: "'Arvo', serif"}}>
+              <a href="https://freeosenior.netlify.app/" style={{color: "white",textDecoration: "none"}}>© freeosenior.netify.app</a>
             </Typography>
-            <Typography style={{ fontSize: 15 }}>
+            <Typography style={{ fontSize: 15, fontFamily: "'Arvo', serif" }}>
               All rights reserved
             </Typography>
           </Grid>
         </Hidden>
 
+       
         <Grid item xs={4} md={2}>
-          <div className={AllStyles.footerText}>Product</div>
-          {links1.map((i, index) => (
-            <Link className={AllStyles.footerLinks} key={index} to={i.link}>
+          <div className={AllStyles.footerText}>Explore</div>
+          {links2.map(i => (
+            <Link className={AllStyles.footerLinks} to={i.link}>
               {i.title}
             </Link>
           ))}
         </Grid>
         <Grid item xs={4} md={2}>
-          <div className={AllStyles.footerText}>Company</div>
-          {links2.map(i => (
-            <Link className={AllStyles.footerLinks} to={i.link}>
+          <div className={AllStyles.footerText}>Services</div>
+          {links1.map((i, index) => (
+            <Link className={AllStyles.footerLinks} key={index} to={i.link}>
               {i.title}
             </Link>
           ))}
@@ -177,7 +176,7 @@ const Footer = () => {
               style={{ fontSize: 15 }}
               className={classes.centerMobile}
             >
-              © 2020 FreeOSenior.com
+              © 2021 freeosenior.netify.app
             </Typography>
             <Typography
               style={{ fontSize: 15 }}

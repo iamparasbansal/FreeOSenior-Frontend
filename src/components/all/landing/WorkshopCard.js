@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { makeStyles } from "@material-ui/core/styles"
 import Card from "@material-ui/core/Card"
 import CardMedia from "@material-ui/core/CardMedia"
@@ -6,7 +6,7 @@ import CardContent from "@material-ui/core/CardContent"
 import CardActionArea from "@material-ui/core/CardActionArea"
 import Typography from "@material-ui/core/Typography"
 import Grid from "@material-ui/core/Grid"
-import { Avatar, Button } from "@material-ui/core"
+import { Avatar, Button, Collapse } from "@material-ui/core"
 
 // import { useBlogTextInfoContentStyles } from "@mui-treasury/styles/textInfoContent/blog"
 // import { useOverShadowStyles } from "@mui-treasury/styles/shadow/over"
@@ -47,13 +47,13 @@ const useStyles = makeStyles(({ breakpoints, spacing }) => ({
 
 export const WorkshopCard = props => {
   const classes = useStyles()
+  const [expanded, setExpanded] = useState(false);
 
   return (
     <>
       <Card className={classes.card}>
         <CardActionArea>
-          <div className={classes.mediawrapper
-          }>
+          <div className={classes.mediawrapper}>
             <CardMedia
               component="img"
               alt="Could Not be Loaded"
@@ -77,35 +77,47 @@ export const WorkshopCard = props => {
                 </Typography>
               </Grid>
 
-              <Grid item>
-                <Typography variant="h3" className={classes.desc}>
-                  {props.desc}
-                </Typography>
-              </Grid>
+              <Collapse
+               in={expanded} timeout="auto" unmountOnExit>
+                <Grid item>
+                  <Typography variant="h3" className={classes.desc}>
+                    {props.desc}
+                  </Typography>
+                </Grid>
 
-              <Grid
-                item
-                container
-                direction="row"
-                spacing={2}
-                justify="space-evenly"
-                alignItems="center"
-              >
                 <Grid
                   item
                   container
                   direction="row"
-                  alignItems="center"
-                  justify="center"
                   spacing={2}
+                  justify="space-evenly"
+                  alignItems="center"
                 >
-                  <Grid item>
-                    <Avatar
-                      alt="Remy Sharp"
-                      src={
-                        "https://res.cloudinary.com/dvhrzmkwd/image/upload/v1622565321/Unknown39825/xogatnz3nliw7eryvd2r.png"
-                      }
-                    />
+                  <Grid
+                    item
+                    container
+                    direction="row"
+                    alignItems="center"
+                    justify="center"
+                    spacing={2}
+                  >
+                    <Grid item>
+                      <Avatar
+                        alt="Remy Sharp"
+                        src={
+                          "https://res.cloudinary.com/dvhrzmkwd/image/upload/v1622565321/Unknown39825/xogatnz3nliw7eryvd2r.png"
+                        }
+                      />
+                    </Grid>
+                    <Grid item>
+                      <Typography
+                        variant="h3"
+                        component="h3"
+                        className={classes.desc}
+                      >
+                        {props.author}
+                      </Typography>
+                    </Grid>
                   </Grid>
                   <Grid item>
                     <Typography
@@ -113,34 +125,28 @@ export const WorkshopCard = props => {
                       component="h3"
                       className={classes.desc}
                     >
-                      {props.author}
+                      {new Date(props.date).getUTCDate() +
+                        "-" +
+                        (new Date(props.date).getUTCMonth() + 1) +
+                        "-" +
+                        new Date(props.date).getUTCFullYear() +
+                        " at " +
+                        new Date(props.date)
+                          .toLocaleString(undefined, {
+                            timeZone: "Asia/Kolkata",
+                          })
+                          .slice(11)}
                     </Typography>
                   </Grid>
                 </Grid>
-                <Grid item>
-                  <Typography
-                    variant="h3"
-                    component="h3"
-                    className={classes.desc}
-                  >
-                    {new Date(props.date).getUTCDate() +
-                      "-" +
-                      (new Date(props.date).getUTCMonth() + 1) +
-                      "-" +
-                      new Date(props.date).getUTCFullYear() +
-                      " at " +
-                      new Date(props.date)
-                        .toLocaleString(undefined, { timeZone: "Asia/Kolkata" })
-                        .slice(11)}
-                  </Typography>
-                </Grid>
-              </Grid>
+              </Collapse>
               <Grid item>
                 <Button
                   variant="contained"
                   color="primary"
                   className={classes.button}
                   style={{ marginBottom: 10 }}
+                  onClick={()=>{setExpanded(!expanded)}}
                 >
                   Show Related
                 </Button>

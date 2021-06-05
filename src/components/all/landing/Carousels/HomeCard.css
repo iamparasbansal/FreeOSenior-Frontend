@@ -1,7 +1,7 @@
 .card{
   background-color: transparent;
   width: 90%;
-  min-height: 40vw;
+  min-height: 70vh;
   box-shadow: 5px 5px 10px;
   border-radius: 50px;
 }

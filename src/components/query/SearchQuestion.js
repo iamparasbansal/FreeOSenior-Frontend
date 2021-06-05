@@ -62,12 +62,12 @@ const SearchQuestion = ({ setSearch = f => f, search="" }) => {
             </Typography>
 
             <TextField
-              label="TITLE"
+              label="Keyword"
               id="outlined-size-small"
               variant="outlined"
               fullWidth
-              placeholder="Title"
-              name="title"
+              placeholder="Keyword"
+              name="Keyword"
               value={search}
               onChange={(event)=>setSearch(event.target.value)}
               className={classes.textfield}

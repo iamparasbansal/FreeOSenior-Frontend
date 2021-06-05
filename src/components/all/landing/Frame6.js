@@ -12,12 +12,13 @@ import { EventCard } from "./eventcard"
 const useStyles = makeStyles({
   root: {
     margin: '0 auto',
+    width:'100%'
   },
   contributor: {
     borderStyle: "hidden",
     borderRadius: 30,
     backgroundColor: "#91ede5",
-    margin: 5,
+
     color: "#1a1de8",
     fontWeight: 200,
   },
@@ -76,17 +77,17 @@ console.log(error?.response?.data?.error)
   return (
     <Container className={styles.root}>
       <Grid container direction="row">
-        <Grid item>
+        <Grid container direction="column" item style={{width:'90%', margin:'0 auto'}}>
           <Typography
             variant="h1"
             component="h2"
-            style={{ textAlign: "center", fontSize: 30, margin: 20 }}
+            style={{ textAlign: "center", fontSize: 30 }}
           >
             Top Contributors
           </Typography>
           <Divider />
           <br />
-          <List>
+          <List >
             {contributors
               .sort(function (a, b) {
                 return b.count - a.count

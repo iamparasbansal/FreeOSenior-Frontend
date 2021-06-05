@@ -10,18 +10,18 @@ const SamplePrevArrow = (props) => {
         display: "block",
         right: "100px",
         zIndex: "15",
-        height: "80px",
-        width: "80px",
+        height: "50px",
+        width: "50px",
         opacity: "1",
         color: "#C2C6C5",
         position: "absolute",
         top: "50%",
-        left: "-4.5rem",
+        left: "-3rem",
         margin: "0.5rem",
       }}
       onClick={onClick}
     />
-  );
+  )
 };
 const SampleNextArrow = (props) => {
   const { className, onClick } = props;
@@ -32,13 +32,13 @@ const SampleNextArrow = (props) => {
         display: "block",
         
         zIndex: "15",
-        height: "80px",
-        width: "80px",
+        height: "50px",
+        width: "50px",
         opacity: "1",
         color: "#C2C6C5",
         position: "absolute",
         top: "50%",
-        right: "-4.5rem",
+        right: "-3rem",
         margin: "0.5rem",
       }}
       onClick={onClick}

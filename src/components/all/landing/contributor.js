@@ -12,12 +12,18 @@ const useStyles = makeStyles({
    
     contributor: {
       
-       borderStyle: "hidden",
-       height:'auto',
+       padding:'5px auto',
        borderRadius: 30,
+       width:'100%',
        backgroundColor: "#91ede5",
        margin: 5,
        color: "#1a1de8",
+       
+    },
+    avatar: {
+      
+       height:'15px',
+       width:'15px'
        
     }
 });
@@ -27,20 +33,16 @@ export default function Contributor(props) {
     const styles = useStyles();
 
     return (
-        <Container >
-      
+        
         <ListItem alignItems="flex-start" className={styles.contributor}>
-        <ListItemAvatar>
-          <Avatar sizes="small" alt={props.name.toUpperCase()} src="../../../images/avatar.png" />
-        </ListItemAvatar>
+       
         <ListItemText>
-        <Typography style={{fontSize:20}}>{props.name}</Typography>
+        <Typography style={{fontSize:16}}>{props.name}</Typography>
         </ListItemText>
         <ListItemSecondaryAction>
-        <Typography style={{fontSize:20}}>({props.count})</Typography>
+        <Typography style={{fontSize:16}}>({props.count})</Typography>
         </ListItemSecondaryAction>
       </ListItem>
 
-        </Container>
     )
 }

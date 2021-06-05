@@ -10,7 +10,7 @@ import axiosFetch from "../../../../utils/axiosFetch"
 const SliderWrap = styled.div`
     .slick-slider {
         .slick-list {
-            padding-bottom: 20px;
+            padding-bottom: 30px;
         }
         .slick-dots li button::before{
           font-size: 12px;
@@ -34,15 +34,14 @@ const CarouselCards = (props) => {
         }
       } catch (error) {
         console.log(error)
-        console.log(error)
-console.log(error?.response?.data?.error)
+        console.log(error?.response?.data?.error)
       }
     }
     fetchdata()
   }, [])
 
   return (
-      <div style={{  width: "90vw", position: "relative"}}>
+      <div style={{  width: "80vw", position: "relative"}}>
        <SliderWrap>
         <Slider {...settings}>
             {data.map((dataValue) => (

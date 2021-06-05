@@ -86,16 +86,16 @@ export const WorkshopCard = props => {
                 </Grid>
 
                 <Grid
-                  item
                   container
+                  item
                   direction="row"
                   spacing={2}
                   justify="space-evenly"
                   alignItems="center"
                 >
                   <Grid
-                    item
                     container
+                    item
                     direction="row"
                     alignItems="center"
                     justify="center"

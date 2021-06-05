@@ -21,7 +21,10 @@ const AdminPanel = () => {
     </>
   )
   
-  // window.location = "/404"
+  if (typeof window !== "undefined") {
+    console.log("Redirecting...")
+    window.location = "/404"
+  }
   return (
     <></>
   )

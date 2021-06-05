@@ -21,7 +21,9 @@ export default function Savetoken(props) {
     }, []);
 
   if (created) {
-    return (window.location = "/")
+    if (typeof window !== "undefined") {
+      window.location = "/"
+    }
   }
 
   return <div></div>

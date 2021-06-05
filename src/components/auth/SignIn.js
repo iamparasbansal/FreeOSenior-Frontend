@@ -130,7 +130,10 @@ const SignIn = (
           const data ={userId:res.data.userId,token:res.data.token,admin:res.data.admin};
           localStorage.setItem("Authorization", JSON.stringify(data));
           dispatch(UpdateAuthAction(data, true));
-          window.location.reload();
+          if (typeof window !== "undefined") {
+            console.log("Redirecting...")
+            window.location.reload();
+          }
         })
       } catch (err) {
         if (!(err.response === undefined)) {

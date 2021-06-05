@@ -134,6 +134,7 @@ const Footer = () => {
         </Grid>
 
         <Grid
+        container
           item
           xs={12}
           md={2}

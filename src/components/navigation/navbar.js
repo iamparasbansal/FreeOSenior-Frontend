@@ -196,7 +196,7 @@ const Navbar = () => {
                         activeClassName={classes.activeNavItem}
                         to="/adminPanel"
                       >
-                        <Typography variant={"subtitle"}>admin Panel</Typography>
+                        <Typography variant={"subtitle"}>Admin Panel</Typography>
                       </Link>
                     )}
                   </Hidden>

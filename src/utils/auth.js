@@ -35,9 +35,7 @@ export const useAuthActions = dispatch => {
         if (res.data) {
           localStorage.removeItem("Authorization")
           dispatch(UpdateAuthAction({}, false))
-          if (typeof window !== "undefined") {
-            window.location.reload()
-          }
+          
         }
       })
       .catch(err => console.log(err.response))

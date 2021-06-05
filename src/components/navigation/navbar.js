@@ -17,6 +17,7 @@ import AuthModel from "../auth"
 import { Grid } from '@material-ui/core'
 import { chosenTheme } from "../../../theme";
 import { useSelector } from "react-redux"
+import ThemeToggle from "../../utils/ThemeToggle"
 
 const useStyles = makeStyles(theme => ({
   innerNav: props =>({
@@ -204,6 +205,12 @@ const Navbar = () => {
                 <Grid item>
                   <Hidden smDown>
                     <AuthModel />
+                  </Hidden>
+                </Grid>
+
+                <Grid item>
+                  <Hidden smDown>
+                    <ThemeToggle />
                   </Hidden>
                 </Grid>
               </Grid>

@@ -3,7 +3,7 @@ import React from 'react'
 import { useSelector } from "react-redux"
 import EventTable from './EventTable';
 import HomeCardTable from './HomeCardTable';
-import ImageUploader from './imageUploader';
+import ImageUploader from './ImageUploader';
 import ProjectNotesTable from './ProjectNotesTable';
 import TurtorialTable from './TutorialTable';
 import WorkshopTable from './WorkshopTable';

@@ -1,16 +1,15 @@
-import React, { useState } from "react"
+import React from "react"
 import {
   Grid,
   Paper,
   TextField,
-  Button,
   Container,
   Typography,
 } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles"
-import axiosFetch from "../../utils/axiosFetch"
-import SendIcon from "@material-ui/icons/Send"
-import { useSelector } from "react-redux"
+// import axiosFetch from "../../utils/axiosFetch"
+// import SendIcon from "@material-ui/icons/Send"
+// import { useSelector } from "react-redux"
 const useStyles = makeStyles({
   root: {
     borderRadius: 30,
@@ -33,20 +32,20 @@ const useStyles = makeStyles({
 })
 const SearchQuestion = ({ setSearch = f => f, search="" }) => {
 
-  const state = useSelector(({ auth }) => auth)
+  // const state = useSelector(({ auth }) => auth)
   const classes = useStyles()
-  const [data, setData] = useState({
-    desc: "",
-    title: "",
-    tag: "",
-  })
+  // const [data, setData] = useState({
+  //   desc: "",
+  //   title: "",
+  //   tag: "",
+  // })
 
-  const handleChange = event => {
-    setData({
-      ...data,
-      [event.target.name]: event.target.value,
-    })
-  }
+  // const handleChange = event => {
+  //   setData({
+  //     ...data,
+  //     [event.target.name]: event.target.value,
+  //   })
+  // }
 
   return (
     <Container>

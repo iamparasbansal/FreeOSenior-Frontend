@@ -5,6 +5,7 @@ import Box from "@material-ui/core/Box"
 import SwipeableDrawer from "@material-ui/core/SwipeableDrawer"
 import Typography from "@material-ui/core/Typography"
 import Logo from "./../../images/gatsby-icon.png"
+import ThemeToggle from "../../utils/ThemeToggle"
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -61,11 +62,11 @@ const Drawer = ({ isOpen, handler, AuthModel }) => {
           display={"flex"}
           alignItems={"center"}
           p={2}
-          css={{
-            flexShrink: 0,
-            flexBasis: "calc(100% / 10)",
-          }}
-          className={classes.logoBox}
+          // css={{
+          //   flexShrink: 0,
+          //   flexBasis: "calc(100% / 10)",
+          // }}
+          // className={classes.logoBox}
         >
           <img
             src={Logo}
@@ -82,6 +83,9 @@ const Drawer = ({ isOpen, handler, AuthModel }) => {
           </Typography>
         </Box>
       </Link>
+      <div className={classes.navItem}>
+        <ThemeToggle/>
+      </div>
       <Link
         className={classes.navItem}
         activeClassName={classes.activeNavItem}

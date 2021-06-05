@@ -6,6 +6,7 @@ import CardContent from "@material-ui/core/CardContent"
 import CardActionArea from "@material-ui/core/CardActionArea"
 import Typography from "@material-ui/core/Typography"
 import Grid from "@material-ui/core/Grid"
+const youtubeEmbed = require("youtube-embed")
 
 // import { useBlogTextInfoContentStyles } from "@mui-treasury/styles/textInfoContent/blog"
 // import { useOverShadowStyles } from "@mui-treasury/styles/shadow/over"
@@ -48,6 +49,8 @@ const useStyles = makeStyles(({ breakpoints, spacing }) => ({
 export const TutorialCard = props => {
   const classes = useStyles()
 
+  const embedlink = youtubeEmbed(props.embedlink);
+  
   // const {
   //   button: buttonStyles,
   //   ...contentStyles
@@ -62,11 +65,11 @@ export const TutorialCard = props => {
             component="iframe"
             title={props.title}
             height={250}
-            image={props.embedlink}
+            image={embedlink}
             controls
           >
             <iframe
-              src={props.embedlink}
+              src={embedlink}
               title={props.title}
               allowfullscreen
             ></iframe>

@@ -35,7 +35,7 @@ const links1 = [
 const links2 = [
   {
     title: "Home",
-    link: "/home",
+    link: "/",
   },
   {
     title: "Project/Notes",

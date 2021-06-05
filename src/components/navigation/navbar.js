@@ -114,7 +114,7 @@ const Navbar = () => {
                     </IconButton>
                   </Hidden>
                   <Link
-                    to="/home"
+                    to="/"
                     style={{
                       all: "unset",
                       cursor: "pointer",
@@ -154,7 +154,7 @@ const Navbar = () => {
                     <Link
                       className={classes.navItem}
                       activeClassName={classes.activeNavItem}
-                      to="/home"
+                      to="/"
                     >
                       <Typography variant={"subtitle"}>Home</Typography>
                     </Link>

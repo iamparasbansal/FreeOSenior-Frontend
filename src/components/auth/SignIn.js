@@ -162,7 +162,7 @@ const SignIn = (
           if (password === "") {
             setPasswordError(true)
             setPasswordHelperText("This field is required")
-            return null
+            return undefined
           } else if ((password.length < 8) | (password.length > 15)) {
             setPasswordError(true)
             setPasswordHelperText("Invalid Password")
@@ -179,9 +179,9 @@ const SignIn = (
           break
         default:
       }
-      return null
+      return undefined
     })
-    return null
+    return undefined
   }
   return (
     <div style={{ padding: 5 }}>

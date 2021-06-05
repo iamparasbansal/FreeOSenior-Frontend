@@ -126,7 +126,7 @@ export default function AuthModal({ index, setIndex, open, setOpen }) {
               case 2:
                 return <Forget {...snackOptions} />
               default:
-                return null
+                return undefined
             }
           })()}
         </DialogContent>

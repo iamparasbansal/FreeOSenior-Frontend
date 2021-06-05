@@ -57,7 +57,7 @@ const Drawer = ({ isOpen, handler, AuthModel }) => {
       style={{ overflowX: 'hidden' }}
     >
       <Link
-        to="/home"
+        to="/"
         style={{
           all: "unset",
           cursor: "pointer",
@@ -95,7 +95,7 @@ const Drawer = ({ isOpen, handler, AuthModel }) => {
       <Link
         className={classes.navItem}
         activeClassName={classes.activeNavItem}
-        to="/home"
+        to="/"
       >
         <Typography variant="subtitle2">Home</Typography>
       </Link>

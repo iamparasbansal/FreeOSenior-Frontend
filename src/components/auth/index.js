@@ -31,7 +31,7 @@ export default function AuthModal() {
     Logout()
     if (typeof window !== "undefined") {
       console.log("Redirecting...");
-      // navigate("/")
+      // window.location = "/"
     }
   }
 

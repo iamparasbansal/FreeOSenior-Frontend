@@ -121,7 +121,7 @@ console.log(error?.response?.data?.error)
               id="outlined-size-small"
               variant="outlined"
               fullWidth
-              placeholder="Tag"
+              placeholder="Tag seperated by commas"
               name="tag"
               value={data.tag}
               onChange={handleChange}

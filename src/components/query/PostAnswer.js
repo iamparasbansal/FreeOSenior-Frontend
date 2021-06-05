@@ -43,7 +43,7 @@ const PostAnswer = ({ qid, setReload = f => f, reload }) => {
 
   return (
     <>
-      <Divider variant="inset" />
+      <Divider />
 
       <Grid container wrap="nowrap" spacing={2} style={{ margin: "20px auto" }}>
         <Grid justifyContent="left" item xs zeroMinWidth>

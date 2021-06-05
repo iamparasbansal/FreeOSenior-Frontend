@@ -20,7 +20,6 @@ import UpdateIcon from "@material-ui/icons/Update"
 const useStyles = makeStyles({
   paper: {
     padding: "40px 20px",
-    
   },
   root: {
     borderRadius: 30,
@@ -38,37 +37,36 @@ const useStyles = makeStyles({
     boxShadow: "0 3px 5px 2px rgba(181, 99, 247, .3)",
     color: "white",
     borderRadius: 3,
-    height: 48,
-    padding: "0 30px",
+    height: "2rem",
+    padding: "0 2rem",
   },
   success_faded: {
     background: "linear-gradient(45deg, #99f0b8 100%, #6df765  90%)",
     boxShadow: "0 3px 5px 2px rgba(181, 99, 247, .3)",
     color: "white",
     borderRadius: 3,
-    height: 48,
-    padding: "0 30px",
+    height: "2rem",
+    padding: "0 2rem",
   },
   danger: {
     background: "linear-gradient(45deg, #f57a7a 0%, #ed1f1f  90%)",
     boxShadow: "0 3px 5px 2px rgba(181, 99, 247, .3)",
     color: "white",
     borderRadius: 3,
-    height: 48,
-    padding: "0 30px",
+    height: "2rem",
+    padding: "0 2rem",
   },
   danger_faded: {
     background: "linear-gradient(45deg, #f57a7a 100%, #ed1f1f  90%)",
     boxShadow: "0 3px 5px 2px rgba(181, 99, 247, .3)",
     color: "white",
     borderRadius: 3,
-    height: 48,
-    padding: "0 30px",
+    height: "2rem",
+    padding: "0 2rem",
   },
   comment: {
-    marginTop: 10,
     height: "auto",
-    fontSize: "20px",
+    fontSize: "1.5rem",
     fontWeight: 500,
   },
 })
@@ -178,7 +176,7 @@ console.log(error?.response?.data?.error)
   return (
     <>
       <Divider />
-      <Paper elevation="2" className={classes.paper}>
+      <Paper elevation="0" className={classes.paper}>
         <Grid container wrap="nowrap" spacing={2}>
           <Grid item>
             <Avatar>{data.author.firstname.slice(0, 1)}</Avatar>
@@ -192,7 +190,6 @@ console.log(error?.response?.data?.error)
               <InputBase
                 id="outlined-basic"
                 disabled={disabled}
-                
                 multiline={true}
                 value={desc}
                 onChange={e => setDesc(e.target.value)}

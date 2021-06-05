@@ -70,6 +70,7 @@ const Question = ({
     title: "demo",
     desc: "demo",
     comments: [],
+    tag:''
   },
   setReload = f => f,
   reload,
@@ -158,50 +159,52 @@ const Question = ({
             disabled={disabled}
             multiline={true}
             value={desc}
-            
             onChange={e => setDesc(e.target.value)}
             className={classes.comment}
             fullWidth
           />
           <Typography variant="h5" style={{ marginTop: 10 }}>
-            Tags: <Chip label={data.tag} />
-          </Typography>
-
-          <Typography variant="h4" style={{ marginTop: 10 }}>
-            Comments: {data.comments.length}
-          </Typography>
-          <IconButton
-            onClick={handleExpandClick}
-            aria-expanded={expanded}
-            aria-label="show more"
-          >
-            <ExpandMoreIcon />
-          </IconButton>
-          <Collapse in={expanded} timeout="auto" unmountOnExit>
-            {data.comments.sort(function(a,b){
-              const votecnt1 =
-              a.votes.filter(vote => vote.vote === true).length -
-              a.votes.filter(vote => vote.vote === false).length;
-              
-              const votecnt2 =
-              b.votes.filter(vote => vote.vote === true).length -
-              b.votes.filter(vote => vote.vote === false).length;
-
-              return votecnt2-votecnt1;
-
-            }).map(d => (
-              <Answer
-                key={d._id}
-                qid={data._id}
-                data={d}
-                reload={reload}
-                setReload={setReload}
-              />
+            Tags:{" "}
+            {data.tag.split(",").map(t => (
+              <Chip label={t} style={{margin:'5px'}} />
             ))}
-            <PostAnswer qid={data._id} reload={reload} setReload={setReload} />
-          </Collapse>
+          </Typography>
         </Grid>
       </Grid>
+      <Typography variant="h4" style={{ marginTop: 10 }}>
+        Comments: {data.comments.length}
+      </Typography>
+      <IconButton
+        onClick={handleExpandClick}
+        aria-expanded={expanded}
+        aria-label="show more"
+      >
+        <ExpandMoreIcon />
+      </IconButton>
+      <Collapse in={expanded} timeout="auto" unmountOnExit>
+        {data.comments
+          .sort(function (a, b) {
+            const votecnt1 =
+              a.votes.filter(vote => vote.vote === true).length -
+              a.votes.filter(vote => vote.vote === false).length
+
+            const votecnt2 =
+              b.votes.filter(vote => vote.vote === true).length -
+              b.votes.filter(vote => vote.vote === false).length
+
+            return votecnt2 - votecnt1
+          })
+          .map(d => (
+            <Answer
+              key={d._id}
+              qid={data._id}
+              data={d}
+              reload={reload}
+              setReload={setReload}
+            />
+          ))}
+        <PostAnswer qid={data._id} reload={reload} setReload={setReload} />
+      </Collapse>
 
       <Grid container spacing={3}>
         {state.isLoggedin && state.userId === data.author._id && (

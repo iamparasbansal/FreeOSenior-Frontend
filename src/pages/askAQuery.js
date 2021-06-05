@@ -44,10 +44,10 @@ export default function Home() {
           </Typography>
         </center>
         <Divider />
-        <Container maxWidth="xlg">
+        <Container maxWidth="lg">
           <Grid container spacing={10}>
             <Hidden mdUp>
-              <Grid item xs={12} md={6}>
+              <Grid item xs={12} md={7}>
                 <PostQuestion
                   theme={chosenTheme}
                   reload={reload}

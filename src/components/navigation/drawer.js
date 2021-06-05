@@ -22,6 +22,12 @@ const useStyles = makeStyles(theme => ({
       backgroundColor: theme.palette.primary.main + 11,
     },
   },
+  toggleButton: {
+    cursor: "pointer",
+    padding: theme.spacing(1),
+    borderLeft: "4.5px solid transparent",
+    transition: "0.35s",
+  },
   activeNavItem: {
     cursor: "default",
     padding: theme.spacing(1.3),
@@ -83,7 +89,7 @@ const Drawer = ({ isOpen, handler, AuthModel }) => {
           </Typography>
         </Box>
       </Link>
-      <div className={classes.navItem}>
+      <div className={classes.toggleButton}>
         <ThemeToggle/>
       </div>
       <Link

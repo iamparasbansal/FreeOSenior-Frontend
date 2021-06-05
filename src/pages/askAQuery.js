@@ -121,7 +121,7 @@ export default function Home() {
               )}
             </Grid>
 
-            <Hidden mdDown>
+            <Hidden smDown>
               <Grid item xs={12} md={5}>
                 <SearchQuestion
                   data-aos="zoom-in"

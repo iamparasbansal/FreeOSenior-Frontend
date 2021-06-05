@@ -6,7 +6,8 @@ import SwipeableDrawer from "@material-ui/core/SwipeableDrawer"
 import Typography from "@material-ui/core/Typography"
 import Logo from "./../../images/gatsby-icon.png"
 import ThemeToggle from "../../utils/ThemeToggle"
-
+import AuthModel from "../auth"
+import { useSelector } from "react-redux"
 const useStyles = makeStyles(theme => ({
   root: {
     width: "250px",
@@ -47,14 +48,14 @@ const useStyles = makeStyles(theme => ({
 
 const Drawer = ({ isOpen, handler, AuthModel }) => {
   const classes = useStyles()
-
+  const state = useSelector(({ auth }) => auth)
   return (
     <SwipeableDrawer
       classes={{ paper: classes.root, root: classes.root }}
       open={isOpen}
       onClose={() => handler(false)}
       onOpen={() => handler(true)}
-      style={{ overflowX: 'hidden' }}
+      style={{ overflowX: "hidden" }}
     >
       <Link
         to="/"
@@ -90,7 +91,7 @@ const Drawer = ({ isOpen, handler, AuthModel }) => {
         </Box>
       </Link>
       <div className={classes.toggleButton}>
-        <ThemeToggle/>
+        <ThemeToggle />
       </div>
       <Link
         className={classes.navItem}
@@ -120,13 +121,15 @@ const Drawer = ({ isOpen, handler, AuthModel }) => {
       >
         <Typography variant="subtitle2">Ask A Query</Typography>
       </Link>
-      <Link
-        className={classes.navItem}
-        activeClassName={classes.activeNavItem}
-        to="/joinUs"
-      >
-        <Typography variant="subtitle2">Join Us</Typography>
-      </Link>
+      {state.isLoggedin && state.admin && (
+        <Link
+          className={classes.navItem}
+          activeClassName={classes.activeNavItem}
+          to="/adminPanel"
+        >
+          <Typography variant="subtitle2">Admin Panel</Typography>
+        </Link>
+      )}
       <AuthModel />
     </SwipeableDrawer>
   )

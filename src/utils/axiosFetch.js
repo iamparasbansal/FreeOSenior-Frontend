@@ -4,7 +4,7 @@ let access_token =
     window.localStorage.getItem("Authorization")) : null
 
 let token = JSON.parse(access_token)?.token;
-
+console.log(token);
 const axiosFetch  = axios.default.create({
   baseURL: "https://free-o-senior.herokuapp.com",
   headers: {

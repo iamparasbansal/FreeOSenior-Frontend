@@ -13,7 +13,7 @@ export default function Savetoken(props) {
         const userId = query.get("userId")
         console.log(token)
         console.log(admin)
-        const jwt = { token: token, admin: admin, userId: userId }
+        const jwt = {token: token, admin: admin, userId: userId }
         console.log(jwt)
         localStorage.setItem("Authorization", JSON.stringify(jwt))
         dispatch(UpdateAuthAction(jwt, true))

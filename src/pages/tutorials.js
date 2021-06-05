@@ -64,7 +64,7 @@ export default function Tutorials() {
             <Grid container spacing={5} alignItems="center" justify="center">
               <LoadingIndicator />
               {tutorials.map(tutorial => (
-                <Grid item xs={12} sm={6} md={4}>
+                <Grid item xs={12} sm={6} md={4} data-aos="flip-left">
                   <TutorialCard
                     key={tutorial._id}
                     title={tutorial.title}
@@ -77,7 +77,7 @@ export default function Tutorials() {
           </div>
         </Container>
       </Hidden>
-      <KommunicateChat/>
+      <KommunicateChat />
     </Layout>
   )
 }

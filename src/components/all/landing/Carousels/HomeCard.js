@@ -4,9 +4,10 @@ import "./HomeCard.css"
 
 const HomeCard = props => {
   const theme = props.theme.theme
+
   return (
     <div style={{ display: "flex", justifyContent: "center" }}>
-      <div className="card">
+      <div className="card" data-aos="zoom-in">
         <div className="card_image_div">
           <img className="card_image" src={props.thumbnail} alt="image2" />
           <button

@@ -117,11 +117,13 @@ export default function Frame6() {
                 return b.count - a.count
               })
               .map(contributor => (
-                <Contributor
-                  name={contributor.user.firstname}
-                  count={contributor.count}
-                  key={contributor._id}
-                />
+                <div data-aos="fade-left">
+                  <Contributor
+                    name={contributor.user.firstname}
+                    count={contributor.count}
+                    key={contributor._id}
+                  />
+                </div>
               ))}
           </List>
         </Grid>
@@ -135,7 +137,7 @@ export default function Frame6() {
           <Grid container direction="column">
             <LoadingIndicator />
             {events.map(event => (
-              <Grid item key={`${event._id}grid`}>
+              <Grid item key={`${event._id}grid`} data-aos="fade-left">
                 <EventCard
                   key={event._id}
                   img={event.img}

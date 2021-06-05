@@ -78,7 +78,7 @@ console.log(error?.response?.data?.error)
   }
 
   return (
-    <Container>
+    <Container data-aos="zoom-in">
       <Paper
         className={classes.root}
         elevation="20"

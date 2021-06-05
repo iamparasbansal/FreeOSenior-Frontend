@@ -48,7 +48,7 @@ const SearchQuestion = ({ setSearch = f => f, search="" }) => {
   // }
 
   return (
-    <Container>
+    <Container data-aos="zoom-in">
       <Paper
         className={classes.root}
         elevation="20"
@@ -68,11 +68,10 @@ const SearchQuestion = ({ setSearch = f => f, search="" }) => {
               placeholder="Keyword"
               name="Keyword"
               value={search}
-              onChange={(event)=>setSearch(event.target.value)}
+              onChange={event => setSearch(event.target.value)}
               className={classes.textfield}
               autoComplete="off"
             />
-
           </Grid>
         </Grid>
       </Paper>

@@ -23,31 +23,33 @@ function Frame3(props) {
 
   return (
     <Paper elevation={0} className={classes.root}>
-      <Grid container
+      <Grid
+        container
         direction="column"
         alignItems="center"
         justify="space-between"
       >
-        <Grid item style={{ textAlign: 'center' }}>
-          <Typography variant="h2" style={
-            { 
-              fontSize: "6vw", 
-              marginBottom: '5vh', 
-              marginTop: '5vh', 
-              fontWeight:'bold',
-              color: theme.text
-            }
-          }>
+        <Grid item style={{ textAlign: "center" }}>
+          <Typography
+            data-aos="fade-down"
+            variant="h2"
+            style={{
+              fontSize: "6vw",
+              marginBottom: "5vh",
+              marginTop: "5vh",
+              fontWeight: "bold",
+              color: theme.text,
+            }}
+          >
             What We Do?
           </Typography>
         </Grid>
-       
-        <Grid item>
-          <CarouselCards theme={props}/>
-        </Grid>
 
+        <Grid item>
+          <CarouselCards theme={props} />
+        </Grid>
       </Grid>
-    </Paper >
+    </Paper>
   )
 }
 

@@ -41,25 +41,26 @@ const CarouselCards = (props) => {
   }, [])
 
   return (
-      <div style={{  width: "80vw", position: "relative"}}>
-       <SliderWrap>
+    <div style={{ width: "80vw", position: "relative" }}>
+      <SliderWrap>
         <Slider {...settings}>
-            {data.map((dataValue) => (
-              <HomeCard 
-               key={dataValue._id}
-               thumbnail = {dataValue.imglink}
-               title = {dataValue.title}
-               content = {dataValue.desc} 
-               theme = {theme}
-               seemore= {dataValue.seemore}
-               />
-            ))}
-            {/* {console.log(data.thumbnail.small)}
+          {data.map(dataValue => (
+            <HomeCard
+              data-aos="fade-down"
+              key={dataValue._id}
+              thumbnail={dataValue.imglink}
+              title={dataValue.title}
+              content={dataValue.desc}
+              theme={theme}
+              seemore={dataValue.seemore}
+            />
+          ))}
+          {/* {console.log(data.thumbnail.small)}
           <HomeCard key={data.id} thumbnail={data.thumbnail.small} title={data.title} content={data.content}/> */}
         </Slider>
-       </SliderWrap>
-      </div>
-  );
+      </SliderWrap>
+    </div>
+  )
 };
 
 export default CarouselCards;

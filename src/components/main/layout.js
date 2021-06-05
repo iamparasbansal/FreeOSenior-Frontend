@@ -6,13 +6,12 @@ import { StylesProvider } from '@material-ui/core/styles';
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-
 const Layout = (props) => {
 
   useEffect(() => {
     AOS.init({
-      duration: 750,
-      offset: -20
+      duration: 700,
+      offest:50
     });
   }, []);
 

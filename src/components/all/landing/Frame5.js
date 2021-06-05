@@ -9,6 +9,7 @@ import axiosFetch from "../../../utils/axiosFetch"
 import { usePromiseTracker } from "react-promise-tracker"
 import { trackPromise } from "react-promise-tracker"
 import Loader from "react-loader-spinner"
+
 const LoadingIndicator = props => {
   const { promiseInProgress } = usePromiseTracker()
   return (
@@ -27,10 +28,13 @@ const LoadingIndicator = props => {
     )
   )
 }
+
 export default function Frame5() {
+
   const [workshops, setworkshops] = useState([])
 
   useEffect(() => {
+
     const fetchdata = async () => {
       try {
         const res = await axiosFetch.get("api/workshop")
@@ -55,6 +59,7 @@ export default function Frame5() {
           <LoadingIndicator />
           {workshops.map(workshop => (
             <Grid
+              data-aos="fade-right"
               item
               key={`${workshop._id}grid`}
               style={{ margin: "20px auto", width: "100%" }}

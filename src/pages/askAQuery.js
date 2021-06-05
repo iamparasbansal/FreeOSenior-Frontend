@@ -75,14 +75,15 @@ export default function Home() {
           <Grid container spacing={10}>
             <Hidden mdUp>
               <Grid item xs={12} md={7}>
-                <SearchQuestion
-                  search={search}
-                  setSearch={setSearch}
+                <PostQuestion
+                  data-aos="zoom-in"
                   theme={chosenTheme}
                   reload={reload}
                   setReload={setReload}
                 />
-                <PostQuestion
+                <SearchQuestion
+                  search={search}
+                  setSearch={setSearch}
                   theme={chosenTheme}
                   reload={reload}
                   setReload={setReload}
@@ -105,13 +106,15 @@ export default function Home() {
                     )
                   })
                   .map(data => (
-                    <Question
-                      key={data._id}
-                      data={data}
-                      reload={reload}
-                      setReload={setReload}
-                      theme={chosenTheme}
-                    />
+                    <div data-aos="zoom-in">
+                      <Question
+                        key={data._id}
+                        data={data}
+                        reload={reload}
+                        setReload={setReload}
+                        theme={chosenTheme}
+                      />
+                    </div>
                   ))
               ) : (
                 <></>
@@ -121,6 +124,7 @@ export default function Home() {
             <Hidden mdDown>
               <Grid item xs={12} md={5}>
                 <SearchQuestion
+                  data-aos="zoom-in"
                   search={search}
                   setSearch={setSearch}
                   theme={chosenTheme}
@@ -128,6 +132,7 @@ export default function Home() {
                   setReload={setReload}
                 />
                 <PostQuestion
+                  data-aos="zoom-in"
                   theme={chosenTheme}
                   reload={reload}
                   setReload={setReload}
@@ -139,7 +144,7 @@ export default function Home() {
       </ThemeProvider>
       <br />
       <br />
-      <KommunicateChat/>
+      <KommunicateChat />
     </Layout>
   )
 }

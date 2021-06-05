@@ -61,22 +61,26 @@ export default function ProjectNotes() {
           <br />
           <Grid container spacing={5}>
             <LoadingIndicator />
-            {cards.sort(function(a,b){return a.sem-b.sem}).map(card =>
-              card.isProject ? (
-                <Grid item xs={12} sm={6}>
-                  <NoteCard
-                    key={card._id}
-                    title={card.title}
-                    sem={card.sem}
-                    dlink={card.dlink}
-                    desc={card.desc}
-                    imglink={card.imglink}
-                  />
-                </Grid>
-              ) : (
-                <div></div>
-              )
-            )}
+            {cards
+              .sort(function (a, b) {
+                return a.sem - b.sem
+              })
+              .map(card =>
+                card.isProject ? (
+                  <Grid item xs={12} sm={6} data-aos="zoom-in">
+                    <NoteCard
+                      key={card._id}
+                      title={card.title}
+                      sem={card.sem}
+                      dlink={card.dlink}
+                      desc={card.desc}
+                      imglink={card.imglink}
+                    />
+                  </Grid>
+                ) : (
+                  <div></div>
+                )
+              )}
           </Grid>
 
           <br />
@@ -89,26 +93,30 @@ export default function ProjectNotes() {
 
           <Grid container spacing={5}>
             <LoadingIndicator />
-            {cards.sort(function(a,b){return a.sem-b.sem}).map(card =>
-              !card.isProject ? (
-                <Grid item xs={12} sm={6}>
-                  <NoteCard
-                    key={card._id}
-                    title={card.title}
-                    sem={card.sem}
-                    dlink={card.dlink}
-                    desc={card.desc}
-                    imglink={card.imglink}
-                  />
-                </Grid>
-              ) : (
-                <div></div>
-              )
-            )}
+            {cards
+              .sort(function (a, b) {
+                return a.sem - b.sem
+              })
+              .map(card =>
+                !card.isProject ? (
+                  <Grid item xs={12} sm={6} data-aos="zoom-in">
+                    <NoteCard
+                      key={card._id}
+                      title={card.title}
+                      sem={card.sem}
+                      dlink={card.dlink}
+                      desc={card.desc}
+                      imglink={card.imglink}
+                    />
+                  </Grid>
+                ) : (
+                  <div></div>
+                )
+              )}
           </Grid>
         </div>
       </Hidden>
-      <KommunicateChat/>
+      <KommunicateChat />
     </Layout>
   )
 }

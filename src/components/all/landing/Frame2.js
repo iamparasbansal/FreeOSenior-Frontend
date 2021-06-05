@@ -1,8 +1,6 @@
 import React, { useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import {Typography} from '@material-ui/core';
-import AOS from "aos";
-import "aos/dist/aos.css";
 
 const useStyles = makeStyles((theme) => ({
     root: props =>({
@@ -30,13 +28,7 @@ const useStyles = makeStyles((theme) => ({
 const Frame2 = (props) => {
     const theme = props.theme;
     const classes = useStyles(theme);
-    useEffect(() => {
-        AOS.init({
-            duration: 400,
-            offset: -20
-        });
-    }, []);
-
+   
     return (
         <div className={classes.root}>
             <Typography data-aos="fade-down" className={classes.heading}>

@@ -45,6 +45,7 @@ export default function TableData({
   tableTitles = [],
   baseAPI = "",
 }) {
+  const state = useSelector(({ auth }) => auth)
   const [disabled, setDisabled] = useState(true)
   const [data, setData] = useState(Data)
 
@@ -57,32 +58,46 @@ export default function TableData({
 
   const updateData = async event => {
     try {
+
+      if (!state.isLoggedin) {
+        window.alert("Please Sign in to continue")
+        return
+      }
+
       const res = await axiosFetch.put(`${baseAPI}/${data._id}`, data)
       if (res.data) {
         window.alert("updated")
-        console.log(res.data)
+        
         setDisabled(true)
         setReload(!reload)
       }
     } catch (error) {
-      console.log(error.response.data.error)
+      
+      console.log(error);
+      console.log(error?.response?.data?.error);
     }
   }
 
   const deleteData = async event => {
     try {
+
+      if (!state.isLoggedin) {
+        window.alert("Please Sign in to continue")
+        return
+      }
+      
       const res = await axiosFetch.delete(`${baseAPI}/${data._id}`)
       if (res.data) {
         window.alert("deleted")
-        console.log(res.data)
+        
         setReload(!reload)
       }
     } catch (error) {
-      console.log(error.response.data.error)
+      console.log(error)
+console.log(error?.response?.data?.error)
     }
   }
 
-  const state = useSelector(({ auth }) => auth)
   const classes = useStyles()
 
   return (

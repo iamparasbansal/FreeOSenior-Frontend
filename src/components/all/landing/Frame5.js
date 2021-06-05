@@ -18,12 +18,13 @@ export default function Frame5()
         const res = await axiosFetch.get("api/workshop")
 
         if (res.data) {
-          console.log(res.data)
+          
           setworkshops(res.data)
         }
       } catch (error) {
         console.log(error)
-        console.log(error.response.data.error)
+        console.log(error)
+console.log(error?.response?.data?.error)
       }
     }
     fetchdata()

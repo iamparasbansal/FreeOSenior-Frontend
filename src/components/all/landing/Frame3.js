@@ -8,7 +8,8 @@ import imageDark from "../../../images/dark-theme-background3.jpg"
 const useStyles = makeStyles((theme) => ({
   root: props=>({
       borderRadius: 0,
-      height: '100vh',
+      height:'auto',
+      padding:'100px auto',
       backgroundImage: props.light? `url(${imageLight})`: `url(${imageDark})`,
       backgroundPosition: "center",
       backgroundSize: "cover"

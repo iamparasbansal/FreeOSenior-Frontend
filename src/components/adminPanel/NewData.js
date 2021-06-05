@@ -34,7 +34,6 @@ const useStyles = makeStyles(theme => ({
 }))
 
 export default function NewData({
-  tutorial,
   setReload = f => f,
   reload,
   tableTitles = [],
@@ -42,6 +41,7 @@ export default function NewData({
   Data={}
 }) {
   const [data, setData] = useState(Data);
+   const state = useSelector(({ auth }) => auth)
 
   const handleChange = event => {
     setData({
@@ -49,22 +49,29 @@ export default function NewData({
       [event.target.name]: event.target.value,
     })
   }
-  console.log(data);
+  
   const createData = async event => {
     try {
+      if(!state.isLoggedin)
+      {
+        window.alert("Please Sign in to continue");
+        return;
+
+      }
       const res = await axiosFetch.post(`${baseAPI}`, data)
       if (res.data) {
         window.alert("created")
-        console.log(res.data)
+        
         setReload(!reload)
         setData({});
       }
     } catch (error) {
-      console.log(error.response.data.error)
+      console.log(error);
+      console.log(error)
+console.log(error?.response?.data?.error)
     }
   }
 
-  const state = useSelector(({ auth }) => auth)
   const classes = useStyles()
 
   return (

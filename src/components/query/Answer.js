@@ -108,50 +108,64 @@ const Answer = ({
 
   const postVote = async (vote, rid) => {
     try {
+
+      if (!state.isLoggedin) {
+        window.alert("Please Sign in to continue")
+        return
+      }
+      
       const res = await axiosFetch.post(`api/votecomment/${qid}/${rid}`, {
         vote,
       })
       if (res.data) {
-        console.log(res.data)
+        
         window.alert("voted")
         setReload(!reload)
       }
     } catch (error) {
-      console.log(error?.response?.data?.error)
+      console.log(error)
+console.log(error?.response?.data?.error)
     }
   }
 
   const deleteReply = async event => {
+    
     event.preventDefault()
-    console.log(qid)
-    console.log(data._id)
-
+   
+    if (!state.isLoggedin) {
+      window.alert("Please Sign in to continue")
+      return
+    }
+      
     try {
       const res = await axiosFetch.delete(
         `api/deletecomment/${qid}/${data._id}`
       )
       if (res.data) {
-        console.log(res.data)
+      
         window.alert("success deleted")
         setReload(!reload)
       }
     } catch (error) {
-      console.log(error?.response?.data?.error)
+      console.log(error)
+console.log(error?.response?.data?.error)
     }
   }
 
   const UpdateReply = async event => {
     event.preventDefault()
-    console.log("qid")
-    console.log(qid)
-    console.log(data._id)
-
+  
+    if (!state.isLoggedin) {
+      window.alert("Please Sign in to continue")
+      return
+    }
+      
     try {
       const res = await axiosFetch.put(`api/updatecomment/${qid}/${data._id}`, {
         desc,
       })
       if (res.data) {
-        console.log(res.data)
+       
         window.alert("success updated")
         setDisabled(true)
         setReload(!reload)

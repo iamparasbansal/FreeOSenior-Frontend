@@ -80,11 +80,11 @@ const Question = ({
 
   const deleteQuestion = async event => {
     event.preventDefault()
-    console.log(data._id)
+    
     try {
       const res = await axiosFetch.delete(`api/query/${data._id}`)
       if (res.data) {
-        console.log(res.data)
+       
         window.alert("success deleted")
         setReload(!reload)
       }
@@ -95,11 +95,11 @@ const Question = ({
 
   const resolveQuestion = async event => {
     event.preventDefault()
-    console.log(data._id)
+  
     try {
       const res = await axiosFetch.get(`api/resolvequery/${data._id}`)
       if (res.data) {
-        console.log(res.data)
+       
         window.alert("resolved")
         setReload(!reload)
       }
@@ -111,14 +111,12 @@ const Question = ({
   const UpdateQuestion = async event => {
     event.preventDefault()
 
-    console.log(data._id)
-
     try {
       const res = await axiosFetch.put(`api/query/${data._id}`, {
         desc,
       })
       if (res.data) {
-        console.log(res.data)
+        
         window.alert("success updated")
         setDisabled(true)
         setReload(!reload)

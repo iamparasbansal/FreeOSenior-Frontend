@@ -26,11 +26,11 @@ export default function Home() {
         const res = await axiosFetch.get("api/query")
 
         if (res.data) {
-          console.log(res.data)
           setQueries(res.data)
         }
       } catch (error) {
-        console.log(error.response.data.error)
+        console.log(error)
+        console.log(error?.response?.data?.error)
       }
     }
     fetchdata()
@@ -58,17 +58,19 @@ export default function Home() {
             <Grid item xs={12} md={7}>
               {" "}
               {queries.length > 0 ? (
-                queries.sort(value => {
-                  return value.isResolved ? 1 : -1 
-                }).map(data => (
-                  <Question
-                    key={data._id}
-                    data={data}
-                    reload={reload}
-                    setReload={setReload}
-                    theme={chosenTheme}
-                  />
-                ))
+                queries
+                  .sort(value => {
+                    return value.isResolved ? 1 : -1
+                  })
+                  .map(data => (
+                    <Question
+                      key={data._id}
+                      data={data}
+                      reload={reload}
+                      setReload={setReload}
+                      theme={chosenTheme}
+                    />
+                  ))
               ) : (
                 <Question
                   theme={chosenTheme}

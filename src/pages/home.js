@@ -22,15 +22,15 @@ export default function Home() {
         <Hidden smDown>
           <Frame1 theme={chosenTheme} />
           <Frame2 theme={chosenTheme} />
-          <Frame3 theme={chosenTheme} />
         </Hidden>
         <Hidden mdUp>
           <Mobile.Frame1 />
           <Mobile.Frame2 />
-          <Mobile.Frame3 />
+          
         </Hidden>
+        <Frame3 theme={chosenTheme} />
         <Frame4 theme={chosenTheme} />
-        <Grid container>
+        <Grid container style={{margin:'50px auto'}}>
           <Grid item md={8}>
             <Frame5 />
           </Grid>

@@ -11,7 +11,7 @@ import { EventCard } from "./eventcard"
 
 const useStyles = makeStyles({
   root: {
-    margin: 20,
+    margin: '0 auto',
   },
   contributor: {
     borderStyle: "hidden",
@@ -41,12 +41,13 @@ export default function Frame6() {
         const res = await axiosFetch.get("api/contributor")
 
         if (res.data) {
-          console.log(res.data)
+          
           setcontributors(res.data)
         }
       } catch (error) {
         console.log(error)
-        console.log(error.response.data.error)
+        console.log(error)
+console.log(error?.response?.data?.error)
       }
     }
     fetchdata()
@@ -60,12 +61,13 @@ export default function Frame6() {
         const res = await axiosFetch.get("api/event")
 
         if (res.data) {
-          console.log(res.data)
+          
           setevents(res.data)
         }
       } catch (error) {
         console.log(error)
-        console.log(error.response.data.error)
+        console.log(error)
+console.log(error?.response?.data?.error)
       }
     }
     fetchdata()
@@ -73,7 +75,7 @@ export default function Frame6() {
 
   return (
     <Container className={styles.root}>
-      <Grid direction="row">
+      <Grid container direction="row">
         <Grid item>
           <Typography
             variant="h1"

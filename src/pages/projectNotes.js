@@ -17,12 +17,13 @@ export default function ProjectNotes() {
         const res = await axiosFetch.get("api/projectcard")
 
         if (res.data) {
-          console.log(res.data)
+          
           setcards(res.data)
         }
       } catch (error) {
         console.log(error)
-        console.log(error.response.data.error)
+        console.log(error)
+console.log(error?.response?.data?.error)
       }
     }
     fetchdata()

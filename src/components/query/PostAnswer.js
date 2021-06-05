@@ -1,9 +1,7 @@
 import React, { useState } from "react"
 import {
   Divider,
-  
   Grid,
- 
   TextField,
   Button,
   ButtonGroup,
@@ -11,24 +9,31 @@ import {
 } from "@material-ui/core"
 
 import axiosFetch from "../../utils/axiosFetch"
-const PostAnswer = ({ qid, setReload = f => f, reload  }) => {
+import { useSelector } from "react-redux"
+
+const PostAnswer = ({ qid, setReload = f => f, reload }) => {
   const [desc, setDesc] = useState("")
+  const state = useSelector(({ auth }) => auth)
   const postReply = async event => {
     event.preventDefault()
-    console.log("hello")
-
+    
     if (!qid || desc.length < 10) {
       window.alert("cannot reply may be invalid query or add valid reply")
+      return
+    }
+
+    if (!state.isLoggedin) {
+      window.alert("Please Sign in to continue")
       return
     }
 
     try {
       const res = await axiosFetch.post(`api/comment/${qid}`, { desc })
       if (res.data) {
-        console.log(res.data)
+      
         window.alert("success fully replied")
         setReload(!reload)
-        setDesc('');
+        setDesc("")
       }
     } catch (error) {
       window.alert(error)

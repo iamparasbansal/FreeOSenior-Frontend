@@ -10,6 +10,7 @@ import {
 import { makeStyles } from "@material-ui/core/styles"
 import axiosFetch from "../../utils/axiosFetch"
 import SendIcon from "@material-ui/icons/Send"
+import { useSelector } from "react-redux"
 const useStyles = makeStyles({
   root: {
     borderRadius: 30,
@@ -31,6 +32,8 @@ const useStyles = makeStyles({
   },
 })
 const PostQuestion = ({ setReload = f => f, reload }) => {
+
+  const state = useSelector(({ auth }) => auth)
   const classes = useStyles()
   const [data, setData] = useState({
     desc: "",
@@ -51,10 +54,15 @@ const PostQuestion = ({ setReload = f => f, reload }) => {
       return
     }
 
+    if (!state.isLoggedin) {
+      window.alert("Please Sign in to continue")
+      return
+    }
+      
     try {
       const res = await axiosFetch.post(`api/query`, data)
       if (res.data) {
-        console.log(res.data)
+       
         window.alert("your Query is created successfully")
         setReload(!reload)
         setData({
@@ -64,7 +72,8 @@ const PostQuestion = ({ setReload = f => f, reload }) => {
         })
       }
     } catch (error) {
-      console.log(error.response.data.error)
+      console.log(error)
+console.log(error?.response?.data?.error)
     }
   }
 

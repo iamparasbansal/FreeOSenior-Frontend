@@ -24,8 +24,6 @@ const useStyles = makeStyles({
 
 export default function Contributor(props) {
 
-    console.log(props);
-
     const styles = useStyles();
 
     return (

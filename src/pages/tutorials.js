@@ -17,12 +17,13 @@ export default function Tutorials() {
         const res = await axiosFetch.get("api/tutorial")
 
         if (res.data) {
-          console.log(res.data)
+          
           settutorials(res.data)
         }
       } catch (error) {
         console.log(error)
-        console.log(error.response.data.error)
+        console.log(error)
+console.log(error?.response?.data?.error)
       }
     }
     fetchdata()

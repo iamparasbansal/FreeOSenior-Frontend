@@ -30,7 +30,6 @@ const ImageUploader = () => {
 
   const uploadImage = async (files) => {
     
-    console.log(files[0]);
     await setData(files[0])
   }
 

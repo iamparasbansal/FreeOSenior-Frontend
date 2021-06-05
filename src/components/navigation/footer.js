@@ -172,7 +172,7 @@ const Footer = () => {
           </a>
         </Grid>
         <Hidden mdUp>
-          <Grid xs={12} md={1}>
+          <Grid item xs={12} md={1}>
             <Typography
               style={{ fontSize: 15 }}
               className={classes.centerMobile}

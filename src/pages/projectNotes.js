@@ -32,12 +32,7 @@ console.log(error?.response?.data?.error)
   return (
     <Layout>
       <Hidden>
-        <br />
-        {/* <Typography variant="h1" component="h2" gutterBottom>
-          Projects/Notes
-        </Typography> */}
-        <br />
-
+      <div style={{marginBottom: 20}}>
         <br />
         <Typography variant="h1" component="h2" gutterBottom>
           Projects
@@ -89,6 +84,7 @@ console.log(error?.response?.data?.error)
             )
           )}
         </Grid>
+        </div>
       </Hidden>
     </Layout>
   )

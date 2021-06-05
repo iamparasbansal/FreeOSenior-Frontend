@@ -10,6 +10,28 @@ import { chosenTheme } from "../../theme"
 import { makeStyles } from "@material-ui/core/styles"
 import SearchQuestion from "../components/query/SearchQuestion"
 import FilterResults from "react-filter-search"
+import { usePromiseTracker } from "react-promise-tracker"
+import { trackPromise } from "react-promise-tracker"
+import Loader from "react-loader-spinner"
+const LoadingIndicator = props => {
+  const { promiseInProgress } = usePromiseTracker()
+  return (
+    promiseInProgress && (
+      <div
+        style={{
+          width: "100%",
+          height: "100",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <Loader type="ThreeDots" color="#3c2bad" height={100} width={100} />
+      </div>
+    )
+  )
+}
+
 const useStyles = makeStyles({
   title: {
     fontFamily: "arial",
@@ -21,7 +43,7 @@ export default function Home() {
   const classes = useStyles()
   const [queries, setQueries] = useState([])
   const [reload, setReload] = useState(true)
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState("")
 
   useEffect(() => {
     const fetchdata = async () => {
@@ -36,7 +58,7 @@ export default function Home() {
         console.log(error?.response?.data?.error)
       }
     }
-    fetchdata()
+    trackPromise(fetchdata())
   }, [reload])
   return (
     <Layout>
@@ -67,6 +89,7 @@ export default function Home() {
             </Hidden>
             <Grid item xs={12} md={7}>
               {" "}
+              <LoadingIndicator />
               {queries.length > 0 ? (
                 queries
                   .sort(value => {

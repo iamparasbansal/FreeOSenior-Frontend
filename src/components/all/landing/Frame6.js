@@ -8,11 +8,31 @@ import Contributor from "./contributor"
 import axiosFetch from "../../../utils/axiosFetch"
 import Grid from "@material-ui/core/Grid"
 import { EventCard } from "./eventcard"
-
+import { usePromiseTracker } from "react-promise-tracker"
+import { trackPromise } from "react-promise-tracker"
+import Loader from "react-loader-spinner"
+const LoadingIndicator = props => {
+  const { promiseInProgress } = usePromiseTracker()
+  return (
+    promiseInProgress && (
+      <div
+        style={{
+          width: "100%",
+          height: "100",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <Loader type="ThreeDots" color="#3c2bad" height={100} width={100} />
+      </div>
+    )
+  )
+}
 const useStyles = makeStyles({
   root: {
-    margin: '0 auto',
-    width:'100%'
+    margin: "0 auto",
+    width: "100%",
   },
   contributor: {
     borderStyle: "hidden",
@@ -42,16 +62,15 @@ export default function Frame6() {
         const res = await axiosFetch.get("api/contributor")
 
         if (res.data) {
-          
           setcontributors(res.data)
         }
       } catch (error) {
         console.log(error)
         console.log(error)
-console.log(error?.response?.data?.error)
+        console.log(error?.response?.data?.error)
       }
     }
-    fetchdata()
+    trackPromise(fetchdata())
   }, [])
 
   const [events, setevents] = useState([])
@@ -62,22 +81,26 @@ console.log(error?.response?.data?.error)
         const res = await axiosFetch.get("api/event")
 
         if (res.data) {
-          
           setevents(res.data)
         }
       } catch (error) {
         console.log(error)
         console.log(error)
-console.log(error?.response?.data?.error)
+        console.log(error?.response?.data?.error)
       }
     }
-    fetchdata()
+    trackPromise(fetchdata())
   }, [])
 
   return (
     <Container className={styles.root}>
       <Grid container direction="row">
-        <Grid container direction="column" item style={{width:'90%', margin:'0 auto'}}>
+        <Grid
+          container
+          direction="column"
+          item
+          style={{ width: "90%", margin: "0 auto" }}
+        >
           <Typography
             variant="h1"
             component="h2"
@@ -87,7 +110,8 @@ console.log(error?.response?.data?.error)
           </Typography>
           <Divider />
           <br />
-          <List >
+          <List>
+            <LoadingIndicator />
             {contributors
               .sort(function (a, b) {
                 return b.count - a.count
@@ -109,6 +133,7 @@ console.log(error?.response?.data?.error)
           <Divider />
 
           <Grid container direction="column">
+            <LoadingIndicator />
             {events.map(event => (
               <Grid item key={`${event._id}grid`}>
                 <EventCard

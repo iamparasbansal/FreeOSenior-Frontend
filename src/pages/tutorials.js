@@ -7,7 +7,27 @@ import Typography from "@material-ui/core/Typography"
 import { Divider } from "@material-ui/core"
 import Container from "@material-ui/core/Container"
 import axiosFetch from "../utils/axiosFetch"
-
+import { usePromiseTracker } from "react-promise-tracker"
+import { trackPromise } from "react-promise-tracker"
+import Loader from "react-loader-spinner"
+const LoadingIndicator = props => {
+  const { promiseInProgress } = usePromiseTracker()
+  return (
+    promiseInProgress && (
+      <div
+        style={{
+          width: "100%",
+          height: "100",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <Loader type="ThreeDots" color="#3c2bad" height={100} width={100} />
+      </div>
+    )
+  )
+}
 export default function Tutorials() {
   const [tutorials, settutorials] = useState([])
 
@@ -17,16 +37,15 @@ export default function Tutorials() {
         const res = await axiosFetch.get("api/tutorial")
 
         if (res.data) {
-          
           settutorials(res.data)
         }
       } catch (error) {
         console.log(error)
         console.log(error)
-console.log(error?.response?.data?.error)
+        console.log(error?.response?.data?.error)
       }
     }
-    fetchdata()
+    trackPromise(fetchdata())
   }, [])
 
   return (
@@ -42,8 +61,9 @@ console.log(error?.response?.data?.error)
         <Container maxWidth="fixed">
           <div style={{ marginBottom: 30 }}>
             <Grid container spacing={5} alignItems="center" justify="center">
+              <LoadingIndicator />
               {tutorials.map(tutorial => (
-                <Grid item xs={12} sm={6}  md={4}>
+                <Grid item xs={12} sm={6} md={4}>
                   <TutorialCard
                     key={tutorial._id}
                     title={tutorial.title}

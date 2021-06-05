@@ -11,37 +11,57 @@ import axiosFetch from "../../utils/axiosFetch"
 import { Container, Divider, makeStyles, Typography } from "@material-ui/core"
 import { useSelector } from "react-redux"
 
-import Grid from '@material-ui/core/Grid';
+import Grid from "@material-ui/core/Grid"
 
 import TableData from "./TableData"
 import NewData from "./NewData"
-
-const useStyles = makeStyles((theme)=>({
+import { usePromiseTracker } from "react-promise-tracker"
+import { trackPromise } from "react-promise-tracker"
+import Loader from "react-loader-spinner"
+const LoadingIndicator = props => {
+  const { promiseInProgress } = usePromiseTracker()
+  return (
+    promiseInProgress && (
+      <div
+        style={{
+          width: "100%",
+          height: "100",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <Loader type="ThreeDots" color="#3c2bad" height={100} width={100} />
+      </div>
+    )
+  )
+}
+const useStyles = makeStyles(theme => ({
   table: {
     minWidth: 650,
   },
-   button: {
+  button: {
     margin: theme.spacing(1),
   },
-  tablehead:{
+  tablehead: {
     fontSize: 20,
     fontWeight: 800,
     fontFamily: "serif",
     textAlign: "center",
   },
-  tableContent:{
+  tableContent: {
     fontSize: 15,
-    fontFmaily:"arial",
+    fontFmaily: "arial",
     textAlign: "center",
-  }
-}));
+  },
+}))
 const TurtorialTable = () => {
   const state = useSelector(({ auth }) => auth)
   const classes = useStyles()
 
   const [tutorials, setTutorials] = useState([])
- 
-  const [reload, setReload] = useState(true);
+
+  const [reload, setReload] = useState(true)
 
   useEffect(() => {
     const dataFetch = async () => {
@@ -55,26 +75,31 @@ const TurtorialTable = () => {
         console.log(error)
       }
     }
-    dataFetch()
+    trackPromise(dataFetch())
   }, [reload])
 
-  const fields = ["title", "link", "category"];
+  const fields = ["title", "link", "category"]
   return (
     <>
       <br />
       <br />
       <Typography variant="h1">Tutorial Table</Typography>
       <Divider />
+      <LoadingIndicator />
       <Container maxWidth="lg">
         <TableContainer component={Paper}>
           <Table className={classes.table} aria-label="simple table">
             <TableHead>
               <TableRow>
                 {fields.map(field => (
-                  <TableCell className={classes.tablehead}>{field.toUpperCase()}</TableCell>
+                  <TableCell className={classes.tablehead}>
+                    {field.toUpperCase()}
+                  </TableCell>
                 ))}
                 {state.isLoggedin && (
-                  <TableCell className={classes.tablehead}>UPDATE/CREATE</TableCell>
+                  <TableCell className={classes.tablehead}>
+                    UPDATE/CREATE
+                  </TableCell>
                 )}
                 {state.isLoggedin && (
                   <TableCell className={classes.tablehead}>DELETE</TableCell>
@@ -115,4 +140,4 @@ const TurtorialTable = () => {
   )
 }
 
-export default TurtorialTable;
+export default TurtorialTable

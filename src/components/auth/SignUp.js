@@ -231,7 +231,7 @@ const SignUp = (
             padding: 10,
             margin: 10,
             backgroundImage:
-              "url(https://api.freeosenior.in/static/img/google.png)",
+              "url(http://pngimg.com/uploads/google/google_PNG19635.png)",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
             backgroundSize: "60%",

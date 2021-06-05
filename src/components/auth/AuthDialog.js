@@ -89,7 +89,7 @@ export default function AuthModal({ index, setIndex, open, setOpen }) {
             >
               <a
                 href="/"
-                style={{ textDecoration: "inherit", color: "inherit" }}
+                style={{ textDecoration: "inherit", color: "black",marginLeft: 5 }}
               >
                 FreeOSenior
               </a>

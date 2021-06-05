@@ -31,11 +31,15 @@ console.log(error?.response?.data?.error)
   }, [])
 
   return (
-    <Container  >
+    <Container>
       <div style={{ marginBottom: 30 }}>
-        <Grid container direction={"column"} spacing={0} >
+        <Grid container direction={"column"}>
           {workshops.map(workshop => (
-            <Grid item key={`${workshop._id}grid`}>
+            <Grid
+              item
+              key={`${workshop._id}grid`}
+              style={{ margin: "20px auto", width:'100%'}}
+            >
               <WorkshopCard
                 title={workshop.title}
                 author={workshop.author}
@@ -43,7 +47,6 @@ console.log(error?.response?.data?.error)
                 desc={workshop.desc}
                 date={workshop.date}
                 key={workshop._id}
-                
               />
             </Grid>
           ))}

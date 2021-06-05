@@ -10,6 +10,7 @@ import axiosFetch from "../utils/axiosFetch"
 import { usePromiseTracker } from "react-promise-tracker"
 import { trackPromise } from "react-promise-tracker"
 import Loader from "react-loader-spinner"
+import KommunicateChat from "../chat"
 const LoadingIndicator = props => {
   const { promiseInProgress } = usePromiseTracker()
   return (
@@ -76,6 +77,7 @@ export default function Tutorials() {
           </div>
         </Container>
       </Hidden>
+      <KommunicateChat/>
     </Layout>
   )
 }

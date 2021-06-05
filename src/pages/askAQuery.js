@@ -13,6 +13,7 @@ import FilterResults from "react-filter-search"
 import { usePromiseTracker } from "react-promise-tracker"
 import { trackPromise } from "react-promise-tracker"
 import Loader from "react-loader-spinner"
+import KommunicateChat from "../chat"
 const LoadingIndicator = props => {
   const { promiseInProgress } = usePromiseTracker()
   return (
@@ -138,6 +139,7 @@ export default function Home() {
       </ThemeProvider>
       <br />
       <br />
+      <KommunicateChat/>
     </Layout>
   )
 }

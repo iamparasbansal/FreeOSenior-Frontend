@@ -5,6 +5,7 @@ import { chosenTheme } from "../../theme"
 import { ThemeProvider } from "styled-components"
 import { useSelector } from "react-redux"
 import { navigate } from "gatsby-link"
+import KommunicateChat from "../chat"
 const AdminPanel = () => {
   const state = useSelector(({ auth }) => auth)
 
@@ -15,6 +16,7 @@ const AdminPanel = () => {
         <ThemeProvider theme={chosenTheme}>
           <Protected theme={chosenTheme} />
         </ThemeProvider>
+        <KommunicateChat/>
       </Layout>
     </>
   )

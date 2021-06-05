@@ -29,11 +29,12 @@ function Frame3(props) {
         justify="space-between"
       >
         <Grid item style={{ textAlign: 'center' }}>
-          <Typography variant="h4" style={
+          <Typography variant="h2" style={
             { 
-              fontSize: "6vh", 
+              fontSize: "6vw", 
               marginBottom: '5vh', 
               marginTop: '5vh', 
+              fontWeight:'bold',
               color: theme.text
             }
           }>

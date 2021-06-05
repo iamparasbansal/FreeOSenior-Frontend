@@ -1,6 +1,6 @@
 import React from "react"
 import Layout from "./../components/main/layout"
-import Hidden from "@material-ui/core/Hidden"
+
 import Grid from "@material-ui/core/Grid"
 
 import Frame1 from "./../components/all/landing/Frame1"
@@ -10,8 +10,6 @@ import Frame4 from "./../components/all/landing/Frame4"
 import Frame5 from "../components/all/landing/Frame5"
 import Frame6 from "../components/all/landing/Frame6"
 
-import Mobile from "./../components/mobile/landing"
-
 import { chosenTheme } from "../../theme"
 import { ThemeProvider } from "styled-components"
 
@@ -19,18 +17,11 @@ export default function Home() {
   return (
     <Layout>
       <ThemeProvider theme={chosenTheme}>
-        <Hidden smDown>
-          <Frame1 theme={chosenTheme} />
-          <Frame2 theme={chosenTheme} />
-        </Hidden>
-        <Hidden mdUp>
-          <Mobile.Frame1 />
-          <Mobile.Frame2 />
-          
-        </Hidden>
+        <Frame1 theme={chosenTheme} />
+        <Frame2 theme={chosenTheme} />
         <Frame3 theme={chosenTheme} />
         <Frame4 theme={chosenTheme} />
-        <Grid container style={{margin:'50px auto'}}>
+        <Grid container style={{ margin: "50px auto" }}>
           <Grid item md={8}>
             <Frame5 />
           </Grid>

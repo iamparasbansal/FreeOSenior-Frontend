@@ -2,12 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import Button from '@material-ui/core/Button'
-import Typography from '@material-ui/core/Typography'
 
 import makeStyles from '@material-ui/core/styles/makeStyles'
 import NightsStayOutlinedIcon from '@material-ui/icons/NightsStayOutlined'
 import Brightness5OutlinedIcon from '@material-ui/icons/Brightness5Outlined'
-import ChevronRightIcon from '@material-ui/icons/ChevronRight'
 
 const useStyles = makeStyles((theme) => ({
   icon: {
@@ -21,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
   buttonWrapper: {
     display: 'flex',
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'center',
     alignContent: 'center',
     alignItems: 'flex-end',
     padding: theme.spacing(1),
@@ -68,16 +66,6 @@ const ThemeToggle = (props) => {
       ) : (
         <Brightness5OutlinedIcon className={classes.icon} />
       )}
-      <div className={classes.fakeInput}>
-        <Typography variant="subtitle1" align="left">
-          {themeFlag === 'light' ? (
-            <React.Fragment>Dark Theme</React.Fragment>
-          ) : (
-            <React.Fragment>Light Theme</React.Fragment>
-          )}
-        </Typography>
-        <ChevronRightIcon fontSize="small" />
-      </div>
     </Button>
   )
 }

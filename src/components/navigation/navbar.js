@@ -182,14 +182,6 @@ const Navbar = () => {
                       <Typography variant={"subtitle"}>Ask A Query</Typography>
                     </Link>
                     
-                      <Link
-                        className={classes.navItem}
-                        activeClassName={classes.activeNavItem}
-                        to="/joinUs"
-                      >
-                        <Typography variant={"subtitle"}>Join Us</Typography>
-                      </Link>
-                    
                     {state.isLoggedin && state.admin && (
                       <Link
                         className={classes.navItem}

@@ -7,7 +7,7 @@ import imageDark from "../../../images/growing-plant-dark.png"
 const useStyles = makeStyles((theme) => ({
     root: props=>({
         borderRadius: 0,
-        height: '85vh',
+        height: '45vw',
         backgroundImage: props.light? `url(${imageLight})`: `url(${imageDark})`,
         backgroundPosition: "center",
         backgroundSize: "cover"
@@ -24,10 +24,10 @@ const Frame1 = (props) => {
                 <Grid item data-aos="fade-down" data-aos-delay="500">
                     <Typography style={
                       {
-                        marginTop: "4vh",
+                        marginTop: "3vw",
                         textAlign: "center", 
                         color: theme.textLight,
-                        fontSize: "4vh"
+                        fontSize: "5vw"
                       }
                     }>
                         <b>A Group Of Amazing People</b>
@@ -37,9 +37,9 @@ const Frame1 = (props) => {
                     <Typography
                         style={
                           { 
-                            marginTop: "8vh", 
+                            marginTop: "1.5vw", 
                             textAlign: "center",
-                            fontSize: "10vh",
+                            fontSize: "6vw",
                             color: theme.textLight, 
                             textShadow: "5px 5px 0px #000000"
                           }
@@ -51,7 +51,7 @@ const Frame1 = (props) => {
                           { 
                             textAlign: "center", 
                             color: theme.textLight, 
-                            fontSize: "4vh"
+                            fontSize: "3vw"
                           }
                         }>
                         Growth for juniors and seniors

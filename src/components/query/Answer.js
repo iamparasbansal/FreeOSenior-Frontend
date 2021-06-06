@@ -20,7 +20,7 @@ import UpdateIcon from "@material-ui/icons/Update"
 
 const useStyles = makeStyles({
   paper: {
-    padding: "20px 20px",
+    padding: "20px 10px",
   },
   root: {
     borderRadius: 30,
@@ -42,7 +42,7 @@ const useStyles = makeStyles({
     color: "white",
     borderRadius: 3,
     height: "2rem",
-    padding: "0 2rem",
+    padding: "1vw",
   },
   success_faded: {
     background: "linear-gradient(45deg, #99f0b8 100%, #6df765  90%)",
@@ -50,7 +50,7 @@ const useStyles = makeStyles({
     color: "white",
     borderRadius: 3,
     height: "2rem",
-    padding: "0 2rem",
+    padding: "1vw",
   },
   danger: {
     background: "linear-gradient(45deg, #f57a7a 0%, #ed1f1f  90%)",
@@ -58,7 +58,7 @@ const useStyles = makeStyles({
     color: "white",
     borderRadius: 3,
     height: "2rem",
-    padding: "0 2rem",
+    padding: "1vw",
   },
   danger_faded: {
     background: "linear-gradient(45deg, #f57a7a 100%, #ed1f1f  90%)",
@@ -66,12 +66,10 @@ const useStyles = makeStyles({
     color: "white",
     borderRadius: 3,
     height: "2rem",
-    padding: "0 2rem",
+    padding: "1vw",
   },
   comment: {
-    height: "auto",
     fontSize: "1.2rem",
-    fontWeight: 500,
     marginTop: -10
   },
 })
@@ -182,16 +180,22 @@ console.log(error?.response?.data?.error)
     <>
       <Divider />
       <Paper elevation="0" className={classes.paper}>
-        <Grid container wrap="nowrap" spacing={2}>
-          <Grid item>
-            <Avatar>{data.author.firstname.slice(0, 1).toUpperCase()}</Avatar>
-          </Grid>
+        <Grid container wrap="nowrap" spacing={0}>
+          <Grid item container>
+            <Grid item container direction="cloumn" spacing={2}>
+              <Grid item>
+                <Avatar style={{height:'1.5rem', width:'1.5rem' ,fontSize:'1.3rem'}}>
+                  {data.author.firstname.slice(0, 1).toUpperCase()}
+                </Avatar>
+              </Grid>
 
-          <Grid justifyContent="left" item xs zeroMinWidth>
-            <h3 className={classes.title}>
-              {data?.author?.firstname} {data?.author?.lastname}
-            </h3>
-            <Container maxWidth="xs">
+              <Grid item>
+                <h3 className={classes.title}>
+                  {data?.author?.firstname} {data?.author?.lastname}
+                </h3>
+              </Grid>
+            </Grid>
+            <Container>
               <InputBase
                 id="outlined-basic"
                 disabled={disabled}

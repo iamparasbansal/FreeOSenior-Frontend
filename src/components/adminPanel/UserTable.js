@@ -9,12 +9,10 @@ import TableRow from "@material-ui/core/TableRow"
 import Paper from "@material-ui/core/Paper"
 import axiosFetch from "../../utils/axiosFetch"
 import {  Container, Divider, makeStyles, Typography } from "@material-ui/core"
-import { useSelector } from "react-redux"
 
 import Grid from '@material-ui/core/Grid';
 
 import TableData from "./TableData"
-import NewData from "./NewData"
 
 const useStyles = makeStyles((theme)=>({
   table: {
@@ -36,7 +34,7 @@ const useStyles = makeStyles((theme)=>({
   }
 }));
 const UserTable = () => {
-  const state = useSelector(({ auth }) => auth)
+  
   const classes = useStyles()
 
   const [users, setUsers] = useState([]);

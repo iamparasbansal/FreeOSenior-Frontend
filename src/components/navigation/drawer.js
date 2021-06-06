@@ -6,7 +6,7 @@ import SwipeableDrawer from "@material-ui/core/SwipeableDrawer"
 import Typography from "@material-ui/core/Typography"
 import Logo from "./../../images/gatsby-icon.png"
 import ThemeToggle from "../../utils/ThemeToggle"
-import AuthModel from "../auth"
+
 import { useSelector } from "react-redux"
 const useStyles = makeStyles(theme => ({
   root: {

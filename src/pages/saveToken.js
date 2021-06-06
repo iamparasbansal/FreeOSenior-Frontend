@@ -1,18 +1,20 @@
-import React, { useEffect, useState } from "react"
-import { useDispatch } from "react-redux"
-import { UpdateAuthAction } from "../store/actions/Auth"
+import React, { useEffect, useState,useLoca } from "react"
+
+import { useQueryParam, NumberParam, StringParam } from "use-query-params"
 
 export default function Savetoken(props) {
     const [created, setCreated] = useState(false)
-    const dispatch = useDispatch();
+    
+   const [JWT, setJWT] = useQueryParam("JWT", StringParam)
+   const [admin, setAdmin] = useQueryParam("admin", StringParam)
+   const [userId, setUserId] = useQueryParam("userId", StringParam)
+
+   const jwt = { token: JWT, admin: admin, userId: userId }
+    
     useEffect( () => {
 
       const setToken = async()=>{
-         const query = new URLSearchParams(props.location.search)
-         const token = await query.get("JWT")
-         const admin = await query.get("admin")
-         const userId =await query.get("userId")
-         const jwt = { token: token, admin: admin, userId: userId }
+         
          await localStorage.setItem("Authorization", JSON.stringify(jwt))
          setCreated(true)
       }

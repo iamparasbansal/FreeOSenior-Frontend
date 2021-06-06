@@ -39,7 +39,11 @@ export const useAuthActions = dispatch => {
           
         }
       })
-      .catch(err => console.log(err.response))
+      .catch(err => {
+        console.log(err.response)
+        localStorage.removeItem("Authorization")
+        dispatch(UpdateAuthAction({}, false))
+      })
   }
 
   return { Logout }

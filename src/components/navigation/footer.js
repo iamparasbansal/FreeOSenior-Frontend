@@ -141,7 +141,10 @@ const Footer = () => {
           justify="center"
           className={classes.centerMobile}
         >
+          <Grid item xs={12} >
           <div className={AllStyles.footerText}>Follow Us</div>
+          </Grid>
+          <Grid item xs={12} >
           <a
             style={{ display: "inline" }}
             className={AllStyles.footerLinks}
@@ -170,6 +173,7 @@ const Footer = () => {
           >
             <InstagramIcon style={{ color: "inherit", fontSize: 35 }} />
           </a>
+          </Grid>
         </Grid>
         <Hidden mdUp>
           <Grid item xs={12} md={1}>

@@ -11,6 +11,8 @@ import { EventCard } from "./eventcard"
 import { usePromiseTracker } from "react-promise-tracker"
 import { trackPromise } from "react-promise-tracker"
 import Loader from "react-loader-spinner"
+import '../../../styles/global.css'
+
 const LoadingIndicator = props => {
   const { promiseInProgress } = usePromiseTracker()
   return (
@@ -38,9 +40,9 @@ const useStyles = makeStyles({
     borderStyle: "hidden",
     borderRadius: 30,
     backgroundColor: "#91ede5",
-
+    fontFamily: "'Livvic', sans-serif" ,
     color: "#1a1de8",
-    fontWeight: 200,
+    fontWeight: "bolder",
   },
   event: {
     textAlign: "left",
@@ -48,6 +50,8 @@ const useStyles = makeStyles({
     fontFamily: "cursive",
     margin: 20,
     color: "violet",
+    fontFamily: "'Livvic', sans-serif" ,
+    fontWeight: "bolder" 
   },
 })
 
@@ -104,7 +108,8 @@ export default function Frame6() {
           <Typography
             variant="h1"
             component="h2"
-            style={{ textAlign: "center", fontSize: 30 }}
+            style={{ textAlign: "center", fontSize: 30,
+            fontFamily: "'Livvic', sans-serif", fontWeight: "bolder" }}
           >
             Top Contributors
           </Typography>
@@ -129,7 +134,7 @@ export default function Frame6() {
         </Grid>
 
         <Grid item>
-          <Typography variant="h1" component="h2" className={styles.event}>
+          <Typography variant="h1" component="h2" style={{fontFamily: "'Livvic', sans-serif", fontWeight: "bolder"}}>
             Popular Events
           </Typography>
           <Divider />

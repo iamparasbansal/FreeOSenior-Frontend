@@ -17,6 +17,7 @@ import { makeStyles } from "@material-ui/core/styles"
 import InputBase from "@material-ui/core/InputBase"
 import DeleteIcon from "@material-ui/icons/Delete"
 import UpdateIcon from "@material-ui/icons/Update"
+import '../../styles/global.css'
 
 const useStyles = makeStyles({
   paper: {
@@ -26,11 +27,12 @@ const useStyles = makeStyles({
     borderRadius: 30,
   },
   title: {
-    fontFamily: "cursive",
+    fontFamily: "'Livvic', sans-serif",
     fontSize: "18px",
     fontWeight: 400,
-    color: "#4287f5",
-    marginTop: 5
+    color: "black",
+    marginTop: 5,
+    fontWeight: "bolder"
   },
   textfield: {
     margin: "20px auto",
@@ -189,7 +191,7 @@ console.log(error?.response?.data?.error)
 
           <Grid justifyContent="left" item xs zeroMinWidth>
             <h3 className={classes.title}>
-              {data?.author?.firstname} {data?.author?.lastname}
+              {data?.author?.firstname[0].toUpperCase()+data?.author?.firstname.slice(1)} {data?.author?.lastname[0].toUpperCase()+data?.author?.lastname.slice(1)}
             </h3>
             <Container maxWidth="xs">
               <InputBase

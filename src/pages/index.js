@@ -22,7 +22,7 @@ export default function Home() {
         <Frame2 theme={chosenTheme} />
         <Frame3 theme={chosenTheme} />
         <Frame4 theme={chosenTheme} />
-        <Grid container style={{ margin: "50px auto" }}>
+        <Grid container style={{ margin: "30px auto" }}>
           <Grid item md={8}>
             <Frame5 />
           </Grid>

@@ -1,5 +1,6 @@
 import React from 'react'
 import Typography from "@material-ui/core/Typography"
+import '../../../styles/global.css'
 
 import { makeStyles } from "@material-ui/core/styles"
 import ListItem from '@material-ui/core/ListItem';
@@ -17,7 +18,7 @@ const useStyles = makeStyles({
        backgroundColor: "#91ede5",
        margin: 5,
        color: "#1a1de8",
-       
+       fontFamily: "'Livvic', sans-serif"     
     },
     avatar: {
       
@@ -36,10 +37,10 @@ export default function Contributor(props) {
         <ListItem alignItems="flex-start" className={styles.contributor}>
        
         <ListItemText>
-        <Typography style={{fontSize:16}}>{props.name}</Typography>
+        <Typography style={{fontSize:18,fontFamily: "'Livvic', sans-serif" ,fontWeight: "bold"}}>{props.name[0].toUpperCase()+props.name.slice(1)}</Typography>
         </ListItemText>
         <ListItemSecondaryAction>
-        <Typography style={{fontSize:16}}>({props.count})</Typography>
+        <Typography style={{fontSize:18,fontFamily: "'Livvic', sans-serif"}}>({props.count})</Typography>
         </ListItemSecondaryAction>
       </ListItem>
 

@@ -1,17 +1,16 @@
-import React, { useEffect, useState,useLoca } from "react"
+import React, { useEffect, useState } from "react"
 
-import { useQueryParam, NumberParam, StringParam } from "use-query-params"
+import { useQueryParam,StringParam } from "use-query-params"
 
 export default function Savetoken(props) {
     const [created, setCreated] = useState(false)
     
-   const [JWT, setJWT] = useQueryParam("JWT", StringParam)
-   const [admin, setAdmin] = useQueryParam("admin", StringParam)
-   const [userId, setUserId] = useQueryParam("userId", StringParam)
+   const [JWT] = useQueryParam("JWT", StringParam)
+   const [admin] = useQueryParam("admin", StringParam)
+   const [userId] = useQueryParam("userId", StringParam)
 
-   const jwt = { token: JWT, admin: admin, userId: userId }
-    
-    useEffect( () => {
+   const jwt = { token: JWT, admin:admin==='true', userId: userId }
+   useEffect( () => {
 
       const setToken = async()=>{
          

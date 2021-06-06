@@ -6,6 +6,7 @@ import HomeCardTable from './HomeCardTable';
 import ImageUploader from './ImageUploader';
 import ProjectNotesTable from './ProjectNotesTable';
 import TurtorialTable from './TutorialTable';
+import UserTable from './UserTable';
 import WorkshopTable from './WorkshopTable';
 
 export default function Protected() {
@@ -22,12 +23,14 @@ export default function Protected() {
         <br />
         <HomeCardTable />
         <br />
+        <ImageUploader />
+        <br />
         <EventTable />
         <br />
         <WorkshopTable />
         <br />
+        <UserTable/>
         <br />
-        <ImageUploader />
       </>
     )
     else 

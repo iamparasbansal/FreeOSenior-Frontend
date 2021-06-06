@@ -44,6 +44,7 @@ export default function TableData({
   reload,
   tableTitles = [],
   baseAPI = "",
+  update=true
 }) {
   const state = useSelector(({ auth }) => auth)
   const [disabled, setDisabled] = useState(true)
@@ -121,7 +122,7 @@ console.log(error?.response?.data?.error)
         )
       })}
      
-      {state.isLoggedin && (
+      {update&&state.isLoggedin && (
         <TableCell>
           {disabled && (
             <Button
@@ -147,7 +148,7 @@ console.log(error?.response?.data?.error)
           )}
         </TableCell>
       )}
-      {state.isLoggedin && (
+      {update&&state.isLoggedin && (
         <TableCell>
           <Button
             onClick={deleteData}

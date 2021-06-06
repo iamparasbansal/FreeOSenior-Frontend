@@ -7,8 +7,10 @@ import imageDark from "../../../images/dark-theme-background3.jpg"
 
 const useStyles = makeStyles((theme) => ({
   root: props=>({
+      
       borderRadius: 0,
       height:'auto',
+      width:"100%",
       padding:'100px auto',
       backgroundImage: props.light? `url(${imageLight})`: `url(${imageDark})`,
       backgroundPosition: "center",
@@ -28,6 +30,7 @@ function Frame3(props) {
         direction="column"
         alignItems="center"
         justify="space-between"
+        
       >
         <Grid item style={{ textAlign: "center" }}>
           <Typography

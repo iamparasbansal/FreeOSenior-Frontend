@@ -1,6 +1,10 @@
-body{
-  margin:0;
-  padding:0;
+html,body
+{
+    width: 100%;
+    
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden; 
 }
 
 a{
@@ -18,6 +22,5 @@ a{
 { 
   left: 0px !important
 }
-
 
 @import url('https://fonts.googleapis.com/css2?family=Arvo&display=swap');

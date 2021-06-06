@@ -6,18 +6,18 @@ export default function Savetoken(props) {
     const [created, setCreated] = useState(false)
     const dispatch = useDispatch();
     useEffect( () => {
-        
-        const query = new URLSearchParams(props.location.search)
-        const token = query.get("JWT")
-        const admin = query.get("admin")
-        const userId = query.get("userId")
-        console.log(token)
-        console.log(admin)
-        const jwt = {token: token, admin: admin, userId: userId }
-        console.log(jwt)
-        localStorage.setItem("Authorization", JSON.stringify(jwt))
-        dispatch(UpdateAuthAction(jwt, true))
-        setCreated(true)
+
+      const setToken = async()=>{
+         const query = new URLSearchParams(props.location.search)
+         const token = await query.get("JWT")
+         const admin = await query.get("admin")
+         const userId =await query.get("userId")
+         const jwt = { token: token, admin: admin, userId: userId }
+         await localStorage.setItem("Authorization", JSON.stringify(jwt))
+         setCreated(true)
+      }
+        setToken();
+
     }, []);
 
   if (created) {

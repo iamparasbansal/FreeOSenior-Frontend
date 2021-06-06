@@ -13,6 +13,7 @@ export const useAuthState = dispatch => {
 
           dispatch(UpdateAuthAction(JSON.parse(data), true));
         } else {
+          console.log("login error");
           throw new Error("Not logged in")
         }
       })

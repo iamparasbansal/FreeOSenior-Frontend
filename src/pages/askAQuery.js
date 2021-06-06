@@ -9,7 +9,7 @@ import { ThemeProvider } from "styled-components"
 import { chosenTheme } from "../../theme"
 import { makeStyles } from "@material-ui/core/styles"
 import SearchQuestion from "../components/query/SearchQuestion"
-import FilterResults from "react-filter-search"
+
 import { usePromiseTracker } from "react-promise-tracker"
 import { trackPromise } from "react-promise-tracker"
 import Loader from "react-loader-spinner"

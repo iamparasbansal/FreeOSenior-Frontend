@@ -38,7 +38,7 @@ https://freeosenior.netlify.app <br />
 -	Introvert Juniors and Seniors will also get a platform who are not part of any societies or clubs
 -	Looking at the situation of COVID-19 pandemic the platform like this website can prove to be a awesome source for fresher and Seniors to interact with them in terms of academics, co-curricular etc.
 
-## Contribution Guide
+## [Contribution Guide](CONTRIBUTING.md)
 > Follow these steps to contribute to FreeOSenior:
 
 ### Setting up git 

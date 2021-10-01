@@ -1,99 +1,127 @@
-<!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
-<p align="center">
-  <a href="https://www.gatsbyjs.com">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  Gatsby's default starter
-</h1>
+# FreeOSenior
 
-Kick off your project with this default boilerplate. This starter ships with the main Gatsby configuration files you might need to get up and running blazing fast with the blazing fast app generator for React.
+**SENIORS are NEVER FAR, the MATERIAL is NEVER LESS, QUERIES can be SOLVED, the CONNECTIVITY will NEVER MESS.**
+FreeOSenior is the Platform through which seniors can share their valuable knowledge, material, free courses info, assignments etc. when juniors come through different problems faced in daily college life. Moreover they can ask their doubts about different jargons they came across in their academics. Seniors will get an easy access to juniors on any kind of promotions or they will get the popularity points for the same. Seniors can also segregate juniors on the basis of technicality and other skills for making teams etc.
 
-_Have another more specific idea? You may want to check out our vibrant collection of [official and community-created starters](https://www.gatsbyjs.com/docs/gatsby-starters/)._
+## The Idea
+The basic idea is to create a _platform for the different sections of juniors_ (based on skills like competitive programming, IOT  etc)  no matter where they are and who they are just provide a platform to ensure they get to connect with the seniors of their type, their level of intelligence and hence perceive a great access to things. In the current situation(COVID-19) this platform can be a great help to freshers.
 
-## 🚀 Quick start
+## Vision
+Hello!!
 
-1.  **Create a Gatsby site.**
+**Ever thought about getting already made assignments by the seniors? Ever thought of the resources your seniors used? Ever thought of connecting peeps with the same interests and same level of thinking? Ever tried to get everything related to academics, skills etc. in few clicks?
+Oreverfaced some problems in your academics or college life and there was no one around to guide you??? Or taken one on the reference of a friend, only to have the guide leave you stranded in the middle of research.**
 
-    Use the Gatsby CLI to create a new site, specifying the default starter.
+Well, we've faced the same problems too. And we decided to help fix it. So we've created FreeOSenior, a place for all types of guidance and knowledge. It's very simple: You enter yourbranch ,  yourneed and yourskills. We would analyze authenticity and aptitude through our resources categorize you. We will provide you every help and many more users with same goal as yours .! It's that simple! 
 
-    ```shell
-    # create a new Gatsby site using the default starter
-    gatsby new my-default-starter https://github.com/gatsbyjs/gatsby-starter-default
-    ```
+Everybody will have the access to the assignments and works your seniors have done in the previous year for reference. From the code they used in their project Psd files of fests of posters.
 
-1.  **Start developing.**
+## Run FreeOSenior
 
-    Navigate into your new site’s directory and start it up.
+**On your local machine:**
+```npm run develop``` or ```npm start``` <br />
+**Global deployed link:** 
+https://freeosenior.netlify.app <br />
+ 
+## Technologies Used
+-	**Basics:-**  HTML, CSS and JavaScript
+-	**Node Module Manager:-** Node.js
+-	**Front-end Framework:-** Gatsby.js
+-	**Front-end Libraries:-** Bootstrap & Material UI
+-	**Back-end Framework:-** Express.js
+-	**Database System:-** MongoDB
+-	**Version Control:-** Git & Github
 
-    ```shell
-    cd my-default-starter/
-    gatsby develop
-    ```
+## Keys to Success
+-	No-Such Current Platform
+-	Contents will be authenticated before publishing
+-	Introvert Juniors and Seniors will also get a platform who are not part of any societies or clubs
+-	Looking at the situation of COVID-19 pandemic the platform like this website can prove to be a awesome source for fresher and Seniors to interact with them in terms of academics, co-curricular etc.
 
-1.  **Open the source code and start editing!**
+## Contribution Guide
+> Follow these steps to contribute to FreeOSenior:
 
-    Your site is now running at `http://localhost:8000`!
+##### If you don't have git on your machine, [install it](https://help.github.com/articles/set-up-git/).
 
-    _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.com/tutorial/part-five/#introducing-graphiql)._
+### Fork this repository
 
-    Open the `my-default-starter` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
+Fork this repository by clicking on the fork button on the top of this page.
+This will create a copy of this repository in your account.
 
-## 🧐 What's inside?
+### Clone the repository
 
-A quick look at the top-level files and directories you'll see in a Gatsby project.
+Now clone the forked repository to your machine. Go to your GitHub account, open the forked repository, click on the code button and then click the _copy to clipboard_ icon.
 
-    .
-    ├── node_modules
-    ├── src
-    ├── .gitignore
-    ├── .prettierrc
-    ├── gatsby-browser.js
-    ├── gatsby-config.js
-    ├── gatsby-node.js
-    ├── gatsby-ssr.js
-    ├── LICENSE
-    ├── package-lock.json
-    ├── package.json
-    └── README.md
+Open a terminal and run the following git command:
 
-1.  **`/node_modules`**: This directory contains all of the modules of code that your project depends on (npm packages) are automatically installed.
+```
+git clone "url you just copied"
+```
 
-2.  **`/src`**: This directory will contain all of the code related to what you will see on the front-end of your site (what you see in the browser) such as your site header or a page template. `src` is a convention for “source code”.
+where "url you just copied" (without the quotation marks) is the url to this repository (your fork of this project). See the previous steps to obtain the url.
 
-3.  **`.gitignore`**: This file tells git which files it should not track / not maintain a version history for.
+or
 
-4.  **`.prettierrc`**: This is a configuration file for [Prettier](https://prettier.io/). Prettier is a tool to help keep the formatting of your code consistent.
+just copy paste this command on your teminal: 
 
-5.  **`gatsby-browser.js`**: This file is where Gatsby expects to find any usage of the [Gatsby browser APIs](https://www.gatsbyjs.com/docs/browser-apis/) (if any). These allow customization/extension of default Gatsby settings affecting the browser.
+```
+git clone https://github.com/iamparasbansal/FreeOSenior-Frontend.git
+```
 
-6.  **`gatsby-config.js`**: This is the main configuration file for a Gatsby site. This is where you can specify information about your site (metadata) like the site title and description, which Gatsby plugins you’d like to include, etc. (Check out the [config docs](https://www.gatsbyjs.com/docs/gatsby-config/) for more detail).
+### Create a branch
 
-7.  **`gatsby-node.js`**: This file is where Gatsby expects to find any usage of the [Gatsby Node APIs](https://www.gatsbyjs.com/docs/node-apis/) (if any). These allow customization/extension of default Gatsby settings affecting pieces of the site build process.
+Change to the repository directory on your computer (if you are not already there):
 
-8.  **`gatsby-ssr.js`**: This file is where Gatsby expects to find any usage of the [Gatsby server-side rendering APIs](https://www.gatsbyjs.com/docs/ssr-apis/) (if any). These allow customization of default Gatsby settings affecting server-side rendering.
+```
+cd directory-name
+```
 
-9.  **`LICENSE`**: This Gatsby starter is licensed under the 0BSD license. This means that you can see this file as a placeholder and replace it with your own license.
+Now create a branch using the `git checkout` command:
 
-10. **`package-lock.json`** (See `package.json` below, first). This is an automatically generated file based on the exact versions of your npm dependencies that were installed for your project. **(You won’t change this file directly).**
+```
+git checkout -b your-new-branch-name
+```
 
-11. **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.
+For example:
 
-12. **`README.md`**: A text file containing useful reference information about your project.
+```
+git checkout -b update
+```
+Please Note : Name your branch in accordance with you work.
 
-## 🎓 Learning Gatsby
+### Make necessary changes and commit those changes
 
-Looking for more guidance? Full documentation for Gatsby lives [on the website](https://www.gatsbyjs.com/). Here are some places to start:
+If you go to the project directory and execute the command `git status`, you'll see there are changes.
 
-- **For most developers, we recommend starting with our [in-depth tutorial for creating a site with Gatsby](https://www.gatsbyjs.com/tutorial/).** It starts with zero assumptions about your level of ability and walks through every step of the process.
+Add those changes to the branch you just created using the command:
 
-- **To dive straight into code samples, head [to our documentation](https://www.gatsbyjs.com/docs/).** In particular, check out the _Guides_, _API Reference_, and _Advanced Tutorials_ sections in the sidebar.
+```
+git add .
+```
 
-## 💫 Deploy
+Now commit those changes using the `git commit` command:
 
-[Build, Deploy, and Host On The Only Cloud Built For Gatsby](https://www.gatsbyjs.com/cloud/)
+```
+git commit -m "Add your committing message here"
+```
+**Note:** Please visit the open issues section before making any contribution.
+### Push changes to GitHub
 
-Gatsby Cloud is an end-to-end cloud platform specifically built for the Gatsby framework that combines a modern developer experience with an optimized, global edge network.
+Push your changes using the command `git push`:
 
-<!-- AUTO-GENERATED-CONTENT:END -->
+```
+git push origin <add-your-branch-name>
+```
+
+replacing `<add-your-branch-name>` with the name of the branch you created earlier.
+
+### Submit your changes for review
+
+If you go to your repository on GitHub, you'll see a `Compare & pull request` button. Click on that button.
+
+Now submit the pull request.
+
+## Contributors: 
+<a href = "https://github.com/iamparasbansal/FreeOSenior-Frontend/graphs/contributors">
+  <img src = "https://contrib.rocks/image?repo = iamparasbansal/FreeOSenior-Frontend"/>
+</a>

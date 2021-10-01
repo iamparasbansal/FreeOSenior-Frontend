@@ -41,7 +41,8 @@ https://freeosenior.netlify.app <br />
 ## Contribution Guide
 > Follow these steps to contribute to FreeOSenior:
 
-##### If you don't have git on your machine, [install it](https://help.github.com/articles/set-up-git/).
+### Setting up git 
+If you don't have git on your machine, [install it](https://help.github.com/articles/set-up-git/).
 
 ### Fork this repository
 

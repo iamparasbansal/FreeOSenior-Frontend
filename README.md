@@ -61,9 +61,7 @@ git clone "url you just copied"
 
 where "url you just copied" (without the quotation marks) is the url to this repository (your fork of this project). See the previous steps to obtain the url.
 
-or
-
-just copy paste this command on your teminal: 
+for example: 
 
 ```
 git clone https://github.com/iamparasbansal/FreeOSenior-Frontend.git
@@ -124,5 +122,5 @@ Now submit the pull request.
 
 ## Contributors: 
 <a href = "https://github.com/iamparasbansal/FreeOSenior-Frontend/graphs/contributors">
-  <img src = "https://contrib.rocks/image?repo = iamparasbansal/FreeOSenior-Frontend"/>
+  <img src = "https://contrib.rocks/image?repo=iamparasbansal/FreeOSenior-Frontend"/>
 </a>

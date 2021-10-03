@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Arvo&display=swap');
 
+//this is styles for 404 page only
+
 .page_404 { 
     padding: 0px 0; 
     background:#fff; 
@@ -7,7 +9,9 @@
     margin: auto;
 }
 
-.page_404  img { width:100%;}
+.page_404  img { 
+    width:100%;
+}
 
 .title {
     text-align: center;
@@ -16,7 +20,6 @@
 }
 
 .four_zero_four_bg {
-
     background-image: url(https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif);
     height: 400px;
     background-position: center;
@@ -28,7 +31,7 @@
 }
  
 .four_zero_four_bg h3 {
-	font-size:80px;
+	font-size: 100px;
 }
 			 
 .link_404 {

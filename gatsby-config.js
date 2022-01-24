@@ -5,7 +5,7 @@ require("dotenv").config({
 module.exports = {
   siteMetadata: {
     title: `FreeOSenior`,
-    description: `A platform to help Juniors`,
+    description: `ABCD`,
     author: `FreeOSenior`,
   },
   flags: {

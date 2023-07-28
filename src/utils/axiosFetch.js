@@ -6,7 +6,7 @@ let access_token =
 let token = JSON.parse(access_token)?.token;
 console.log(token);
 const axiosFetch  = axios.default.create({
-  baseURL: "https://free-o-senior.herokuapp.com",
+  baseURL: "https://freeoseniorbackend.onrender.com",
   headers: {
     Authorization: `Bearer ${token}`,
   }
